@@ -1,5 +1,8 @@
-public class Actor {
+package com.example.group16a2;
 
+import java.util.Arrays;
+
+class Actor {
     private int[] position;
     private String name;
 
@@ -33,5 +36,4 @@ public class Actor {
                 ", name='" + name + '\'' +
                 '}';
     }
-    
 }
