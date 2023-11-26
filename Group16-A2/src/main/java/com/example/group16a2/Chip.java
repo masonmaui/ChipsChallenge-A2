@@ -13,5 +13,7 @@ public class Chip extends CollectableItems{
 
     public void Action(ItemLayer targetItemLayer){
         targetItemLayer.updateChipCount(chipValue);
+        //Need to complete functions to remove the chip from item layer once transaction is complete.
+        targetItemLayer.removeItemFromLayer(targetItemLayer.findItemInLayer(this),this);
     }
 }

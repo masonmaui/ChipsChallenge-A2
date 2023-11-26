@@ -25,7 +25,7 @@ public class ItemLayer {
     // Actor next to door -> use corresponding key (call this function)
     public void useFromInventory(CollectableItems usedItem){
         usedItem.Action();
-        if (usedItem.isConsumable){
+        if (usedItem.getConsumable()){
             inventory.remove(usedItem);
         }
     }
@@ -34,10 +34,15 @@ public class ItemLayer {
         chipCount+= toIncrement;
     }
 
-    public void addItemToLayer(int[] coords, CollectableItems[] itemToInsert){
+    public void addItemToLayer(int[] coords, CollectableItems itemToInsert){
         //insert item into whatever javafx stuff going on at coords, also check it's within bounds
     }
-    public void removeItemFromLayer(int[] coords, CollectableItems[] itemToInsert){
+
+    public int[] findItemInLayer(CollectableItems itemQuery){
+        return new int[]{0,0};
+    }
+
+    public void removeItemFromLayer(int[] coords, CollectableItems itemToRemove){
         //insert item into whatever javafx stuff going on at coords, also check it's within bounds
     }
 
