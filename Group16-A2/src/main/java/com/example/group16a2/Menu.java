@@ -59,6 +59,17 @@ public class Menu {
 
     }
 
+    public static void main(String[] args) {
+        Menu menu = new Menu();
+        menu.showMenu();
+        menu.hideMenu();
+        menu.exitGame();
+        menu.pauseGame();
+        menu.resumeGame();
+        menu.beginNextLevel(true, 1);
+        menu.replayLevel(false, 1);
+    }
+
 
     //public void handleUserInput(String userInput) {
     //    System.out.println("User input: " + userInput);
