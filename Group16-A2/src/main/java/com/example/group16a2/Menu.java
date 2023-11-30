@@ -6,7 +6,7 @@ public class Menu {
     private boolean isGameLost;
     private String [][] currentGrid;
     private int currentLevel;
-    //private Profile  activeProfile;
+    private Profile  activeProfile;
 
     //constructor
     public Menu() {
@@ -14,7 +14,7 @@ public class Menu {
         isGameWon = false;
         isGameLost = false;
         currentLevel = 1;
-        //activeProfile = new Profile();
+        activeProfile = new Profile();
     }
 
     //Displaying menu
