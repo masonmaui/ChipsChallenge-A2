@@ -1,9 +1,8 @@
 package com.example.group16a2.Tiles;
 
 import java.io.*;
-import java.util.Queue;
 import java.util.Scanner;
-import java.util.Arrays;
+
 public class TileLayer {
 
     private Tile[][] tiles;
@@ -64,7 +63,7 @@ public class TileLayer {
     }
 
     public static void main(String[] args) {
-        TileLayer tl = new TileLayer("/Users/masonemery/Documents/Uni/230 group work/Group16-A2/ChipsChallenge-A2/Group16-A2/src/main/resources/Levels/Level1TileLayer.txt");
+        TileLayer tl = new TileLayer("Levels/Level1TileLayer.txt");
         //output each element in the array
         for (int i = 0; i < tl.getTiles().length; i++) {
             for (int j = 0; j < tl.getTiles()[i].length; j++) {
