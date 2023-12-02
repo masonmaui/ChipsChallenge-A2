@@ -1,6 +1,7 @@
-5 5
-P P P P P
-D D D D D
-P P P P P
-D D D D D
-P P P P P
+6 6
+P P P P P D
+D D D D D P
+P P P P P D
+D D D D D D
+P P P P P P
+P D P D P D
