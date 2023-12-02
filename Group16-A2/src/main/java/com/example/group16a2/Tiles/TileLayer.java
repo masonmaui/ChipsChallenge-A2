@@ -43,6 +43,10 @@ public class TileLayer {
                     grid[lineCount][i] = new Path(false);
                 } else if (tileType.equals("D")) {
                     grid[lineCount][i] = new Dirt(true);
+                } else if (tileType.equals("W")){
+                    grid[lineCount][i] = new Wall(true);
+                } else if (tileType.equals("E")){
+                    grid[lineCount][i] = new Exit(true);
                 }
             }
             lineCount++;

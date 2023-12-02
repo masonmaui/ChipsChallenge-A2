@@ -2,6 +2,6 @@
 P P P P P D
 D D D D D P
 P P P P P D
-D D D D D D
-P P P P P P
+D D W W D D
+P P P P E P
 P D P D P D
