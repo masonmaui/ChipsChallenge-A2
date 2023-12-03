@@ -30,10 +30,10 @@ public class TileLayer {
         int lineCount = 0;
         String line = in.nextLine();
         Scanner lineScanner = new Scanner(line);
-        int x = lineScanner.nextInt();
         int y = lineScanner.nextInt();
+        int x = lineScanner.nextInt();
         lineScanner.close();
-        Tile[][] grid = new Tile[x][y];
+        Tile[][] grid = new Tile[y][x];
         while (in.hasNextLine()) {
             String line2 = in.nextLine();
             Scanner lineScanner2 = new Scanner(line2);
@@ -98,14 +98,12 @@ public class TileLayer {
 
     public static void main(String[] args) {
         TileLayer tl = new TileLayer("Levels/Level1TileLayer.txt");
-        //output each element in the array
         for (int i = 0; i < tl.getTiles().length; i++) {
             for (int j = 0; j < tl.getTiles()[i].length; j++) {
                 System.out.print(tl.getTiles()[i][j] + " ");
             }
             System.out.println();
         }
-
     }
 }
 
