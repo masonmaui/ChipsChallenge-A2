@@ -1,7 +1,4 @@
-6 6
-P P P P P D
-D D D D D P
-P P P P P D
-D D W W D D
-P P P P E P
-P D P D P D
+3 3
+IBR ITL CS1
+# W E
+YD D BD
