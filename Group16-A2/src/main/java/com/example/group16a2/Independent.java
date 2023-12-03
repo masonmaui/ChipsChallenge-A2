@@ -4,6 +4,7 @@ public class Independent extends Actor{
     public Independent(int[] position, String name) {
         super(position, name);
     }
+
     public void moveBy(int[] position){
     }
 
