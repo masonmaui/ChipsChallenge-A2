@@ -2,7 +2,6 @@ package com.example.group16a2;
 
 public class PinkBall extends Independent{
     private String pinkBall;
-    private int[] inv;
     private String filename;
 
 
