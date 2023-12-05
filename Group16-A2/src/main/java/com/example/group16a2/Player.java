@@ -13,10 +13,9 @@ public class Player extends Independent{
         this.inv = inv;
 
         filename = "player.png";
-
-
     }
 
     public void addItems(int item){
+        inv[item]++; 
     }
 }

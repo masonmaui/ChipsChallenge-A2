@@ -12,4 +12,8 @@ public class Block extends Independent {
     public void push(){
 
     }
+    
+    public void checkPushable(){
+
+    }
 }
