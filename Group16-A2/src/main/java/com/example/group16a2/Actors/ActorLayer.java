@@ -89,7 +89,22 @@ public class ActorLayer {
                     grid[lineCount][i] = null;
                 } else if (actorType.equals("P")) {
                     grid[lineCount][i] = new Player();
+                }else if(actorType.equals("B")) {
+                    grid[lineCount][i] = new Block();
+                }else if(actorType.equals("PBN")) {
+                    grid[lineCount][i] = new PinkBall("N");
+                }else if(actorType.equals("PBE")) {
+                    grid[lineCount][i] = new PinkBall("E");
+                }else if(actorType.equals("PBW")) {
+                    grid[lineCount][i] = new PinkBall("W");
+                }else if(actorType.equals("PBS")) {
+                    grid[lineCount][i] = new PinkBall("S");
+                }else if(actorType.equals("B")) {
+                    grid[lineCount][i] = new Bug();
+                }else if(actorType.equals("F")) {
+                    grid[lineCount][i] = new Frog();
                 }
+
             }
             lineCount++;
 
@@ -120,6 +135,5 @@ public class ActorLayer {
             System.out.println();
         }
     }
-
 
 }

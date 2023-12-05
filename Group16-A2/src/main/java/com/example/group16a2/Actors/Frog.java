@@ -10,4 +10,13 @@ public class Frog extends Independent {
         filename = "frog.png";
 
     }
+
+    //default constructor
+    public Frog(){
+    }
+
+    //to string
+    public String toString(){
+        return "Frog";
+    }
 }

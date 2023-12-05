@@ -12,7 +12,16 @@ public class Bug extends Independent {
 
     }
 
+    //default constructor
+    public Bug(){
+    }
+
     public int[] bestPath(){
         return null;
+    }
+
+    //to string
+    public String toString(){
+        return "Bug";
     }
 }

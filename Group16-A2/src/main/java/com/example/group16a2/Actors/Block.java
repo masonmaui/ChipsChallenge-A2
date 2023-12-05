@@ -9,11 +9,20 @@ public class Block extends Independent {
 
     }
 
+    //default constructor
+    public Block(){
+    }
+
     public void push(){
 
     }
     
     public void checkPushable(){
 
+    }
+
+    //to string
+    public String toString(){
+        return "Block";
     }
 }
