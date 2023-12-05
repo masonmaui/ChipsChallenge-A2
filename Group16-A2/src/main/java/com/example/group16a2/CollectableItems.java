@@ -1,5 +1,7 @@
 package com.example.group16a2;
 
+import com.example.group16a2.Items.ItemLayer;
+
 //This class is made to encompass all items, it allows to use functions on different types of items, and store
 //them together. This is most useful in the item layer where we search for items or play their actions.
 public class CollectableItems {

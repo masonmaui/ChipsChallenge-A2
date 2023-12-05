@@ -1,14 +1,14 @@
 package com.example.group16a2;
-
-import com.example.group16a2.Tiles.Tile;
+import com.example.group16a2.Actors.Actor;
+import com.example.group16a2.Items.ItemLayer;
 import com.example.group16a2.Tiles.TileLayer;
-import javafx.scene.*;
+import com.example.group16a2.Actors.ActorLayer;
 
 public class Game {
     //When a new game controller is made it will need to read the corrosponding layers' instances.
     private TileLayer   TileLayer;
-    private ItemLayer   ItemLayer;
-    private Actor       ActorLayer;
+    private com.example.group16a2.Items.ItemLayer ItemLayer;
+    private Actor ActorLayer;
     private int currentlevel;
 
     //When actor layer is made replace actor with ActorLayer

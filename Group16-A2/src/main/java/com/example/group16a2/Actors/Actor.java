@@ -1,8 +1,8 @@
-package com.example.group16a2;
+package com.example.group16a2.Actors;
 
 import java.util.Arrays;
 
-class Actor {
+public class Actor {
     private int[] position;
     private String name;
     // Constructor

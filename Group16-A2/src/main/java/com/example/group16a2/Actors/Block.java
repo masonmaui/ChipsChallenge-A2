@@ -1,4 +1,4 @@
-package com.example.group16a2;
+package com.example.group16a2.Actors;
 
 public class Block extends Independent {
     private String block;

@@ -1,5 +1,5 @@
-package com.example.group16a2;
-import com.example.group16a2.Tiles.Tile;
+package com.example.group16a2.Items;
+import com.example.group16a2.CollectableItems;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -124,7 +124,7 @@ public class ItemLayer {
     }
 
     public static void main(String[] args) {
-        ItemLayer itemlayer = new ItemLayer("Levels/Level1ItemLayer");
+        ItemLayer itemlayer = new ItemLayer("Levels/Level1ItemLayer.txt");
 
         for (int i = 0; i < itemlayer.getItems().length; i++) {
             for (int j = 0; j < itemlayer.getItems()[i].length; j++) {

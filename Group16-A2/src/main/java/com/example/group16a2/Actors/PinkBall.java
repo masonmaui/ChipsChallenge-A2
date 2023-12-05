@@ -1,4 +1,4 @@
-package com.example.group16a2;
+package com.example.group16a2.Actors;
 
 public class PinkBall extends Independent{
     private String pinkBall;
