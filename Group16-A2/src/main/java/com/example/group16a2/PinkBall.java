@@ -12,6 +12,7 @@ public class PinkBall extends Independent{
         filename = "pinkBall.png";
     }
 
+    /*
     public void bounce() {
         switch (direction) {
             case "Right":
@@ -34,5 +35,7 @@ public class PinkBall extends Independent{
                 break;
 
         }
+
     }
+     */
 }

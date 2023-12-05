@@ -2,9 +2,7 @@ package com.example.group16a2;
 
 import com.example.group16a2.Tiles.Tile;
 import com.example.group16a2.Tiles.TileLayer;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
+import javafx.scene.*;
 
 public class Game {
     //When a new game controller is made it will need to read the corrosponding layers' instances.
@@ -42,22 +40,11 @@ public class Game {
     }
 
     //read in tiles to make game on screen
+    /*
     public void showScreen (Stage stage){
-        GridPane grid = new GridPane();
-        Tile[][] tiles = this.TileLayer.getTiles(); // Assuming you have a method to get the tiles
 
-        for (int i = 0; i < tiles.length; i++) {
-            for (int j = 0; j < tiles[i].length; j++) {
-                Image image = new Image(tiles[i][j].getFileName()); // Assuming getFilepath() returns the image file path
-                ImageView imageView = new ImageView(image);
-                grid.add(imageView, j, i);
-            }
-        }
-
-        Scene scene = new Scene(grid);
-        stage.setScene(scene);
-        stage.show();
     }
+     */
 
     public static void main(String[] args) {
 

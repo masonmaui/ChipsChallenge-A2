@@ -3,6 +3,9 @@ package com.example.group16a2;
 public class Chip extends CollectableItems{
     private int chipValue;
 
+
+    public Chip(){
+    }
     public Chip (int chipValue){
         this.chipValue = chipValue;
     }
@@ -15,5 +18,10 @@ public class Chip extends CollectableItems{
         targetItemLayer.updateChipCount(chipValue);
         //Need to complete functions to remove the chip from item layer once transaction is complete.
         targetItemLayer.removeItemFromLayer(targetItemLayer.findItemInLayer(this),this);
+    }
+
+    //to string
+    public String toString() {
+        return "Chip";
     }
 }
