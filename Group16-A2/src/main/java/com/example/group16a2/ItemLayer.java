@@ -94,6 +94,14 @@ public class ItemLayer {
                     grid[lineCount][i] = null;
                 }else if(itemType.equals("C")) {
                     grid[lineCount][i] = new Chip();
+                }else if(itemType.equals("RK")) {
+                    grid[lineCount][i] = new Key("R");
+                }else if(itemType.equals("BK")) {
+                    grid[lineCount][i] = new Key("B");
+                }else if(itemType.equals("YK")) {
+                    grid[lineCount][i] = new Key("Y");
+                }else if(itemType.equals("GK")) {
+                    grid[lineCount][i] = new Key("G");
                 }
             }
             lineCount++;
