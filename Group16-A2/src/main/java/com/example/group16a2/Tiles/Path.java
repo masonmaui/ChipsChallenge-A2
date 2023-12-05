@@ -5,9 +5,14 @@ public class Path extends Tile {
     private String filename;
 
     public Path(boolean isInteractable) {
-        super(isInteractable);
+        super(isInteractable, "path.png");
         isInteractable = false;
         filename = "path.png";
+    }
+
+    //get file name
+    public String getFileName() {
+        return filename;
     }
 
     //to string

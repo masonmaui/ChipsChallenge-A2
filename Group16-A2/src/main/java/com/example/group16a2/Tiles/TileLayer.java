@@ -10,6 +10,9 @@ public class TileLayer {
 
     String filename;
 
+    private int x;
+    private int y;
+
     public TileLayer(String filename) {
         this.filename = filename;
         tiles = readDataFile(filename);
@@ -30,8 +33,8 @@ public class TileLayer {
         int lineCount = 0;
         String line = in.nextLine();
         Scanner lineScanner = new Scanner(line);
-        int y = lineScanner.nextInt();
-        int x = lineScanner.nextInt();
+        y = lineScanner.nextInt();
+        x = lineScanner.nextInt();
         lineScanner.close();
         Tile[][] grid = new Tile[y][x];
         while (in.hasNextLine()) {
@@ -96,6 +99,18 @@ public class TileLayer {
 
     }
 
+    //get x
+    public int getX() {
+        return x;
+    }
+
+    //get y
+    public int getY() {
+        return y;
+    }
+
+
+    //testing
     public static void main(String[] args) {
         TileLayer tl = new TileLayer("Levels/Level1TileLayer.txt");
         for (int i = 0; i < tl.getTiles().length; i++) {
@@ -104,6 +119,9 @@ public class TileLayer {
             }
             System.out.println();
         }
+
+        System.out.println(tl.getX());
+        System.out.println(tl.getY());
     }
 }
 

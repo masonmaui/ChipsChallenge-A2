@@ -1,4 +1,4 @@
-3 5
-IBR ITL CS1 # #
-# W E # #
-YD D BD # P
+3 3
+P P P
+W W W
+P P P

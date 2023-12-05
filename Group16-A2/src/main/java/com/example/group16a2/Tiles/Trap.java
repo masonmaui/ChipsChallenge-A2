@@ -5,8 +5,13 @@ public class Trap extends Tile {
     private String filename;
 
     public Trap(boolean isInteractable) {
-        super(isInteractable);
+        super(isInteractable, "trap.png");
         filename = "trap.png";
+    }
+
+    //get file name
+    public String getFileName() {
+        return filename;
     }
 
     //to string

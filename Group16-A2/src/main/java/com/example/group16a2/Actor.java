@@ -5,10 +5,9 @@ import java.util.Arrays;
 class Actor {
     private int[] position;
     private String name;
-
     // Constructor
     public Actor() {
-        // Default constructor
+
     }
 
     // Parameterized constructor

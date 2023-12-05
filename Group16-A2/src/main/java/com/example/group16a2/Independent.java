@@ -8,8 +8,10 @@ public class Independent extends Actor{
     public void moveBy(int[] position){
     }
 
+    /*
     public void moveTo(Actor actor, int[] position){
         actor.setPosition(position);
     }
+     */
 
 }

@@ -4,8 +4,13 @@ public class Water extends Tile{
 
     private String filename;
     public Water(boolean isInteractable) {
-        super(isInteractable);
+        super(isInteractable , "water.png");
         filename = "water.png";
+    }
+
+    //get file name
+    public String getFileName() {
+        return filename;
     }
 
     //to string

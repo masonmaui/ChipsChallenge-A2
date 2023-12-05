@@ -4,8 +4,17 @@ public class Tile {
 
     private boolean isInteractable;
 
-    public Tile(boolean isInteractable) {
+    private String filename;
+
+    public Tile(boolean isInteractable, String filename) {
         this.isInteractable = isInteractable;
     }
+
+    //get filename
+    public String getFileName() {
+        return filename;
+    }
+
+
 
 }

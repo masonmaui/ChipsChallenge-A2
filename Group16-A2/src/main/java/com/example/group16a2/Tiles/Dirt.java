@@ -5,8 +5,13 @@ public class Dirt extends Tile {
     private String filename;
 
     public Dirt(boolean isInteractable) {
-        super(isInteractable);
+        super(isInteractable, "dirt.png");
         filename = "dirt.png";
+    }
+
+    //get file name
+    public String getFileName() {
+        return filename;
     }
 
     //to string

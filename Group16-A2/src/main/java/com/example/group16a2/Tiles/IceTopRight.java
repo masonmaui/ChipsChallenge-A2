@@ -5,8 +5,13 @@ public class IceTopRight extends Tile{
             private String filename;
 
             public IceTopRight(boolean isInteractable) {
-                super(isInteractable);
+                super(isInteractable, "iceTopRight.png");
                 filename = "iceTopRight.png";
+            }
+
+            //get file name
+            public String getFileName() {
+                return filename;
             }
 
             //to string

@@ -5,8 +5,13 @@ public class IceBottomLeft extends Tile{
             private String filename;
 
             public IceBottomLeft(boolean isInteractable) {
-                super(isInteractable);
+                super(isInteractable, "iceBottomLeft.png");
                 filename = "iceBottomLeft.png";
+            }
+
+            //get file name
+            public String getFileName() {
+                return filename;
             }
 
             //to string
