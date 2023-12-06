@@ -98,7 +98,7 @@ public class ActorLayer {
                     grid[lineCount][i] = new PinkBall("W");
                 }else if(actorType.equals("PBS")) {
                     grid[lineCount][i] = new PinkBall("S");
-                }else if(actorType.equals("B")) {
+                }else if(actorType.equals("BG")) {
                     grid[lineCount][i] = new Bug();
                 }else if(actorType.equals("F")) {
                     grid[lineCount][i] = new Frog();

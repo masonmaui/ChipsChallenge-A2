@@ -1,4 +1,5 @@
-3 3
-P P P
-W W W
-P P P
+5 5
+P P P P P
+P P P P P
+P P P P P
+P P P P P

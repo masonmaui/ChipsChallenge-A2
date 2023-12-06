@@ -12,8 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.scene.paint.Color;
-import javafx.scene.image.WritableImage;
 
 public class Game extends Application {
 
@@ -126,13 +124,13 @@ public class Game extends Application {
     }
 
     private Image getItemImage(CollectableItems items) {
+        if (items instanceof Key) {
+            Key key = (Key) items;
+            return getKeyImage(key.getType());
+        }
         if (items instanceof Chip) {
             return new Image("file:Sprites/Chip.png");
-        }
-        else if (items instanceof Key) {
-            return new Image("file:Sprites/RedKey.png");
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -144,29 +142,33 @@ public class Game extends Application {
         else if (actor instanceof Block) {
             return new Image("file:Sprites/Block.png");
         }
+        //Bugs have different direction need to change images to switch directions
         else if (actor instanceof Bug) {
-            return new Image("file:Sprites/Bug.png");
+            return new Image("file:Sprites/BugDown.png");
         }
         else if (actor instanceof Frog) {
             return new Image("file:Sprites/Frog.png");
         }
+        //Ball has different starting movements need to change for different directions
         else if (actor instanceof PinkBall) {
-            return new Image("file:Sprites/PinkBall.png");
+            return new Image("file:Sprites/Ball.png");
         }
         else {
             return null;
         }
     }
-
-    private Image createWhiteTile() {
-        int tileSize = 32; // Adjust the size based on your requirements
-        WritableImage whiteTile = new WritableImage(tileSize, tileSize);
-
-        for (int x = 0; x < tileSize; x++) {
-            for (int y = 0; y < tileSize; y++) {
-                whiteTile.getPixelWriter().setColor(x, y, Color.WHITE);
-            }
+    private Image getKeyImage(String color) {
+        switch (color) {
+            case "r":
+                return new Image("file:Sprites/RedKey.png");
+            case "b":
+                return new Image("file:Sprites/BlueKey.png");
+            case "y":
+                return new Image("file:Sprites/YellowKey.png");
+            case "g":
+                return new Image("file:Sprites/GreenKey.png");
+            default:
+                return null;
         }
-        return whiteTile;
     }
 }
