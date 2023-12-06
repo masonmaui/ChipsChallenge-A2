@@ -1,7 +1,5 @@
 package com.example.group16a2.Items;
 
-import com.example.group16a2.CollectableItems;
-
 public class Chip extends CollectableItems {
     private int chipValue;
 

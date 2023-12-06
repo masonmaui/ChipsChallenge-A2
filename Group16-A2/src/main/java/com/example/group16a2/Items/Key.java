@@ -1,7 +1,5 @@
 package com.example.group16a2.Items;
 
-import com.example.group16a2.CollectableItems;
-
 public class Key extends CollectableItems {
     //type of door it accesses denoted by colour
     private String type;

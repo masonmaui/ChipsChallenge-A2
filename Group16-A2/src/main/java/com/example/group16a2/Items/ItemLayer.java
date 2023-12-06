@@ -1,5 +1,4 @@
 package com.example.group16a2.Items;
-import com.example.group16a2.CollectableItems;
 
 import java.io.File;
 import java.io.FileNotFoundException;
