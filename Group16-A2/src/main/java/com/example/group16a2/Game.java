@@ -127,10 +127,9 @@ public class Game extends Application {
         if (items instanceof Key) {
             Key key = (Key) items;
             return getKeyImage(key.getType());
-        }
-        if (items instanceof Chip) {
+        }if (items instanceof Chip) {
             return new Image("file:Sprites/Chip.png");
-        } else {
+        }else {
             return null;
         }
     }
@@ -144,7 +143,7 @@ public class Game extends Application {
         }
         //Bugs have different direction need to change images to switch directions
         else if (actor instanceof Bug) {
-            return new Image("file:Sprites/BugDown.png");
+            return new Image("file:Sprites/BugUp.png");
         }
         else if (actor instanceof Frog) {
             return new Image("file:Sprites/Frog.png");
