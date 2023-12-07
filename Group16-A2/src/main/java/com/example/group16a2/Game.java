@@ -13,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.awt.event.KeyEvent;
+
 public class Game extends Application {
 
     private TileLayer tileLayer;
@@ -36,6 +38,7 @@ public class Game extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
 
     private GridPane createGridPane() {
         GridPane gridPane = new GridPane();
