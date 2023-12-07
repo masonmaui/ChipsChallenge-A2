@@ -6,7 +6,9 @@ import com.example.group16a2.Items.ItemLayer;
 //them together. This is most useful in the item layer where we search for items or play their actions.
 public class CollectableItems {
     private Boolean isConsumable = true;
-    public CollectableItems(){
+    public String filename;
+    public CollectableItems(String filename){
+        this.filename = filename;
     }
 
     public void addToPlayerInventory(ItemLayer targetInv){
@@ -14,6 +16,11 @@ public class CollectableItems {
     }
 
     public void Action(){
+    }
+
+    //get file name
+    public String getFilename() {
+        return filename;
     }
 
     public Boolean getConsumable() {

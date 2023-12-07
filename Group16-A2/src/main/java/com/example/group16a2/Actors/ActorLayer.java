@@ -155,12 +155,8 @@ public class ActorLayer {
     public static void main(String[] args) {
         ActorLayer actorlayer = new ActorLayer("Levels/Level1ActorLayer.txt");
 
-        for (int i = 0; i < actorlayer.getActors().length; i++) {
-            for (int j = 0; j < actorlayer.getActors()[i].length; j++) {
-                System.out.print(actorlayer.getActors()[i][j] + " ");
-            }
-            System.out.println();
-        }
+        //test get player
+        System.out.println(actorlayer.getActorPosition(actorlayer.getPlayer()));
     }
 
 }

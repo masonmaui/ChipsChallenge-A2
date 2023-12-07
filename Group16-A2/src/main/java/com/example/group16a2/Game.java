@@ -4,17 +4,15 @@ import com.example.group16a2.Actors.*;
 import com.example.group16a2.Items.Chip;
 import com.example.group16a2.Items.CollectableItems;
 import com.example.group16a2.Items.ItemLayer;
-import com.example.group16a2.Items.Key;
 import com.example.group16a2.Tiles.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import java.awt.event.KeyEvent;
 
+/*
 public class Game extends Application {
 
     private TileLayer tileLayer;
@@ -33,17 +31,13 @@ public class Game extends Application {
 
         GridPane gridPane = createGridPane();
         Scene scene = new Scene(gridPane);
-        /*
         scene.setOnKeyPressed(this::handleKeyPress);
-         */
 
         primaryStage.setTitle("Tile Game");
         primaryStage.setScene(scene);
         primaryStage.show();
 
-    }
-
-    /*
+                }
     private void handleKeyPress(KeyEvent event) {
         Player player = actorLayer.getPlayer();
         if (player != null) {
@@ -56,7 +50,6 @@ public class Game extends Application {
             }
         }
     }
-     */
 
 
     private GridPane createGridPane() {
@@ -144,7 +137,6 @@ public class Game extends Application {
             return null;
         }
     }
-
     private Image getItemImage(CollectableItems items) {
         if (items instanceof Key) {
             Key key = (Key) items;
@@ -155,6 +147,7 @@ public class Game extends Application {
             return null;
         }
     }
+
 
     private Image getActorImage(Actor actor) {
         if (actor instanceof Player) {
@@ -193,3 +186,4 @@ public class Game extends Application {
         }
     }
 }
+*/

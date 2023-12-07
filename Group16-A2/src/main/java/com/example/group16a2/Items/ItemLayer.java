@@ -94,13 +94,13 @@ public class ItemLayer {
                 }else if(itemType.equals("C")) {
                     grid[lineCount][i] = new Chip();
                 }else if(itemType.equals("RK")) {
-                    grid[lineCount][i] = new Key("R");
+                    grid[lineCount][i] = new RedKey();
                 }else if(itemType.equals("BK")) {
-                    grid[lineCount][i] = new Key("B");
+                    grid[lineCount][i] = new BlueKey();
                 }else if(itemType.equals("YK")) {
-                    grid[lineCount][i] = new Key("Y");
+                    grid[lineCount][i] = new YellowKey();
                 }else if(itemType.equals("GK")) {
-                    grid[lineCount][i] = new Key("G");
+                    grid[lineCount][i] = new GreenKey();
                 }
             }
             lineCount++;
@@ -131,5 +131,8 @@ public class ItemLayer {
             }
             System.out.println();
         }
+
+        //get file names of the items
+        System.out.println(itemlayer.getItems()[0][0].getFilename());
     }
 }

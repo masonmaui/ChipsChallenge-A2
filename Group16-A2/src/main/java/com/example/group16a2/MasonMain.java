@@ -1,6 +1,7 @@
 package com.example.group16a2;
 
 import com.example.group16a2.Actors.ActorLayer;
+import com.example.group16a2.Items.CollectableItems;
 import com.example.group16a2.Items.ItemLayer;
 import com.example.group16a2.Tiles.Tile;
 import com.example.group16a2.Tiles.TileLayer;
@@ -39,6 +40,7 @@ public class MasonMain extends Application {
     private Timeline tickTimeline;
 
     private Tile[][] tile;
+    private CollectableItems[][] items;
 
     public void start(Stage primaryStage) {
 
@@ -48,6 +50,7 @@ public class MasonMain extends Application {
         ItemLayer itemLayer = new ItemLayer("Levels/Level1ItemLayer.txt");
         ActorLayer actorLayer = new ActorLayer("Levels/Level1ActorLayer.txt");
         tile = tilelayer.getTiles();
+        items = itemLayer.getItems();
 
         //canvas adapts to the size of the tile layer
         CANVAS_HEIGHT = tile.length * GRID_CELL_HEIGHT;
@@ -98,6 +101,16 @@ public class MasonMain extends Application {
             }
         }
 
+        //draw the items from the item layer
+        for (int i = 0; i < items.length; i++) {
+            for (int j = 0; j < items[i].length; j++) {
+                if (items[i][j] != null) {
+                    temp = new Image(items[i][j].getFilename());
+                    gc.drawImage(temp, j * GRID_CELL_WIDTH, i * GRID_CELL_HEIGHT);
+                }
+            }
+        }
+
 
 
     }
@@ -111,6 +124,7 @@ public class MasonMain extends Application {
         switch (event.getCode()) {
             case RIGHT:
                 // Right key was pressed. So move the player right by one cell.
+
                 break;
             default:
                 // Do nothing for all other keys.
