@@ -1,22 +1,19 @@
 package com.example.group16a2.Actors;
 
-public class PinkBall extends Independent{
+public class PinkBall extends Actor{
     private String pinkBall;
     private String filename;
+    private int x;
+    private int y;
 
     private String Direction;
 
 
-    public PinkBall(String pinkBall, int[] position, String name) {
-        super(position, name);
-        this.pinkBall = pinkBall;
-
-        filename = "pinkBall.png";
-    }
-
-    //consteructor with just direction
-    public PinkBall(String direction){
-        super();
+    public PinkBall(int x, int y, String direction){
+        super(x, y, "file:Sprites/Ball.png");
+        this.filename = "file:Sprites/Ball.png";
+        this.x = x;
+        this.y = y;
         if(direction.equals(("N")))
             this.Direction = "N";
         else if(direction.equals(("S")))

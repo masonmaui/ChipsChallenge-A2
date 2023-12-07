@@ -1,16 +1,15 @@
 package com.example.group16a2.Actors;
 
-public class Block extends Independent {
+public class Block extends Actor{
     private String block;
-
-    public Block(String block, int[] position, String name) {
-        super(position, name);
-        this.block = block;
-
-    }
-
-    //default constructor
-    public Block(){
+    private String filename;
+    private int x;
+    private int y;
+    public Block(int x, int y){
+        super(x, y, "file:Sprites/Block.png");
+        this.filename = "file:Sprites/Block.png";
+        this.x = x;
+        this.y = y;
     }
 
     public void push(){

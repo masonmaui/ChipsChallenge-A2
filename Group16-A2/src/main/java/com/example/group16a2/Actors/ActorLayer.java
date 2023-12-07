@@ -2,6 +2,7 @@ package com.example.group16a2.Actors;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ public class ActorLayer {
     private Player playerActor;
 
     private Actor[][] actors;
+    private ArrayList<Actor> actorList;
     private int x;
     private int y;
 
@@ -30,13 +32,15 @@ public class ActorLayer {
     }
 
     public ActorLayer(String filename) {
-        actors = readDataFile(filename);
+        actorList = readDataFile(filename);
     }
 
-    public Actor[][] getActors() {
-        return actors;
+    //get array list
+    public ArrayList<Actor> getActorList() {
+        return actorList;
     }
 
+    /*
     public void setLocation(Actor actor, int[] newlocation) {
         int[] oldlocation = actor.getPosition();
         int oldy = oldlocation[0];
@@ -47,6 +51,7 @@ public class ActorLayer {
         actors[newy][newx] = actor;
         System.out.println(Arrays.deepToString(actors)); //for testing
     }
+     */
 
     public void loadLayer() {
 
@@ -95,52 +100,56 @@ public class ActorLayer {
     }
     
     public Player getPlayer() {
-        return playerActor;
+        //from arraylist
+        for (Actor actor : actorList) {
+            if (actor instanceof Player) {
+                return (Player) actor;
+            }
+        }
+        return null;
     }
 
-    public Actor[][] readEachLine(Scanner in) {
+    public ArrayList<Actor> readEachLine(Scanner in) {
         int lineCount = 0;
         String line = in.nextLine();
         Scanner lineScanner = new Scanner(line);
         y = lineScanner.nextInt();
         x = lineScanner.nextInt();
         lineScanner.close();
-        Actor[][] grid = new Actor[y][x];
+        ArrayList<Actor> actorList = new ArrayList<>();
         while (in.hasNextLine()) {
             String line2 = in.nextLine();
             Scanner lineScanner2 = new Scanner(line2);
             for (int i = 0; i < x; i++) {
                 String actorType = lineScanner2.next();
                 if (actorType.equals("-")) {
-                    grid[lineCount][i] = null;
+                    continue;
                 } else if (actorType.equals("P")) {
-                    grid[lineCount][i] = new Player();
-                    playerActor = new Player();
+                    actorList.add(new Player(lineCount, i));
                 }else if(actorType.equals("B")) {
-                    grid[lineCount][i] = new Block();
+                    actorList.add(new Block(lineCount, i));
                 }else if(actorType.equals("PBN")) {
-                    grid[lineCount][i] = new PinkBall("N");
+                    actorList.add(new PinkBall(lineCount, i, "N"));
                 }else if(actorType.equals("PBE")) {
-                    grid[lineCount][i] = new PinkBall("E");
+                    actorList.add(new PinkBall(lineCount, i, "E"));
                 }else if(actorType.equals("PBW")) {
-                    grid[lineCount][i] = new PinkBall("W");
+                    actorList.add(new PinkBall(lineCount, i, "W"));
                 }else if(actorType.equals("PBS")) {
-                    grid[lineCount][i] = new PinkBall("S");
+                    actorList.add(new PinkBall(lineCount, i, "S"));
                 }else if(actorType.equals("BG")) {
-                    grid[lineCount][i] = new Bug();
+                    actorList.add(new Bug(lineCount, i));
                 }else if(actorType.equals("F")) {
-                    grid[lineCount][i] = new Frog();
+                    actorList.add(new Frog(lineCount, i));
                 }
-
             }
             lineCount++;
 
         }
-        return grid;
+        return actorList;
     }
 
 
-    public Actor[][] readDataFile (String filename){
+    public ArrayList<Actor> readDataFile (String filename){
         Scanner in = null;
         try {
             in = new Scanner(new File(filename));
@@ -155,8 +164,14 @@ public class ActorLayer {
     public static void main(String[] args) {
         ActorLayer actorlayer = new ActorLayer("Levels/Level1ActorLayer.txt");
 
-        //test get player
-        System.out.println(actorlayer.getActorPosition(actorlayer.getPlayer()));
+        //show file paths of all actord in list
+        for (Actor actor : actorlayer.getActorList()) {
+            if (actor != null) {
+                System.out.println(actor.getFileName());
+            }else{
+                System.out.println("null");
+            }
+        }
     }
 
 }

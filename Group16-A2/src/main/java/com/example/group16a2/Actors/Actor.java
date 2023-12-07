@@ -3,36 +3,29 @@ package com.example.group16a2.Actors;
 import java.util.Arrays;
 
 public class Actor {
-    private int[] position;
-    private String name;
+    private String fileName;
+
+    private int Posx;
+    private int Posy;
     // Constructor
-    public Actor() {
-
+    public Actor(int y, int x, String fileName) {
+        this.Posx = x;
+        this.Posy = y;
+        this.fileName = fileName;
     }
 
-    // Parameterized constructor
-    public Actor(int[] position, String name) {
-        this.position = position;
-        this.name = name;
+    //get file name
+    public String getFileName() {
+        return fileName;
     }
 
-    // Method to create save data for the actor
-    public String createSaveData() {
-        // Assuming a simple format for save data
-        return "Position: " + position[0] + ", " + position[1] + "\nName: " + name;
+    //get x
+    public int getX() {
+        return Posx;
     }
 
-    // Getter method for position
-    public int[] getPosition() {
-        return position;
-    }
-
-    // Overridden toString() method for better representation
-    @Override
-    public String toString() {
-        return "Actor{" +
-                "position=" + Arrays.toString(position) +
-                ", name='" + name + '\'' +
-                '}';
+    //get y
+    public int getY() {
+        return Posy;
     }
 }

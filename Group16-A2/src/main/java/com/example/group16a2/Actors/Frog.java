@@ -1,18 +1,17 @@
 package com.example.group16a2.Actors;
 
-public class Frog extends Independent {
+public class Frog extends Actor {
 
     private String filename;
 
-    public Frog(String frog, int[] position, String name) {
-        super(position, name);
+    private int x;
+    private int y;
 
-        filename = "frog.png";
-
-    }
-
-    //default constructor
-    public Frog(){
+    public Frog(int x, int y){
+        super(x, y, "file:Sprites/Frog.png");
+        this.filename = "file:Sprites/Frog.png";
+        this.x = x;
+        this.y = y;
     }
 
     //to string

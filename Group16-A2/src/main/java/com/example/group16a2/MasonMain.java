@@ -1,6 +1,8 @@
 package com.example.group16a2;
 
+import com.example.group16a2.Actors.Actor;
 import com.example.group16a2.Actors.ActorLayer;
+import com.example.group16a2.Actors.Player;
 import com.example.group16a2.Items.CollectableItems;
 import com.example.group16a2.Items.ItemLayer;
 import com.example.group16a2.Tiles.Tile;
@@ -23,6 +25,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
+
 public class MasonMain extends Application {
 
     private static final int WINDOW_WIDTH = 800;
@@ -41,7 +45,9 @@ public class MasonMain extends Application {
 
     private Tile[][] tile;
     private CollectableItems[][] items;
+    private ArrayList<Actor> actors;
 
+    private Player player;
     public void start(Stage primaryStage) {
 
         //making layers
@@ -51,6 +57,8 @@ public class MasonMain extends Application {
         ActorLayer actorLayer = new ActorLayer("Levels/Level1ActorLayer.txt");
         tile = tilelayer.getTiles();
         items = itemLayer.getItems();
+        actors = actorLayer.getActorList();
+        player = actorLayer.getPlayer();
 
         //canvas adapts to the size of the tile layer
         CANVAS_HEIGHT = tile.length * GRID_CELL_HEIGHT;
@@ -111,7 +119,11 @@ public class MasonMain extends Application {
             }
         }
 
-
+        //output the actors from the actor layer
+        for (Actor actor : actors) {
+            temp = new Image(actor.getFileName());
+            gc.drawImage(temp, actor.getX() * GRID_CELL_WIDTH, actor.getY() * GRID_CELL_HEIGHT);
+        }
 
     }
 
@@ -123,8 +135,16 @@ public class MasonMain extends Application {
         // We change the behaviour depending on the actual key that was pressed.
         switch (event.getCode()) {
             case RIGHT:
-                // Right key was pressed. So move the player right by one cell.
-
+                player.setX(player.getX() + 1);
+                break;
+            case LEFT:
+                player.setX(player.getX() - 1);
+                break;
+            case UP:
+                player.setY(player.getY() - 1);
+                break;
+            case DOWN:
+                player.setY(player.getY() + 1);
                 break;
             default:
                 // Do nothing for all other keys.
