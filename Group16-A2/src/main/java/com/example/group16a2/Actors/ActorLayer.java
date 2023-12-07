@@ -2,13 +2,14 @@ package com.example.group16a2.Actors;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ActorLayer {
     private Actor[] monsters;
     private Actor[] blocks;
     private int[] layerSize;
-    private Actor playerActor;
+    private Player playerActor;
 
     private Actor[][] actors;
     private int x;
@@ -18,11 +19,14 @@ public class ActorLayer {
 
 
     // Parameterised constructor
-    public ActorLayer(Actor[] monsters, Actor[] blocks, int[] layerSize, Actor playerActor) {
+    public ActorLayer(Actor[] monsters, Actor[] blocks, int[] layerSize, Player playerActor) {
         this.monsters = monsters;
         this.blocks = blocks;
         this.layerSize = layerSize;
+        int x = layerSize[0];
+        int y = layerSize[1];
         this.playerActor = playerActor;
+        actors = new Actor[x][y];
     }
 
     public ActorLayer(String filename) {
@@ -33,25 +37,47 @@ public class ActorLayer {
         return actors;
     }
 
+    public void setLocation(Actor actor, int[] newlocation) {
+        int[] oldlocation = actor.getPosition();
+        int oldy = oldlocation[0];
+        int oldx = oldlocation[1];
+        int newy = newlocation[0];
+        int newx = newlocation[1];
+        actors[oldy][oldx] = actor;
+        actors[newy][newx] = actor;
+        System.out.println(Arrays.deepToString(actors)); //for testing
+    }
+
     public void loadLayer() {
 
     }
 
     public void saveLayer() {
-
     }
 
     // Getter method for position
-    public int[] getActorPosition() {
-        return null;
+    public int[] getActorPosition(Actor actor) {
+        int[] position = new int[]{-1, -1}; // Default position if actor is not found
+
+        for (int i = 0; i < actors.length; i++) {
+            for (int j = 0; j < actors[i].length; j++) {
+                if (actors[i][j].equals(actor)) {
+                    position[0] = i; // Set the row index where actor is found
+                    position[1] = j; // Set the column index where actor is found
+                    break;
+                }
+            }
+            if (position[0] != -1) {
+                break; // Break the outer loop if actor is found
+            }
+        }
+        return position;
     }
 
     public void getActor(Actor actor) {
-
     }
 
     public void removeActor(Actor actor) {
-
     }
 
     public String allActors() {
@@ -68,7 +94,8 @@ public class ActorLayer {
         return null;
     }
     
-    public void getPlayer() {
+    public Player getPlayer() {
+        return playerActor;
     }
 
     public Actor[][] readEachLine(Scanner in) {
@@ -88,6 +115,7 @@ public class ActorLayer {
                     grid[lineCount][i] = null;
                 } else if (actorType.equals("P")) {
                     grid[lineCount][i] = new Player();
+                    playerActor = new Player();
                 }else if(actorType.equals("B")) {
                     grid[lineCount][i] = new Block();
                 }else if(actorType.equals("PBN")) {
