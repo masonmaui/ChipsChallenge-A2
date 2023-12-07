@@ -13,9 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 import java.awt.event.KeyEvent;
-import javafx.scene.input.KeyEvent;
 
 public class Game extends Application {
 
@@ -35,7 +33,9 @@ public class Game extends Application {
 
         GridPane gridPane = createGridPane();
         Scene scene = new Scene(gridPane);
+        /*
         scene.setOnKeyPressed(this::handleKeyPress);
+         */
 
         primaryStage.setTitle("Tile Game");
         primaryStage.setScene(scene);
@@ -43,6 +43,7 @@ public class Game extends Application {
 
     }
 
+    /*
     private void handleKeyPress(KeyEvent event) {
         Player player = actorLayer.getPlayer();
         if (player != null) {
@@ -55,6 +56,7 @@ public class Game extends Application {
             }
         }
     }
+     */
 
 
     private GridPane createGridPane() {
