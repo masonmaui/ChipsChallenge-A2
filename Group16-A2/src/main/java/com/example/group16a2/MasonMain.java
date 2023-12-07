@@ -27,12 +27,12 @@ public class MasonMain extends Application {
     private static final int WINDOW_WIDTH = 800;
     private static final int WINDOW_HEIGHT = 500;
 
-    private static final int CANVAS_WIDTH = 600;
-    private static final int CANVAS_HEIGHT = 400;
+    private static final int CANVAS_WIDTH = 400;
+    private static final int CANVAS_HEIGHT = 300;
 
     // The width and height (in pixels) of each cell that makes up the game.
-    private static final int GRID_CELL_WIDTH = 50;
-    private static final int GRID_CELL_HEIGHT = 50;
+    private static final int GRID_CELL_WIDTH = 32;
+    private static final int GRID_CELL_HEIGHT = 32;
 
     private Canvas canvas;
 
@@ -61,6 +61,8 @@ public class MasonMain extends Application {
         TileLayer tilelayer = new TileLayer("Levels/Level1TileLayer.txt");
         ItemLayer itemLayer = new ItemLayer("Levels/Level1ItemLayer.txt");
         ActorLayer actorLayer = new ActorLayer("Levels/Level1ActorLayer.txt");
+
+        tile = tilelayer.getTiles();
 
         // Display the scene on the stage
         drawGame();
