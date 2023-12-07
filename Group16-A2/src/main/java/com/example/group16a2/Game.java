@@ -10,10 +10,12 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.awt.event.KeyEvent;
+import javafx.scene.input.KeyEvent;
 
 public class Game extends Application {
 
@@ -33,10 +35,25 @@ public class Game extends Application {
 
         GridPane gridPane = createGridPane();
         Scene scene = new Scene(gridPane);
+        scene.setOnKeyPressed(this::handleKeyPress);
 
         primaryStage.setTitle("Tile Game");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+    }
+
+    private void handleKeyPress(KeyEvent event) {
+        Player player = actorLayer.getPlayer();
+        if (player != null) {
+            KeyCode code = event.getCode();
+            switch (code) {
+                case UP -> player.moveBy(actorLayer,0, 1);
+                case DOWN -> player.moveBy(actorLayer,0, -1);
+                case LEFT -> player.moveBy(actorLayer,-1, 0);
+                case RIGHT -> player.moveBy(actorLayer,1, 0);
+            }
+        }
     }
 
 

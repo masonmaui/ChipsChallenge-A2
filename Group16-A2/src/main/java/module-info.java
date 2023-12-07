@@ -2,6 +2,7 @@ module com.example.group16a2 {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires jdk.accessibility;
 
 
     opens com.example.group16a2 to javafx.fxml;
