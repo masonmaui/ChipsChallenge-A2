@@ -1,6 +1,11 @@
-5 5
-B B E # #
-B B P P P
-W P P P P
-W D P ITR P
-W P P I P
+10 10
+B B E # # P P P P P
+B B P P P P P P P P
+W P P P P P P P P P
+W D P ITR P P P P P P
+W P P I P P P P P P
+P P P P P P P P P P
+P P P P P P P P P P
+P P P P P P P P P P
+P P P P P P P P P P
+W W W W W W W W W W

@@ -27,8 +27,8 @@ public class MasonMain extends Application {
     private static final int WINDOW_WIDTH = 800;
     private static final int WINDOW_HEIGHT = 500;
 
-    private static final int CANVAS_WIDTH = 400;
-    private static final int CANVAS_HEIGHT = 300;
+    private int CANVAS_WIDTH;
+    private int CANVAS_HEIGHT;
 
     // The width and height (in pixels) of each cell that makes up the game.
     private static final int GRID_CELL_WIDTH = 32;
@@ -41,6 +41,18 @@ public class MasonMain extends Application {
     private Tile[][] tile;
 
     public void start(Stage primaryStage) {
+
+        //making layers
+        //initialising the different layers of the game
+        TileLayer tilelayer = new TileLayer("Levels/Level1TileLayer.txt");
+        ItemLayer itemLayer = new ItemLayer("Levels/Level1ItemLayer.txt");
+        ActorLayer actorLayer = new ActorLayer("Levels/Level1ActorLayer.txt");
+        tile = tilelayer.getTiles();
+
+        //canvas adapts to the size of the tile layer
+        CANVAS_HEIGHT = tile.length * GRID_CELL_HEIGHT;
+        CANVAS_WIDTH = tile[0].length * GRID_CELL_WIDTH;
+
         Pane root = buildGUI();
 
         // Create a scene from the GUI
@@ -56,13 +68,6 @@ public class MasonMain extends Application {
         // Loop the timeline forever
         tickTimeline.setCycleCount(Animation.INDEFINITE);
         // We start the timeline upon a button press.
-
-        //initialising the different layers of the game
-        TileLayer tilelayer = new TileLayer("Levels/Level1TileLayer.txt");
-        ItemLayer itemLayer = new ItemLayer("Levels/Level1ItemLayer.txt");
-        ActorLayer actorLayer = new ActorLayer("Levels/Level1ActorLayer.txt");
-
-        tile = tilelayer.getTiles();
 
         // Display the scene on the stage
         drawGame();
