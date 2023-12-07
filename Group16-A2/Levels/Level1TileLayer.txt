@@ -1,3 +1,6 @@
-2 2
-B B
-B B
+5 5
+B B E # #
+B B P P P
+W P P P P
+W D P ITR P
+W P P I P

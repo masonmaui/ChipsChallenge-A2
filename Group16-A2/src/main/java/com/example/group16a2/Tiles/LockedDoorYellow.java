@@ -5,8 +5,8 @@ public class LockedDoorYellow extends Tile{
         private String filename;
 
         public LockedDoorYellow(boolean isInteractable) {
-            super(isInteractable, "lockedDoorYellow.png");
-            filename = "lockedDoorYellow.png";
+            super(isInteractable, "file:Sprites/YellowLock.png");
+            filename = "file:Sprites/YellowLock.png";
         }
 
         //get file name

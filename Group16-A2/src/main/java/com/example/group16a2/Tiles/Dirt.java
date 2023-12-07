@@ -5,8 +5,8 @@ public class Dirt extends Tile {
     private String filename;
 
     public Dirt(boolean isInteractable) {
-        super(isInteractable, "dirt.png");
-        filename = "dirt.png";
+        super(isInteractable, "file:Sprites/Dirt.png");
+        filename = "file:Sprites/Dirt.png";
     }
 
     //get file name

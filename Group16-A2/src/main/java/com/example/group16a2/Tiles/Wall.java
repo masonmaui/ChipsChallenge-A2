@@ -4,8 +4,8 @@ public class Wall extends Tile {
 
         String fileName;
         public Wall(boolean isInteractable) {
-            super(isInteractable , "wall.png");
-            fileName = "wall.png";
+            super(isInteractable , "file:Sprites/Wall.png");
+            fileName = "file:Sprites/Wall.png";
         }
 
         //get file name

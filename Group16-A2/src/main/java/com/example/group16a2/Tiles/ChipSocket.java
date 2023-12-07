@@ -6,8 +6,8 @@ public class ChipSocket extends Tile{
         private int chipsRequired;
 
         public ChipSocket(boolean isInteractable, int chipsRequired) {
-            super(isInteractable, "chipsocket.png");
-            filename = "chipsocket.png";
+            super(isInteractable, "file:Sprites/ChipSocket.png");
+            filename = "file:Sprites/ChipSocket.png";
             this.chipsRequired = chipsRequired;
         }
 

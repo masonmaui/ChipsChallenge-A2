@@ -5,8 +5,8 @@ public class Exit extends Tile {
     private String filename;
 
     public Exit(boolean isInteractable) {
-        super(isInteractable, "exit.png");
-        filename = "exit.png";
+        super(isInteractable, "file:Sprites/Exit.png");
+        filename = "file:Sprites/Exit.png";
     }
 
     //get file name
