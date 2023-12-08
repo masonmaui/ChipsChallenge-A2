@@ -50,7 +50,9 @@ public class MasonMain extends Application {
 
     private Player player;
     private PinkBall pinkBall;
-    int tickcounter;
+    private int tickCounter;
+    private int timeLimit;
+
     public void start(Stage primaryStage) {
 
         //making layers
@@ -142,7 +144,7 @@ public class MasonMain extends Application {
 
         }
         //move every 3 ticks
-        if(tickcounter % 2 == 0) {
+        if(tickCounter % 2 == 0) {
             for (Actor actor : actors) {
                 if (actor instanceof Frog) {
                     ((Frog) actor).findPath(player, tile);
@@ -152,7 +154,8 @@ public class MasonMain extends Application {
         }
         drawGame();
 
-        tickcounter++;
+        System.out.println(player.getInventory());
+        tickCounter++;
 
     }
 
@@ -188,6 +191,7 @@ public class MasonMain extends Application {
         event.consume();
     }
 
+    //takes items from the item layer and adds them to the player inventory
     private void collectItems() {
         int playerRow = player.getY();
         int playerCol = player.getX();
@@ -205,6 +209,7 @@ public class MasonMain extends Application {
         inventoryListView.getItems().clear();
         inventoryListView.getItems().addAll(player.getInventory().getImages());
     }
+
     public void resetPlayerLocation() {
     }
 
