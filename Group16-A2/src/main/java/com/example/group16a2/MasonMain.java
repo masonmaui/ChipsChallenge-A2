@@ -10,6 +10,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -20,9 +21,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -167,7 +166,6 @@ public class MasonMain extends Application {
 
         drawGame();
 
-        System.out.println(player.getInventory());
         tickCounter++;
 
     }
@@ -218,9 +216,56 @@ public class MasonMain extends Application {
         }
     }
     private void updateInventoryDisplay() {
-        ListView<Image> inventoryListView = (ListView<Image>) ((BorderPane) canvas.getParent()).getRight();
-        inventoryListView.getItems().clear();
-        inventoryListView.getItems().addAll(player.getInventory().getImages());
+        BorderPane borderPane = (BorderPane) canvas.getParent();
+        VBox inventoryVBox = (VBox) borderPane.getRight();
+
+        // Clear existing children
+        inventoryVBox.getChildren().clear();
+
+        // Add a title to the VBox
+        Label titleLabel = new Label("Inventory");
+        titleLabel.setStyle("-fx-font-weight: bold;"); // Optional: Set the font weight
+
+        // Center the title horizontally
+        VBox.setMargin(titleLabel, new Insets(10, 0, 10, 0)); // Optional: Set top and bottom margins
+        inventoryVBox.setAlignment(Pos.CENTER);
+        inventoryVBox.getChildren().addAll(titleLabel);
+
+        // Create a GridPane for the items
+        GridPane itemsGrid = new GridPane();
+        itemsGrid.setHgap(0); // Adjust the horizontal gap as needed
+        itemsGrid.setVgap(0); // Adjust the vertical gap as needed
+
+        int col = 0;
+        int row = 0;
+
+        for (Image image : player.getInventory().getImages()) {
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(32); // Set the width of the image
+            imageView.setFitHeight(32); // Set the height of the image
+
+            itemsGrid.add(imageView, col, row); // Add the ImageView to the GridPane
+
+            col++;
+            if (col >= 3) {
+                col = 0;
+                row++;
+            }
+        }
+
+        // Add the itemsGrid to the VBox
+        inventoryVBox.getChildren().add(itemsGrid);
+
+        // Set the background color of the VBox to gray
+        inventoryVBox.setStyle("-fx-background-color: grey; -fx-border-color: grey; -fx-border-width: 2px;");
+
+        // Set the size of the VBox (adjust as needed)
+        inventoryVBox.setMaxHeight(120);
+        inventoryVBox.setMinWidth(96);
+
+        // Set the alignment of the VBox to Pos.CENTER_RIGHT
+        borderPane.setRight(inventoryVBox);
+        BorderPane.setAlignment(inventoryVBox, Pos.CENTER_RIGHT);
     }
 
     public void resetPlayerLocation() {
@@ -234,7 +279,7 @@ public class MasonMain extends Application {
         BorderPane root = new BorderPane();
 
         // Create the canvas that we will draw on.
-        // We store this as a gloabl variable so other methods can access it.
+        // We store this as a global variable so other methods can access it.
         canvas = new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
         root.setCenter(canvas);
 
@@ -257,7 +302,7 @@ public class MasonMain extends Application {
         Button centerPlayerLocationButton = new Button("Center Player");
         toolbar.getChildren().add(centerPlayerLocationButton);
 
-        // Setup the behaviour of the button.
+        // Setup the behavior of the button.
         centerPlayerLocationButton.setOnAction(e -> {
             // We keep this method short and use a method for the bulk of the work.
             movePlayerToCenter();
@@ -271,7 +316,7 @@ public class MasonMain extends Application {
         // Stop button is disabled by default
         stopTickTimelineButton.setDisable(true);
 
-        // Setup the behaviour of the buttons.
+        // Setup the behavior of the buttons.
         startTickTimelineButton.setOnAction(e -> {
             // Start the tick timeline and enable/disable buttons as appropriate.
             startTickTimelineButton.setDisable(true);
@@ -286,30 +331,31 @@ public class MasonMain extends Application {
             startTickTimelineButton.setDisable(false);
         });
 
-        ListView<Image> inventoryListView = new ListView<>();
-        root.setRight(inventoryListView);
+        // Create a GridPane for the inventory display
+        GridPane inventoryGrid = new GridPane();
+        inventoryGrid.setHgap(0);
+        inventoryGrid.setVgap(0);
+        inventoryGrid.setPadding(new Insets(5));
 
         // Set a custom cell factory to display images
-        inventoryListView.setCellFactory(param -> new ListCell<Image>() {
-            private final ImageView imageView = new ImageView();
-
-            @Override
-            protected void updateItem(Image item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if (empty || item == null) {
-                    setGraphic(null);
-                } else {
-                    imageView.setImage(item);
-                    imageView.setFitWidth(32); // Set the width of the image
-                    imageView.setFitHeight(32); // Set the height of the image
-                    setGraphic(imageView);
-                }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                ImageView imageView = new ImageView();
+                imageView.setFitWidth(32); // Set the width of the image
+                imageView.setFitHeight(32); // Set the height of the image
+                inventoryGrid.add(imageView, j, i);
             }
-        });
+        }
 
-        // Update inventory display when needed
-        inventoryListView.getItems().addAll(player.getInventory().getImages());
+        // Create a toolbar with some nice padding and spacing
+        VBox inventory = new VBox();
+        inventory.setSpacing(10);
+        inventory.setPadding(new Insets(10));
+        root.setRight(inventory);
+
+        inventory.getChildren().add(inventoryGrid);
+
+        inventoryGrid.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
 
         return root;
     }
