@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -68,6 +69,9 @@ public class MasonMain extends Application {
         //canvas adapts to the size of the tile layer
         CANVAS_HEIGHT = tile.length * GRID_CELL_HEIGHT;
         CANVAS_WIDTH = tile[0].length * GRID_CELL_WIDTH;
+
+        //set time limit
+        timeLimit = 150;
 
         Pane root = buildGUI();
 
@@ -133,6 +137,11 @@ public class MasonMain extends Application {
             gc.drawImage(temp, actor.getX() * GRID_CELL_WIDTH, actor.getY() * GRID_CELL_HEIGHT);
         }
 
+        //ser time limit clock on the bottom left using a label
+        Label timeLabel = new Label("Time: " + timeLimit);
+        ((BorderPane) canvas.getParent()).setBottom(timeLabel);
+
+
     }
 
     public void tick(){
@@ -152,6 +161,10 @@ public class MasonMain extends Application {
 
             }
         }
+
+        //decrement time limit
+        timeLimit--;
+
         drawGame();
 
         System.out.println(player.getInventory());
