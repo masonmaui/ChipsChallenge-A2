@@ -4,8 +4,8 @@ public class IceTopRight extends Tile{
 
             private String filename;
 
-            public IceTopRight(boolean isInteractable) {
-                super(isInteractable, "file:Sprites/IceTopRight.png");
+            public IceTopRight(boolean isPassable) {
+                super(isPassable, "file:Sprites/IceTopRight.png");
                 this.filename = "file:Sprites/IceTopRight.png";
             }
 

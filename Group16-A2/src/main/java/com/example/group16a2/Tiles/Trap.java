@@ -4,8 +4,8 @@ public class Trap extends Tile {
 
     private String filename;
 
-    public Trap(boolean isInteractable) {
-        super(isInteractable, "file:Sprites/Trap.png");
+    public Trap(boolean isPassable) {
+        super(isPassable, "file:Sprites/Trap.png");
         filename = "file:Sprites/Trap.png";
     }
 

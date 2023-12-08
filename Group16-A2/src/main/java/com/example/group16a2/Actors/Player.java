@@ -34,8 +34,35 @@ public class Player extends Actor{
     //move right
     public void moveRight(Tile[][] tile){
         if (isInBounds(x + 1, y, tile)){
-            if (tile[y][x+1].isInteractable() == false){
+            if (tile[y][x + 1].isPassable()){
                 x++;
+            }
+        }
+    }
+
+    //move left
+    public void moveLeft(Tile[][] tile){
+        if (isInBounds(x - 1, y, tile)){
+            if (tile[y][x - 1].isPassable()){
+                x--;
+            }
+        }
+    }
+
+    //move up
+    public void moveUp(Tile[][] tile){
+        if (isInBounds(x, y - 1, tile)){
+            if (tile[y - 1][x].isPassable()){
+                y--;
+            }
+        }
+    }
+
+    //move down
+    public void moveDown(Tile[][] tile){
+        if (isInBounds(x, y + 1, tile)){
+            if (tile[y + 1][x].isPassable()){
+                y++;
             }
         }
     }

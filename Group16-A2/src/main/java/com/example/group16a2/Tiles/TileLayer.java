@@ -43,11 +43,11 @@ public class TileLayer {
             for (int i = 0; i < x; i++) {
                 String tileType = lineScanner2.next();
                 if (tileType.equals("P")) {
-                    grid[lineCount][i] = new Path(false);
+                    grid[lineCount][i] = new Path(true);
                 } else if (tileType.equals("D")) {
                     grid[lineCount][i] = new Dirt(true);
                 } else if (tileType.equals("#")){
-                    grid[lineCount][i] = new Wall(true);
+                    grid[lineCount][i] = new Wall(false);
                 } else if (tileType.equals("E")){
                     grid[lineCount][i] = new Exit(true);
                 }else if (tileType.equals("B")){

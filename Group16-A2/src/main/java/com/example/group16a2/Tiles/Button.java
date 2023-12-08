@@ -4,8 +4,8 @@ public class Button extends Tile{
 
     private String filename;
 
-    public Button(boolean isInteractable) {
-        super(isInteractable , "file:Sprites/Button.png");
+    public Button(boolean isPassable) {
+        super(isPassable , "file:Sprites/Button.png");
         filename = "file:Sprites/Button.png";
     }
 

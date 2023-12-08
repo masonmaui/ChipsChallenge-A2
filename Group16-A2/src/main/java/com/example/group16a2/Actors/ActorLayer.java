@@ -79,6 +79,7 @@ public class ActorLayer {
         return position;
     }
 
+
     public void getActor(Actor actor) {
     }
 

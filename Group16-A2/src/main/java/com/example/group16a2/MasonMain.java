@@ -2,6 +2,7 @@ package com.example.group16a2;
 
 import com.example.group16a2.Actors.Actor;
 import com.example.group16a2.Actors.ActorLayer;
+import com.example.group16a2.Actors.PinkBall;
 import com.example.group16a2.Actors.Player;
 import com.example.group16a2.Items.CollectableItems;
 import com.example.group16a2.Items.ItemLayer;
@@ -48,6 +49,7 @@ public class MasonMain extends Application {
     private ArrayList<Actor> actors;
 
     private Player player;
+    private PinkBall pinkBall;
     public void start(Stage primaryStage) {
 
         //making layers
@@ -129,6 +131,10 @@ public class MasonMain extends Application {
 
     public void tick(){
 
+
+        drawGame();
+
+
     }
 
     public void processKeyEvent(KeyEvent event) {
@@ -138,22 +144,13 @@ public class MasonMain extends Application {
                 player.moveRight(tile);
                 break;
             case LEFT:
-                if (player.getX() - 1 < 0) {
-                    break;
-                }
-                player.setX(player.getX() - 1);
+                player.moveLeft(tile);
                 break;
             case UP:
-                if (player.getY() - 1 < 0) {
-                    break;
-                }
-                player.setY(player.getY() - 1);
+                player.moveUp(tile);
                 break;
             case DOWN:
-                if (player.getY() + 1 > tile.length - 1) {
-                    break;
-                }
-                player.setY(player.getY() + 1);
+                player.moveDown(tile);
                 break;
             default:
                 // Do nothing for all other keys.
