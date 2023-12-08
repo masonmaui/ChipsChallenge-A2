@@ -14,7 +14,10 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -84,6 +87,9 @@ public class MasonMain extends Application {
         drawGame();
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        // Update inventory display when the game starts
+        updateInventoryDisplay();
     }
 
 
@@ -187,11 +193,18 @@ public class MasonMain extends Application {
         int playerCol = player.getX();
 
         if (items[playerRow][playerCol] != null && !items[playerRow][playerCol].isCollected()) {
-            // Collect the item
-            items[playerRow][playerCol].setCollected(true);
+            items[playerRow][playerCol].Action(); // Optionally, perform actions when the item is consumed
+            items[playerRow][playerCol].addToPlayerInventory(player);
+
+            // Update inventory display
+            updateInventoryDisplay();
         }
     }
-
+    private void updateInventoryDisplay() {
+        ListView<Image> inventoryListView = (ListView<Image>) ((BorderPane) canvas.getParent()).getRight();
+        inventoryListView.getItems().clear();
+        inventoryListView.getItems().addAll(player.getInventory().getImages());
+    }
     public void resetPlayerLocation() {
     }
 
@@ -254,6 +267,31 @@ public class MasonMain extends Application {
             tickTimeline.stop();
             startTickTimelineButton.setDisable(false);
         });
+
+        ListView<Image> inventoryListView = new ListView<>();
+        root.setRight(inventoryListView);
+
+        // Set a custom cell factory to display images
+        inventoryListView.setCellFactory(param -> new ListCell<Image>() {
+            private final ImageView imageView = new ImageView();
+
+            @Override
+            protected void updateItem(Image item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null) {
+                    setGraphic(null);
+                } else {
+                    imageView.setImage(item);
+                    imageView.setFitWidth(32); // Set the width of the image
+                    imageView.setFitHeight(32); // Set the height of the image
+                    setGraphic(imageView);
+                }
+            }
+        });
+
+        // Update inventory display when needed
+        inventoryListView.getItems().addAll(player.getInventory().getImages());
 
         return root;
     }

@@ -1,12 +1,13 @@
 package com.example.group16a2.Actors;
 
+import com.example.group16a2.Items.PlayerInventory;
 import com.example.group16a2.MasonMain;
 import com.example.group16a2.Tiles.Tile;
 
 public class Player extends Actor{
     private String player;
+    private PlayerInventory inventory;
     private int[] inv;
-
     private String filename;
     private int x;
     private int y;
@@ -17,6 +18,11 @@ public class Player extends Actor{
         //grab values from super
         this.x = x;
         this.y = y;
+        this.inventory = new PlayerInventory();
+    }
+
+    public PlayerInventory getInventory() {
+        return inventory;
     }
 
     //overide super getx and gety
