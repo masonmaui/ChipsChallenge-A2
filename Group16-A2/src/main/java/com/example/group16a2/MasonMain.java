@@ -22,7 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import javafx.scene.input.KeyCode;
 import java.util.ArrayList;
 
 public class MasonMain extends Application {
@@ -112,7 +112,7 @@ public class MasonMain extends Application {
         //draw the items from the item layer
         for (int i = 0; i < items.length; i++) {
             for (int j = 0; j < items[i].length; j++) {
-                if (items[i][j] != null) {
+                if (items[i][j] != null && !items[i][j].isCollected()) {
                     temp = new Image(items[i][j].getFilename());
                     gc.drawImage(temp, j * GRID_CELL_WIDTH, i * GRID_CELL_HEIGHT);
                 }
@@ -170,11 +170,26 @@ public class MasonMain extends Application {
                 break;
         }
 
+        if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.LEFT ||
+                event.getCode() == KeyCode.UP || event.getCode() == KeyCode.DOWN) {
+            collectItems();
+        }
+
         // Redraw game as the player may have moved.
         drawGame();
 
         // Consume the event. This means we mark it as dealt with. This stops other GUI nodes (buttons etc) responding to it.
         event.consume();
+    }
+
+    private void collectItems() {
+        int playerRow = player.getY();
+        int playerCol = player.getX();
+
+        if (items[playerRow][playerCol] != null && !items[playerRow][playerCol].isCollected()) {
+            // Collect the item
+            items[playerRow][playerCol].setCollected(true);
+        }
     }
 
     public void resetPlayerLocation() {
