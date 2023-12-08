@@ -1,9 +1,6 @@
 package com.example.group16a2;
 
-import com.example.group16a2.Actors.Actor;
-import com.example.group16a2.Actors.ActorLayer;
-import com.example.group16a2.Actors.PinkBall;
-import com.example.group16a2.Actors.Player;
+import com.example.group16a2.Actors.*;
 import com.example.group16a2.Items.CollectableItems;
 import com.example.group16a2.Items.ItemLayer;
 import com.example.group16a2.Tiles.Tile;
@@ -138,7 +135,18 @@ public class MasonMain extends Application {
             }
 
         }
+        //move every 3 ticks
+        if(tickcounter % 2 == 0) {
+            for (Actor actor : actors) {
+                if (actor instanceof Frog) {
+                    ((Frog) actor).findPath(player, tile);
+                }
+
+            }
+        }
         drawGame();
+
+        tickcounter++;
 
     }
 
