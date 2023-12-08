@@ -89,10 +89,7 @@ public class PinkBall extends Actor{
 
     //is in bounds
     public boolean isInBounds(int x, int y, Tile[][] tile){
-        if (x < 0 || x > tile.length || y < 0 || y > tile[0].length){
-            return false;
-        }
-        return true;
+        return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
     }
 
     //to string
