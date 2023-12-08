@@ -15,6 +15,10 @@ public class Tile {
         return filename;
     }
 
+    public boolean isInteractable() {
+        return isInteractable;
+    }
+
 
 
 }

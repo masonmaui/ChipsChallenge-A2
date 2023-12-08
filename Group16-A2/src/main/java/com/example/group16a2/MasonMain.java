@@ -135,11 +135,7 @@ public class MasonMain extends Application {
         // We change the behaviour depending on the actual key that was pressed.
         switch (event.getCode()) {
             case RIGHT:
-                //check if out of bounds
-                if (player.getX() + 1 > tile[0].length - 1) {
-                    break;
-                }
-                player.setX(player.getX() + 1);
+                player.moveRight(tile);
                 break;
             case LEFT:
                 if (player.getX() - 1 < 0) {

@@ -13,6 +13,14 @@ public class Wall extends Tile {
             return fileName;
         }
 
+        //is interactable
+        public boolean isInteractable() {
+            return true;
+        }
+
+        //interacted with
+
+
         //to string
         public String toString() {
             return "Wall";

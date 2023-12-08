@@ -1,5 +1,8 @@
 package com.example.group16a2.Actors;
 
+import com.example.group16a2.MasonMain;
+import com.example.group16a2.Tiles.Tile;
+
 public class Player extends Actor{
     private String player;
     private int[] inv;
@@ -26,6 +29,23 @@ public class Player extends Actor{
     //set x
     public void setX(int x){
         this.x = x;
+    }
+
+    //move right
+    public void moveRight(Tile[][] tile){
+        if (isInBounds(x + 1, y, tile)){
+            if (tile[y][x+1].isInteractable() == false){
+                x++;
+            }
+        }
+    }
+
+    //is in bounds
+    public boolean isInBounds(int x, int y, Tile[][] tile){
+        if (x < 0 || x >= tile.length || y < 0 || y >= tile[0].length){
+            return false;
+        }
+        return true;
     }
 
     //set y
