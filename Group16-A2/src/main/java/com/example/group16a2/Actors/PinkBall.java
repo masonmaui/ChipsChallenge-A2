@@ -43,48 +43,43 @@ public class PinkBall extends Actor{
             if(isInBounds(x, y - 1, tiles)){
                 if(tiles[y - 1][x].isPassable()){
                     y--;
-                }
-                else{
+                }else{
                     Direction = "S";
                 }
-            }
-            else{
+            }else{
                 Direction = "S";
             }
-        }
-        else if(Direction.equals("S")){
+        }else if(Direction.equals("S")){
             if(isInBounds(x, y + 1, tiles)){
                 if(tiles[y + 1][x].isPassable()){
                     y++;
-                }
-                else{
+                }else{
                     Direction = "N";
                 }
-            }
-            else{
+            }else{
                 Direction = "N";
             }
-        }
-        else if(Direction.equals("E")){
+        }else if(Direction.equals("E")){
             if(isInBounds(x + 1, y, tiles)){
                 if(tiles[y][x + 1].isPassable()){
                     x++;
-                }
-                else{
+                }else{
                     Direction = "W";
                 }
-            }
-            else{
+            }else{
                 Direction = "W";
             }
-        }
-        else if(Direction.equals("W")){
-            if((isInBounds(x - 1, y, tiles)) && (tiles[y][x - 1].isPassable())){
+        }else if(Direction.equals("W")) {
+            if ((isInBounds(x - 1, y, tiles))) {
+                if (tiles[y][x - 1].isPassable()) {
                     x--;
+                } else {
+                    Direction = "E";
                 }
-            }else{
+            } else {
                 Direction = "E";
             }
+        }
     }
 
     //is in bounds
