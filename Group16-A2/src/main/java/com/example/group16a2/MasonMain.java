@@ -61,7 +61,6 @@ public class MasonMain extends Application {
         items = itemLayer.getItems();
         actors = actorLayer.getActorList();
         player = actorLayer.getPlayer();
-        pinkBall = actorLayer.getPinkBall();
 
         //canvas adapts to the size of the tile layer
         CANVAS_HEIGHT = tile.length * GRID_CELL_HEIGHT;
@@ -131,6 +130,8 @@ public class MasonMain extends Application {
     }
 
     public void tick(){
+
+
         drawGame();
 
 

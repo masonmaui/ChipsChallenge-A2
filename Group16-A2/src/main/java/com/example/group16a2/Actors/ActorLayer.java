@@ -109,7 +109,7 @@ public class ActorLayer {
         }
         return null;
     }
-    
+
     public ArrayList<Actor> readEachLine(Scanner in) {
         int lineCount = 0;
         String line = in.nextLine();
