@@ -1,15 +1,13 @@
 package com.example.group16a2.Actors;
 
-import java.util.Arrays;
-
 public class Actor {
     private String fileName;
 
-    private int Posx;
+    private int posX;
     private int Posy;
     // Constructor
     public Actor(int y, int x, String fileName) {
-        this.Posx = x;
+        this.posX = x;
         this.Posy = y;
         this.fileName = fileName;
     }
@@ -21,7 +19,7 @@ public class Actor {
 
     //get x
     public int getX() {
-        return Posx;
+        return posX;
     }
 
     //get y

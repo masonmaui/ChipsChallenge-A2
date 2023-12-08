@@ -11,8 +11,8 @@ public class Player extends Actor{
     private int x;
     private int y;
 
-    public Player(int x, int y){
-        super(x, y, "file:Sprites/Actor.png");
+    public Player(int y, int x){
+        super(y, x, "file:Sprites/Actor.png");
         this.filename = "file:Sprites/Actor.png";
         //grab values from super
         this.x = x;
@@ -23,12 +23,9 @@ public class Player extends Actor{
     public int getX(){
         return x;
     }
+
     public int getY(){
         return y;
-    }
-    //set x
-    public void setX(int x){
-        this.x = x;
     }
 
     //move right

@@ -50,6 +50,7 @@ public class MasonMain extends Application {
 
     private Player player;
     private PinkBall pinkBall;
+    int tickcounter;
     public void start(Stage primaryStage) {
 
         //making layers
@@ -130,10 +131,14 @@ public class MasonMain extends Application {
     }
 
     public void tick(){
+        //call pink ball bounce
+        for (Actor actor : actors) {
+            if (actor instanceof PinkBall) {
+                ((PinkBall) actor).bounce(tile);
+            }
 
-
+        }
         drawGame();
-
 
     }
 

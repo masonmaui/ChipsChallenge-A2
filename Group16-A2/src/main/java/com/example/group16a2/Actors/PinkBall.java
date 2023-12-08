@@ -5,57 +5,40 @@ import com.example.group16a2.Tiles.Tile;
 public class PinkBall extends Actor{
     private String pinkBall;
     private String filename;
-    private int x;
-    private int y;
 
     private String Direction;
 
+    private int x;
+    private int y;
 
-    public PinkBall(int x, int y, String direction){
-        super(x, y, "file:Sprites/Ball.png");
+    public PinkBall(int y, int x, String direction) {
+        super(y, x, "file:Sprites/Ball.png");
         this.filename = "file:Sprites/Ball.png";
-        this.x = x;
-        this.y = y;
-        if(direction.equals(("N")))
+        if (direction.equals(("N")))
             this.Direction = "N";
-        else if(direction.equals(("S")))
+        else if (direction.equals(("S")))
             this.Direction = "S";
-        else if(direction.equals(("E")))
+        else if (direction.equals(("E")))
             this.Direction = "E";
-        else if(direction.equals(("W")))
+        else if (direction.equals(("W")))
             this.Direction = "W";
         else
             this.Direction = "N";
+        this.x = x;
+        this.y = y;
     }
 
-    /*
-    public void bounce() {
-        switch (direction) {
-            case "Right":
-                direction = "Left";
-                break;
-
-            case "Left":
-                direction = "Right";
-                break;
-
-            case "Up":
-                direction = "Down";
-                break;
-
-            case "Down":
-                direction = "Up";
-                break;
-
-            default:
-                break;
-
-        }
-
+    //get x
+    public int getX(){
+        return x;
     }
-     */
 
-    public Void bouce(Tile[][] tiles){
+    //get y
+    public int getY(){
+        return y;
+    }
+
+    public void bounce(Tile[][] tiles){
         if(Direction.equals("N")){
             if(isInBounds(x, y - 1, tiles)){
                 if(tiles[y - 1][x].isPassable()){
@@ -96,24 +79,17 @@ public class PinkBall extends Actor{
             }
         }
         else if(Direction.equals("W")){
-            if(isInBounds(x - 1, y, tiles)){
-                if(tiles[y][x - 1].isPassable()){
+            if((isInBounds(x - 1, y, tiles)) && (tiles[y][x - 1].isPassable())){
                     x--;
                 }
-                else{
-                    Direction = "E";
-                }
-            }
-            else{
+            }else{
                 Direction = "E";
             }
-        }
-        return null;
     }
 
     //is in bounds
     public boolean isInBounds(int x, int y, Tile[][] tile){
-        if (x < 0 || x >= tile.length || y < 0 || y >= tile[0].length){
+        if (x < 0 || x > tile.length || y < 0 || y > tile[0].length){
             return false;
         }
         return true;

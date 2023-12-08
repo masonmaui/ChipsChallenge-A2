@@ -1,11 +1,12 @@
-10 10
+11 10
 P P E # # P P P P P
 P P P P P P P P P P
 W P P P P P P P P P
 W P P ITR P P P P P P
-W P P I P P P P # P
-P # # P P P P P # P
+W # # I P P P P # P
+P P P P P P P P # P
 P P P P P P P P P P
 P P P P P P P P P P
-# # # # # # # # # #
-W W W W W W W W W W
+# P # # # # # # # #
+W P W W W W W W W W
+W P W W W W W W W W
