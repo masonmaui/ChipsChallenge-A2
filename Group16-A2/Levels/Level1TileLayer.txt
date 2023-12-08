@@ -2,10 +2,10 @@
 P P E # # P P P P P
 P P P P P P P P P P
 W P P P P P P P P P
-W D P ITR P P P P P P
+W P P ITR P P P P P P
 W P P I P P P P # P
-P P P P P P P P # P
-P P P P P P P P # P
-P P P P P P P P # P
+P # # P P P P P # P
+P P P P P P P P P P
+P P P P P P P P P P
 # # # # # # # # # #
 W W W W W W W W W W

@@ -1,5 +1,7 @@
 package com.example.group16a2.Actors;
 
+import com.example.group16a2.Tiles.Tile;
+
 public class PinkBall extends Actor{
     private String pinkBall;
     private String filename;
@@ -52,6 +54,70 @@ public class PinkBall extends Actor{
 
     }
      */
+
+    public Void bouce(Tile[][] tiles){
+        if(Direction.equals("N")){
+            if(isInBounds(x, y - 1, tiles)){
+                if(tiles[y - 1][x].isPassable()){
+                    y--;
+                }
+                else{
+                    Direction = "S";
+                }
+            }
+            else{
+                Direction = "S";
+            }
+        }
+        else if(Direction.equals("S")){
+            if(isInBounds(x, y + 1, tiles)){
+                if(tiles[y + 1][x].isPassable()){
+                    y++;
+                }
+                else{
+                    Direction = "N";
+                }
+            }
+            else{
+                Direction = "N";
+            }
+        }
+        else if(Direction.equals("E")){
+            if(isInBounds(x + 1, y, tiles)){
+                if(tiles[y][x + 1].isPassable()){
+                    x++;
+                }
+                else{
+                    Direction = "W";
+                }
+            }
+            else{
+                Direction = "W";
+            }
+        }
+        else if(Direction.equals("W")){
+            if(isInBounds(x - 1, y, tiles)){
+                if(tiles[y][x - 1].isPassable()){
+                    x--;
+                }
+                else{
+                    Direction = "E";
+                }
+            }
+            else{
+                Direction = "E";
+            }
+        }
+        return null;
+    }
+
+    //is in bounds
+    public boolean isInBounds(int x, int y, Tile[][] tile){
+        if (x < 0 || x >= tile.length || y < 0 || y >= tile[0].length){
+            return false;
+        }
+        return true;
+    }
 
     //to string
     public String toString(){

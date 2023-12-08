@@ -4,8 +4,8 @@ public class Dirt extends Tile {
 
     private String filename;
 
-    public Dirt(boolean isInteractable) {
-        super(isInteractable, "file:Sprites/Dirt.png");
+    public Dirt(boolean isPassaable) {
+        super(isPassaable, "file:Sprites/Dirt.png");
         filename = "file:Sprites/Dirt.png";
     }
 
