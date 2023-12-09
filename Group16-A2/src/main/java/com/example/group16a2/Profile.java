@@ -1,6 +1,6 @@
 package com.example.group16a2;
 
-public class Profile extends Menu {
+public class Profile {
 
     private String name;
 

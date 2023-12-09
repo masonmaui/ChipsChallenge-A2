@@ -1,79 +1,51 @@
 package com.example.group16a2;
 
-public class Menu {
-    private boolean isVisible;
-    private boolean isGameWon;
-    private boolean isGameLost;
-    private String [][] currentGrid;
-    private int currentLevel;
-    private Profile  activeProfile;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
-    //constructor
-    public Menu() {
-        isVisible = false;
-        isGameWon = false;
-        isGameLost = false;
-        currentLevel = 1;
-        activeProfile = new Profile();
+public class Menu extends Application  {
+
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Options:");
+
+
+        MenuItem menuItem1 = new MenuItem("Start game and input name");
+        MenuItem menuItem2 = new MenuItem("View your max level");
+        MenuItem menuItem3 = new MenuItem("View score table");
+
+        menuItem1.setOnAction(this::processStartGameClick);
+
+        MenuButton menuButton = new MenuButton("Options", null,
+                menuItem1, menuItem2, menuItem3);
+
+        HBox hbox = new HBox(menuButton);
+
+        Scene scene = new Scene(hbox, 500, 500);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        
     }
 
-    //Displaying menu
-    public void showMenu() {
-        isVisible = true;
-        System.out.println("Menu displayed");
+    private void processStartGameClick(ActionEvent actionEvent) {
+        StartGame();
     }
 
-    //Hiding the menu
-    public void hideMenu() {
-        isVisible = false;
-        System.out.println("Menu hidden");
-    }
-
-    public void exitGame() {
-        System.out.println("Exiting game");
-    }
-
-    public void pauseGame() {
-        System.out.println("Paused");
-    }
-
-    public void resumeGame() {
-        System.out.println("Resume Game");
-    }
-
-    public void beginNextLevel(boolean isGameWon, int currentLevel) {
-        System.out.println("Beginning next level");
-    }
-
-    public void replayLevel(boolean isGameLost, int currentLevel) {
-        System.out.println("Replaying level");
-    }
-
-    public boolean isGameWon () {
-        return isGameWon;
-
-    }
-
-    public boolean isGameLost() {
-        return isGameLost;
-
+    public void StartGame(){
+        System.out.println("Starting game...");
+        MasonMain game = new MasonMain();
+        game.start(new Stage());
     }
 
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        menu.showMenu();
-        menu.hideMenu();
-        menu.exitGame();
-        menu.pauseGame();
-        menu.resumeGame();
-        menu.beginNextLevel(true, 1);
-        menu.replayLevel(false, 1);
+        Application.launch(args);
     }
 
-
-    //public void handleUserInput(String userInput) {
-    //    System.out.println("User input: " + userInput);
-    //}
-
-
 }
+
