@@ -25,6 +25,16 @@ public class Tile {
             return false;
         }else if (this instanceof Ice) {
             return false;
+        }else if (this instanceof Wall) {
+            return false;
+        }else if(this instanceof IceBottomLeft){
+            return false;
+        }else if(this instanceof IceBottomRight) {
+            return false;
+        }else if(this instanceof IceTopLeft) {
+            return false;
+        }else if(this instanceof IceTopRight) {
+            return false;
         }
         return true;
     }
