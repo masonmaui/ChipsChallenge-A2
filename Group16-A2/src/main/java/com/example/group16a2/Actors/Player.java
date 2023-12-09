@@ -13,7 +13,7 @@ public class Player extends Actor{
     private int y;
 
     public Player(int y, int x){
-        super(y, x, "file:PlayerTrans.png");
+        super(y, x, "file:Sprites/PlayerTrans.png");
         this.filename = "file:Sprites/PlayerTrans.png";
         //grab values from super
         this.x = x;
