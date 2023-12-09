@@ -57,9 +57,9 @@ public class MasonMain extends Application {
 
         //making layers
         //initialising the different layers of the game
-        TileLayer tilelayer = new TileLayer("Levels/Level1TileLayer.txt");
-        ItemLayer itemLayer = new ItemLayer("Levels/Level1ItemLayer.txt");
-        ActorLayer actorLayer = new ActorLayer("Levels/Level1ActorLayer.txt");
+        TileLayer tilelayer = new TileLayer("Levels/Level2TileLayer.txt");
+        ItemLayer itemLayer = new ItemLayer("Levels/Level2ItemLayer.txt");
+        ActorLayer actorLayer = new ActorLayer("Levels/Level2ActorLayer.txt");
         tile = tilelayer.getTiles();
         items = itemLayer.getItems();
         actors = actorLayer.getActorList();
