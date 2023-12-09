@@ -49,9 +49,10 @@ public class Block extends Actor{
         // Check if the new position is within the bounds of the layer
         if (newX >= 0 && newX < actors.length && newY >= 0 && newY < actors[0].length) {
             // Check if the new position is empty and not blocked by a wall
-            if (actors[newX][newY] == null || !(grid[newX][newY] instanceof Wall) || !(grid[newX][newY] instanceof LockedDoorBlue) || 
-                !(grid[newX][newY] instanceof LockedDoorGreen) ||!(grid[newX][newY] instanceof LockedDoorRed) ||!(grid[newX][newY] instanceof LockedDoorYellow) || 
+            if (grid[newY][newX] == null || !(grid[newY][newX] instanceof Wall) || !(grid[newY][newX] instanceof LockedDoorBlue) || 
+                !(grid[newY][newX] instanceof LockedDoorGreen) ||!(grid[newY][newX] instanceof LockedDoorRed) ||!(grid[newY][newX] instanceof LockedDoorYellow) || 
                 hasActors(actors[newX][newY])) {
+                    
                 setPosx(newX);
                 setPosy(newY);
             }
