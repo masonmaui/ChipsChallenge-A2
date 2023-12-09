@@ -54,4 +54,13 @@ public class Actor {
     public int getY() {
         return Posy;
     }
+
+    public void setPosy(int newY) {
+        Posy = newY;
+    }
+
+
+    public void setPosx(int newX) {
+        posX = newX;
+    }
 }
