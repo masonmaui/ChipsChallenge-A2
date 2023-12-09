@@ -1,0 +1,12 @@
+11 10 
+P P P P P P P I ITR P
+P P D W P P P P I P
+P P D W P P P P I P
+P P P W W W P P P P
+P P P P P P P P P P
+P P P P I ITR # P P P
+P D # P P I # # P P
+P P # # P IBL I P P P
+P P P P P P P P P P
+W W W P P P D W W P
+E CS3 P P P P P P P P
