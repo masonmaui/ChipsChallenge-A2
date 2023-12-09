@@ -19,6 +19,16 @@ public class Tile {
         return isPassable;
     }
 
+    //ispassabelMonster
+    public boolean isPassableMonster() {
+        if (this instanceof Water){
+            return false;
+        }else if (this instanceof Ice) {
+            return false;
+        }
+        return true;
+    }
+
 
 
 }

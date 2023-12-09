@@ -52,9 +52,10 @@ public class Frog extends Actor {
     //move right
     public void moveRight(Tile[][] tile){
         if (isInBounds(x + 1, y, tile)){
-            if (tile[y][x + 1].isPassable()){
+            if (tile[y][x + 1].isPassableMonster()){
                 x++;
             }else{
+                moveDown(tile);
                 moveDown(tile);
             }
         }
@@ -63,9 +64,10 @@ public class Frog extends Actor {
     //move left
     public void moveLeft(Tile[][] tile){
         if (isInBounds(x - 1, y, tile)){
-            if (tile[y][x - 1].isPassable()) {
+            if (tile[y][x - 1].isPassableMonster()) {
                 x--;
             }else{
+                moveUp(tile);
                 moveUp(tile);
             }
         }
@@ -74,9 +76,10 @@ public class Frog extends Actor {
     //move up
     public void moveUp(Tile[][] tile){
         if (isInBounds(x, y - 1, tile)){
-            if (tile[y - 1][x].isPassable()) {
+            if (tile[y - 1][x].isPassableMonster()) {
                 y--;
             }else{
+                moveRight(tile);
                 moveRight(tile);
             }
         }
@@ -85,13 +88,15 @@ public class Frog extends Actor {
     //move down
     public void moveDown(Tile[][] tile){
         if (isInBounds(x, y + 1, tile)){
-            if (tile[y + 1][x].isPassable()){
+            if (tile[y + 1][x].isPassableMonster()){
                 y++;
             }else{
+                moveLeft(tile);
                 moveLeft(tile);
             }
         }
     }
+
     //is in bounds
     public boolean isInBounds(int x, int y, Tile[][] tile){
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
