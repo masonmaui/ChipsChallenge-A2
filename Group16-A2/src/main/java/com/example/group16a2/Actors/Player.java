@@ -2,11 +2,7 @@ package com.example.group16a2.Actors;
 
 import com.example.group16a2.Items.*;
 import com.example.group16a2.Tiles.*;
-import com.example.group16a2.Tiles.LockedDoorBlue;
-import com.example.group16a2.Tiles.LockedDoorRed;
-import com.example.group16a2.Tiles.LockedDoorGreen;
-import com.example.group16a2.Tiles.LockedDoorYellow;
-
+import com.example.group16a2.Tiles.ChipSocket;
 
 import java.util.ArrayList;
 
@@ -58,6 +54,10 @@ public class Player extends Actor{
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                 }
+                else if (isChipSocket(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 x++;
             }
         }
@@ -84,6 +84,10 @@ public class Player extends Actor{
                     tile[y][x] = new Path(true);
                 }
                 else if (isLockedDoorYellow(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isChipSocket(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                 }
@@ -116,6 +120,10 @@ public class Player extends Actor{
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                 }
+                else if (isChipSocket(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 y--;
             }
         }
@@ -145,6 +153,10 @@ public class Player extends Actor{
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                 }
+                else if (isChipSocket(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 y++;
             }
         }
@@ -159,46 +171,38 @@ public class Player extends Actor{
             handleLockedDoorGreenInteraction((LockedDoorGreen) tile);
         } else if (tile instanceof LockedDoorYellow) {
             handleLockedDoorYellowInteraction((LockedDoorYellow) tile);
+        } else if (tile instanceof ChipSocket) {
+            handleChipSocketInteraction((ChipSocket) tile);
         }
     }
 
     public void handleLockedDoorBlueInteraction(LockedDoorBlue lockedDoorBlue) {
         if (inventoryContainsBlueKey()) {
             BlueKey blueKey = inventory.findAndRemoveBlueKey();
-            lockedDoorBlue.openDoor();
-            System.out.println("Removed Red key from inventory: " + blueKey);
-        } else {
-            lockedDoorBlue.blockPlayer();
         }
     }
 
     private void handleLockedDoorRedInteraction(LockedDoorRed lockedDoorRed) {
         if (inventoryContainsRedKey()) {
             RedKey redKey = inventory.findAndRemoveRedKey();
-            lockedDoorRed.openDoor();
-            System.out.println("Removed Red key from inventory: " + redKey);
-        } else {
-            lockedDoorRed.blockPlayer();
         }
     }
 
     private void handleLockedDoorGreenInteraction(LockedDoorGreen lockedDoorGreen) {
         if (inventoryContainsGreenKey()) {
             GreenKey greenKey = inventory.findAndRemoveGreenKey();
-            lockedDoorGreen.openDoor();
-            System.out.println("Removed green key from inventory: " + greenKey);
-        } else {
-            lockedDoorGreen.blockPlayer();
         }
     }
 
     private void handleLockedDoorYellowInteraction(LockedDoorYellow lockedDoorYellow) {
         if (inventoryContainsYellowKey()) {
             YellowKey yellowKey = inventory.findAndRemoveYellowKey();
-            lockedDoorYellow.openDoor();
-            System.out.println("Removed Yellow Key from inventory: " + yellowKey);
-        } else {
-            lockedDoorYellow.blockPlayer();
+        }
+    }
+
+    public void handleChipSocketInteraction(ChipSocket chipSocket) {
+        if (inventoryContainsChip()) {
+            Chip chip = inventory.findAndRemoveChip();
         }
     }
 
@@ -216,6 +220,10 @@ public class Player extends Actor{
 
     public boolean inventoryContainsYellowKey() {
         return inventory.containsYellowKey();
+    }
+
+    public boolean inventoryContainsChip() {
+        return inventory.containsChip();
     }
 
     //is in bounds
@@ -269,6 +277,9 @@ public class Player extends Actor{
         return tile[y][x] instanceof LockedDoorGreen;
     }
 
+    public boolean isChipSocket(Tile[][] tile){
+        return tile[y][x] instanceof ChipSocket;
+    }
 
     //to string
     public String toString(){

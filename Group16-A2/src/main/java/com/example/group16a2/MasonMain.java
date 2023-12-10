@@ -30,7 +30,7 @@ import java.util.ArrayList;
 
 public class MasonMain extends Application implements InventoryUpdateListener {
 
-    private Profile profile;
+    private final Profile profile;
 
     private static final int WINDOW_WIDTH = 800;
     private static final int WINDOW_HEIGHT = 500;
@@ -56,10 +56,12 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private int timeLimit;
     private int level = 1;
 
+    public MasonMain() {
+        this.profile = null;
+    }
     public MasonMain(Profile profile){
         this.profile = profile;
     }
-
     public void start(Stage primaryStage) {
 
         //making layers
@@ -86,7 +88,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
 
         // Register an event handler for key presses.
         // This causes the processKeyEvent method to be called each time a key is pressed.
-        scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> processKeyEvent(event));
+        scene.addEventFilter(KeyEvent.KEY_PRESSED, this::processKeyEvent);
 
         // Register a tick method to be called periodically.
         // Make a new timeline with one keyframe that triggers the tick method every half a second.
@@ -213,11 +215,10 @@ public class MasonMain extends Application implements InventoryUpdateListener {
                 }
                 break;
             default:
-                // Do nothing for all other keys.
                 break;
         }
 
-        //collect items is here so it is a seemless transition
+        //collect items is here so it is a seamless transition
         if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.LEFT ||
                 event.getCode() == KeyCode.UP || event.getCode() == KeyCode.DOWN) {
             collectItems();
@@ -227,7 +228,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         // Check if the player has moved and update the game state
         updateGameState(event);
 
-        // Consume the event. This means we mark it as dealt with. This stops other GUI nodes (buttons etc) responding to it.
+        // Consume the event. This means we mark it as dealt with. This stops other GUI nodes (buttons etc.) responding to it.
         event.consume();
     }
 
@@ -245,26 +246,26 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         boolean hasRedKey = player.getInventory().containsRedKey();
         boolean hasGreenKey = player.getInventory().containsGreenKey();
         boolean hasYellowKey = player.getInventory().containsYellowKey();
-
+        boolean hasChip = player.getInventory().containsChip();
 
         // Check if the target tile is a LockedDoorBlue and the player doesn't have the blue key
         if (targetTile instanceof LockedDoorBlue && !hasBlueKey) {
-            ((LockedDoorBlue) targetTile).blockPlayer(); // Perform actions when player is blocked
-            return false; // Player can't move onto the LockedDoorBlue without the blue key
+            return false;
         }
 
         if (targetTile instanceof LockedDoorRed && !hasRedKey) {
-            ((LockedDoorRed) targetTile).blockPlayer();
             return false;
         }
 
         if (targetTile instanceof LockedDoorGreen && !hasGreenKey) {
-            ((LockedDoorGreen) targetTile).blockPlayer();
             return false;
         }
 
         if (targetTile instanceof LockedDoorYellow && !hasYellowKey) {
-            ((LockedDoorYellow) targetTile).blockPlayer();
+            return false;
+        }
+
+        if (targetTile instanceof ChipSocket && !hasChip) {
             return false;
         }
         return true;
@@ -280,17 +281,6 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.LEFT ||
                 event.getCode() == KeyCode.UP || event.getCode() == KeyCode.DOWN) {
             collectItems();
-        }
-
-        // Check if the player has used a blue key and update the display
-        if (currentTile instanceof LockedDoorBlue) {
-            if (player.getInventory().containsBlueKey()) {
-                BlueKey blueKey = player.getInventory().findAndRemoveBlueKey();
-                if (blueKey != null) {
-                    // Successfully found and removed one blue key, handle door opening logic
-                    ((LockedDoorBlue) currentTile).openDoor();
-                }
-            }
         }
 
         // Redraw the game as the player may have moved.
@@ -454,7 +444,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         Button centerPlayerLocationButton = new Button("Center Player");
         toolbar.getChildren().add(centerPlayerLocationButton);
 
-        // Setup the behavior of the button.
+        // Set up the behavior of the button.
         centerPlayerLocationButton.setOnAction(e -> {
             // We keep this method short and use a method for the bulk of the work.
             movePlayerToCenter();
@@ -468,7 +458,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         // Stop button is disabled by default
         stopTickTimelineButton.setDisable(true);
 
-        // Setup the behavior of the buttons.
+        // Set up the behavior of the buttons.
         startTickTimelineButton.setOnAction(e -> {
             // Start the tick timeline and enable/disable buttons as appropriate.
             startTickTimelineButton.setDisable(true);

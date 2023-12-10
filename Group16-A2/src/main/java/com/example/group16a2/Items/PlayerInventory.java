@@ -13,6 +13,7 @@ public class PlayerInventory {
     private int redKeyCount = 0;
     private int greenKeyCount = 0;
     private int yellowKeyCount = 0;
+    private int chipCount = 0;
 
     private InventoryUpdateListener updateListener;
 
@@ -34,6 +35,9 @@ public class PlayerInventory {
         else if (item instanceof YellowKey) {
             yellowKeyCount++;
         }
+        else if (item instanceof Chip) {
+            chipCount++;
+        }
     }
 
     public boolean containsBlueKey() {
@@ -50,6 +54,10 @@ public class PlayerInventory {
 
     public boolean containsYellowKey() {
         return yellowKeyCount > 0;
+    }
+
+    public boolean containsChip() {
+        return chipCount > 0;
     }
 
     public BlueKey findAndRemoveBlueKey() {
@@ -102,6 +110,20 @@ public class PlayerInventory {
                 yellowKeyCount--;
                 notifyUpdateListener();
                 return (YellowKey) item;
+            }
+        }
+        return null;
+    }
+
+    public Chip findAndRemoveChip() {
+        Iterator<CollectableItems> iterator = items.iterator();
+        while (iterator.hasNext()) {
+            CollectableItems item = iterator.next();
+            if (item instanceof Chip) {
+                iterator.remove();
+                chipCount--;
+                notifyUpdateListener();
+                return (Chip) item;
             }
         }
         return null;
