@@ -12,6 +12,12 @@ public class LockedDoorYellow extends Tile{
 
     private String filename;
 
+
+    /**
+     * Creates a new instance of the class, specifying whether
+     * the tile is passable or not.
+     * @param isPassable if the tile is passable, false otherwise.
+     */
     public LockedDoorYellow(boolean isPassable) {
         super(isPassable, "file:Sprites/YellowLock.png");
         filename = "file:Sprites/YellowLock.png";
