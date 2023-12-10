@@ -1,5 +1,11 @@
 package com.example.group16a2.Items;
 
+/**
+ * RedKey.java
+ * This class represents a red key in the game.
+ * @author Mason Emery
+ * @version 1.6
+ */
 public class RedKey extends CollectableItems{
     private String filename;
     public RedKey() {
