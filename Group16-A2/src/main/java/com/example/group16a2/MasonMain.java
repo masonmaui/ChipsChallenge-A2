@@ -32,7 +32,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private final Profile profile;
 
     private static final int WINDOW_WIDTH = 1200;
-    private static final int WINDOW_HEIGHT = 700;
+    private static final int WINDOW_HEIGHT = 800;
 
     private int CANVAS_WIDTH;
     private int CANVAS_HEIGHT;
@@ -53,7 +53,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-    private int level = 3;
+    private int level = 2;
 
     public MasonMain() {
         this.profile = null;

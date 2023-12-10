@@ -2,8 +2,7 @@ package com.example.group16a2.Items;
 
 /**
  * BlueKey.java
- * This class represents a blue key in the chip
- * socket challenge game.
+ * This class represents a blue key in the game.
  * @author Mason Emery
  * @version 1.6
  */
