@@ -26,7 +26,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.input.KeyCode;
 import java.util.ArrayList;
+
+
 public class MasonMain extends Application implements InventoryUpdateListener {
+
+    private Profile profile;
+
     private static final int WINDOW_WIDTH = 800;
     private static final int WINDOW_HEIGHT = 500;
 
@@ -49,8 +54,11 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-
     private int level = 1;
+
+    public MasonMain(Profile profile){
+        this.profile = profile;
+    }
 
     public void start(Stage primaryStage) {
 
@@ -98,7 +106,6 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         //Updates as soon as an item is collected or deleted
         player.getInventory().setUpdateListener(this);
     }
-
 
     //draws tiles on the canvas
     public void drawGame() {
@@ -420,7 +427,13 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         // Create the canvas that we will draw on.
         // We store this as a global variable so other methods can access it.
         canvas = new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+        canvas.setStyle("-fx-border-color: Black; -fx-border-width: 9;");
+
+        //root is entire screen
         root.setCenter(canvas);
+        root.setStyle("-fx-border-color: Black; -fx-border-width: 4; -fx-background-color: " +
+                "linear-gradient(from 0% 0% to 100% 200%, repeat, white 5%, aqua 75%);");
+
 
         // Create a toolbar with some nice padding and spacing
         HBox toolbar = new HBox();

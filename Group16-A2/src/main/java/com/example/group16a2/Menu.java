@@ -1,51 +1,52 @@
 package com.example.group16a2;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
+import javafx.application.Application;;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.scene.control.TextField;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+
 
 public class Menu extends Application  {
-
+    @FXML
+    private TextField user;
 
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Options:");
-
-
-        MenuItem menuItem1 = new MenuItem("Start game and input name");
-        MenuItem menuItem2 = new MenuItem("View your max level");
-        MenuItem menuItem3 = new MenuItem("View score table");
-
-        menuItem1.setOnAction(this::processStartGameClick);
-
-        MenuButton menuButton = new MenuButton("Options", null,
-                menuItem1, menuItem2, menuItem3);
-
-        HBox hbox = new HBox(menuButton);
-
-        Scene scene = new Scene(hbox, 500, 500);
+    public void start(Stage primaryStage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("MenuLayout.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 500, 300);
+        primaryStage.setTitle("Menu");
         primaryStage.setScene(scene);
         primaryStage.show();
-        
     }
 
-    private void processStartGameClick(ActionEvent actionEvent) {
-        StartGame();
-    }
-
-    public void StartGame(){
-        System.out.println("Starting game...");
-        MasonMain game = new MasonMain();
-        game.start(new Stage());
+    @FXML
+    public void startGame() throws IOException {
+        createNameInputTextField(new Stage());
     }
 
     public static void main(String[] args) {
         Application.launch(args);
     }
 
+    @FXML
+    public void handleSubmitClick(){
+        String user = this.user.getText();
+        MasonMain game = new MasonMain(Profile.loadProfile(user));
+        game.start(new Stage());
+    }
+
+    public void createNameInputTextField(Stage primaryStage) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("UsernamePanel.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 500, 300);
+        primaryStage.setTitle("Menu");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 }
 
