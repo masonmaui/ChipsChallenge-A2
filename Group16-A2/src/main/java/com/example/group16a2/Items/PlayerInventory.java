@@ -6,6 +6,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * PlayerInventory.java
+ * This class represents the inventory of a player
+ * in the game.
+ * @author James Buckley
+ * @version 1.6
+ */
 public class PlayerInventory {
     private List<CollectableItems> items;
 
