@@ -53,7 +53,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-    private int level = 5;
+    private int level = 3;
 
 
     public MasonMain() {
@@ -216,21 +216,25 @@ public class MasonMain extends Application implements InventoryUpdateListener {
                 if (canMove(player.getX() + 1, player.getY())) {
                     player.moveRight(tile);
                 }
+                player.checkBlock(actors, "right");
                 break;
             case LEFT:
                 if (canMove(player.getX() - 1, player.getY())) {
                     player.moveLeft(tile);
                 }
+                player.checkBlock(actors, "left");
                 break;
             case UP:
                 if (canMove(player.getX(), player.getY() - 1)) {
                     player.moveUp(tile);
                 }
+                player.checkBlock(actors, "up");
                 break;
             case DOWN:
                 if (canMove(player.getX(), player.getY() + 1)) {
                     player.moveDown(tile);
                 }
+                player.checkBlock(actors, "down");
                 break;
             default:
                 break;
@@ -284,10 +288,16 @@ public class MasonMain extends Application implements InventoryUpdateListener {
             return false;
         }
 
-        if (targetTile instanceof ChipSocket && !hasChip) {
-            return false;
+        if (targetTile instanceof ChipSocket) {
+            ChipSocket chipSocket = (ChipSocket) targetTile;
+            int requiredChips = chipSocket.getChipsRequired();
+            if (!hasChip || player.getInventory().getChipCount() < requiredChips) {
+                return false;
+            }
         }
         return true;
+
+
     }
 
     // Update the code where you call handleLockedDoorBlueInteraction in MasonMain
