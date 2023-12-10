@@ -113,6 +113,13 @@ public class Profile {
         }
     }
 
+    /**
+     * Deletes profile entry from the highscore for the current level
+     * if the score is higher.
+     * @param profilename The name of the profile to be deleted.
+     * @param score The profile will be deleted if its score is higher
+     *              than the value.
+     */
     public void deleteProfileFromFileHighscore(String profilename,int score) {
         try {
             File inputFile = new File("highscores" + currentLevel + ".txt");
