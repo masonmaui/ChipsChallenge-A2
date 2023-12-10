@@ -1,0 +1,21 @@
+20 20
+# # # # # # # # # # # # # # # # # # # #
+# P P P # P P P P P P P P P P P P P P #
+# P E P CS2 P P P P P P P P P P P P P P #
+# P P P # P P P # # P P P P P P P P P #
+# # # # # P P # # # # P P P P P P P P #
+# D D D # P P # # # # P P P P P P P P #
+# D B D # P P P # # P P P P P P P P P #
+# D D D # P P P P P P P P P P P P P P #
+# W W W # P P P P P P P P # # # P P P #
+# W W W # P P P P P P P # # # # # P P #
+# W W W # P P P P P P P # # # # # P P #
+# W W W # P P P P P P P P # # # P P P #
+# P P P # P P P P P P P P P P P P P P #
+# P P P # P P P P P P P P P P P P P P #
+# P P P # P P P P P P P P P P P P P P #
+# P P P # # # # # # # # # # # # # T # #
+# P P P P P P P P P P P P P P P P P P #
+# P P P P P P P P P P P P P P P P P P #
+# P P P P P P P P P P P P P P P P P P #
+# # # # # # # # # # # # # # # # # # # #
