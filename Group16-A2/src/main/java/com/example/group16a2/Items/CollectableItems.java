@@ -17,6 +17,11 @@ public class CollectableItems {
     public String filename;
     private boolean isCollected;
 
+
+    /**
+     * Constructs the object with the specified filename.
+     * @param filename The filename associated with the item.
+     */
     public CollectableItems(String filename) {
         this.filename = filename;
     }
