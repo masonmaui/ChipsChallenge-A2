@@ -159,6 +159,8 @@ public class ActorLayer {
 
         return null;
     }
+
+
     
     public Player getPlayer() {
         //from arraylist
@@ -169,6 +171,16 @@ public class ActorLayer {
         }
         return null;
     }
+
+    /**
+     *
+     * Reads each line from the Scanner and constructs a list of actors
+     * based on the information in the lines.
+     *
+     * @param in the Scanner provides the input stream to read from.
+     * @return actorList the array list containing actors created from
+     * the input lines.
+     */
 
     public ArrayList<Actor> readEachLine(Scanner in) {
         int lineCount = 0;
