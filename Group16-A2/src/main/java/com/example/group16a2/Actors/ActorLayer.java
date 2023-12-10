@@ -80,6 +80,9 @@ public class ActorLayer {
     }
      */
 
+    /**
+     * Loads the actor layer from the file.
+     */
     public void loadLayer() {
 
     }
