@@ -2,6 +2,16 @@ package com.example.group16a2.Actors;
 
 import com.example.group16a2.Tiles.Tile;
 
+/**
+ *
+ * PinkBall.java
+ * This class represents the pink ball in the game.
+ * Also implements for moving and bouncing off obstacles.
+ * @author Mason Emery
+ * @version 1.6
+ *
+ */
+
 public class PinkBall extends Actor{
     private String pinkBall;
     private String filename;
