@@ -131,6 +131,11 @@ public class Frog extends Actor {
         }
     }
 
+    /**
+     * Moves the frog downward if the tile downward is passable,
+     * otherwise the frog will move left if it's not passable.
+     * @param tile
+     */
     //move down
     public void moveDown(Tile[][] tile){
         if (isInBounds(x, y + 1, tile)){
