@@ -40,6 +40,10 @@ public class TileLayer {
         return timeLimit;
     }
 
+    /**
+     * Gets the 2D array of tiles representing the game map.
+     * @return the 2D array of tiles.
+     */
     //get tile array
     public Tile[][] getTiles() {
         return tiles;
