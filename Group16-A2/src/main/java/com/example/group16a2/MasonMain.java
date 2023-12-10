@@ -32,7 +32,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private final Profile profile;
 
     private static final int WINDOW_WIDTH = 1200;
-    private static final int WINDOW_HEIGHT = 700;
+    private static final int WINDOW_HEIGHT = 800;
 
     private int CANVAS_WIDTH;
     private int CANVAS_HEIGHT;
