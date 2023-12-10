@@ -47,6 +47,10 @@ public class Profile {
         }
     }
 
+    /**
+     * Updates the current level of the profile by
+     * incrementing it.
+     */
     public void updateCurrentLevel() {
         currentLevel++;
         updateHighestLevel();
