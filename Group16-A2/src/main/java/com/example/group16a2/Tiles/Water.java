@@ -32,6 +32,10 @@ public class Water extends Tile{
         return filename;
     }
 
+    /**
+     * Returns a string representation of the water tile.
+     * @return The string "water".
+     */
     //to string
     public String toString() {
         return "Water";
