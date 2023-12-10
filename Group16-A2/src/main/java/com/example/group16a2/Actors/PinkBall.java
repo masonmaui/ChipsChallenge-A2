@@ -114,6 +114,13 @@ public class PinkBall extends Actor{
         }
     }
 
+    /**
+     * Checks if the specified coordinates are in the bounds.
+     * @param x The x-coordinate to be checked for within the bounds.
+     * @param y The y-coordinate to be checked for within the bounds.
+     * @param tile Representing the grid.
+     * @return true if coordinates within the bounds, false otherwise.
+     */
     //is in bounds
     public boolean isInBounds(int x, int y, Tile[][] tile){
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
