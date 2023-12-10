@@ -55,6 +55,10 @@ public class PinkBall extends Actor{
         return x;
     }
 
+    /**
+     * Gets the y-coordinate of the pink ball on the grid.
+     * @return y y-coordinate of the pink ball.
+     */
     //get y
     public int getY(){
         return y;
