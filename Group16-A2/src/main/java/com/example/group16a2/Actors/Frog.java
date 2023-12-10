@@ -161,7 +161,10 @@ public class Frog extends Actor {
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
     }
 
-
+    /**
+     * Returns a string representation of the Frog.
+     * @return The string "Frog".
+     */
 
     //to string
     public String toString(){
