@@ -31,6 +31,11 @@ public class LockedDoorGreen extends Tile{
         return filename;
     }
 
+    /**
+     * Returns a string representation of the locked
+     * door green.
+     * @return The string "LockedDoorGreen".
+     */
     //to string
     public String toString() {
         return "LockedDoorGreen";
