@@ -138,6 +138,10 @@ public class TileLayer {
         return x;
     }
 
+    /**
+     * Gets the height of the tile layer.
+     * @return The height of tile layer.
+     */
     //get y
     public int getY() {
         return y;
