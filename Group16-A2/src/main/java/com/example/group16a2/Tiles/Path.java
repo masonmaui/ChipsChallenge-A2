@@ -11,6 +11,11 @@ public class Path extends Tile {
 
     private String filename;
 
+    /**
+     * Constructs the path with the specified passable
+     * and image file name.
+     * @param isPassable
+     */
 
     public Path(boolean isPassable) {
         super(isPassable, "file:Sprites/Path.png");
