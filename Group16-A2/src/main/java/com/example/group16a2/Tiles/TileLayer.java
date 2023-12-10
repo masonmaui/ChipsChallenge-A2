@@ -3,6 +3,13 @@ package com.example.group16a2.Tiles;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * TileLayer.java
+ * This class represents the layers of tiles for a game
+ * map.
+ * @author Mason Emery
+ * @version 1.6
+ */
 
 public class TileLayer {
 
@@ -14,11 +21,20 @@ public class TileLayer {
     private int x;
     private int y;
 
+    /**
+     * Constructs the tile layer object by reading tile information
+     * from specified file.
+     * @param filename The name of the file containing tile information.
+     */
     public TileLayer(String filename) {
         this.filename = filename;
         tiles = readDataFile(filename);
     }
 
+    /**
+     * Gets the time limit for the game.
+     * @return the timeLimit for the game.
+     */
     //get time limit
     public int getTimeLimit() {
         return timeLimit;
