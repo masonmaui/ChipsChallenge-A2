@@ -33,6 +33,11 @@ public class Path extends Tile {
         return filename;
     }
 
+    /**
+     * Represents a string representation of a path tile.
+     * @return the string representation of the path tile.
+     */
+    
     //to string
     public String toString() {
         return "Path";
