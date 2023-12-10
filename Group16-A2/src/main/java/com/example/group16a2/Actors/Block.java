@@ -41,10 +41,7 @@ public class Block extends Actor{
     public void moveRight() {
         x++;
     }
-    private boolean hasActors(Actor tile) {
-        return tile != null;
-    }
-
+    
     //check block is on water
     public void isOnWater(Tile[][] tile,ArrayList<Actor> actors){
         if(tile[y][x] instanceof Water) {
@@ -53,6 +50,11 @@ public class Block extends Actor{
             //remove block from actors using try catch
             actors.remove(this);
         }
+    }
+
+    //is in bounds
+    public boolean isInBounds(int x, int y, Tile[][] tile){
+        return x >= 0 && x < tile[0].length && y >= 0 && y < tile.length;
     }
 
     //to string
