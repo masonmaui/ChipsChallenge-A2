@@ -27,12 +27,16 @@ public class Wall extends Tile {
      * @return The file name of the sprite image for
      * the wall tile.
      */
-    
+
         //get file name
         public String getFileName() {
             return fileName;
         }
 
+    /**
+     * Returns a string representation of the wall tile.
+     * @return The string "Wall".
+     */
         //to string
         public String toString() {
             return "Wall";
