@@ -48,4 +48,20 @@ public class Actor {
         return Posy;
     }
 
+    /**
+     * Sets the Y coordinator.
+     */
+    //set y
+    public void setPosy(int newY) {
+        Posy = newY;
+    }
+
+    /**
+     * Sets the X coordinator.
+     */
+    //set X
+    public void setPosx(int newX) {
+        posX = newX;
+    }
+
 }
