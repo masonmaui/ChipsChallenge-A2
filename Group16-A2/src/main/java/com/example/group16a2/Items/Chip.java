@@ -38,6 +38,12 @@ public class Chip extends CollectableItems {
         Action(targetInv);
     }
 
+    /**
+     * Updates the chip count in the item layer and removes chip from the
+     * layer once transaction is completed.
+     * @param targetItemLayer the target item layer on which the action
+     *                        is performed.
+     */
     public void Action(ItemLayer targetItemLayer){
         targetItemLayer.updateChipCount(chipValue);
         //Need to complete functions to remove the chip from item layer once transaction is complete.
