@@ -21,6 +21,10 @@ public class PlayerInventory {
         items = new ArrayList<>();
     }
 
+    public int getChipCount() {
+        return chipCount;
+    }
+
     public void addItem(CollectableItems item) {
         items.add(item);
         if (item instanceof BlueKey) {
