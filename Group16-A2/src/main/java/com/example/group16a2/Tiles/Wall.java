@@ -22,6 +22,12 @@ public class Wall extends Tile {
             fileName = "file:Sprites/Wall.png";
         }
 
+    /**
+     * Gets the file name associated with the wall tile.
+     * @return The file name of the sprite image for
+     * the wall tile.
+     */
+    
         //get file name
         public String getFileName() {
             return fileName;
