@@ -6,7 +6,7 @@ public class IceTopLeft extends Tile{
 
             public IceTopLeft(boolean isPassable) {
                 super(isPassable, "file:Sprites/IceTopLeft.png");
-                filename = "iceTopLeft.png";
+                filename = "file:Sprites/IceTopLeft.png";
             }
 
             //get file name
