@@ -200,8 +200,18 @@ public class Player extends Actor{
                 }else if (tile[y - 1][x] instanceof Ice){
                     y--;
                     moveUp(tile);
+                }else if (tile[y - 1][x] instanceof IceTopRight){
+                    y--;
+                    moveLeft(tile);
                 }
-                else {
+                else if (tile[y - 1][x] instanceof IceTopLeft){
+                    y--;
+                    moveRight(tile);
+                }
+                else if (tile[y - 1][x] instanceof IceBottomLeft){
+                }
+                else if (tile[y - 1][x] instanceof IceBottomRight) {
+                } else {
                     y--;
                 }
             }
@@ -243,8 +253,18 @@ public class Player extends Actor{
                 }else if (tile[y + 1][x] instanceof Ice){
                     y++;
                     moveDown(tile);
+                }else if (tile[y + 1][x] instanceof IceTopRight){
                 }
-                else {
+                else if (tile[y + 1][x] instanceof IceTopLeft){
+                }
+                else if (tile[y + 1][x] instanceof IceBottomLeft){
+                    y++;
+                    moveRight(tile);
+                }
+                else if (tile[y + 1][x] instanceof IceBottomRight){
+                    y++;
+                    moveLeft(tile);
+                }else {
                     y++;
                 }
             }
