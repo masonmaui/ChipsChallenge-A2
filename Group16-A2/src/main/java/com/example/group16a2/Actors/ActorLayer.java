@@ -37,7 +37,7 @@ public class ActorLayer {
      * @param layerSize The array that represents the size of the layer (x,y).
      * @param playerActor represents the actor player.
      */
-    
+
     // Parameterised constructor
     public ActorLayer(Actor[] monsters, Actor[] blocks, int[] layerSize, Player playerActor) {
         this.monsters = monsters;
@@ -48,6 +48,11 @@ public class ActorLayer {
         this.playerActor = playerActor;
         actors = new Actor[x][y];
     }
+
+    /**
+     * Creating the actor layer by reading data from a file.
+     * @param filename The file path containing actor data.
+     */
 
     public ActorLayer(String filename) {
         actorList = readDataFile(filename);
