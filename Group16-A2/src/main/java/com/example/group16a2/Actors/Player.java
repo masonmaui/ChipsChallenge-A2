@@ -6,17 +6,39 @@ import com.example.group16a2.Tiles.ChipSocket;
 
 import java.util.ArrayList;
 
+
+/**
+ *
+ * Player.java
+ * Represents the player
+ * Handles player movement
+ * Handles interactions with other actors and items
+ * @author Aman Bhavra
+ * @author Mason Emery
+ * @author James Buckley
+ * @version 1.6
+ */
 public class Player extends Actor{
     private PlayerInventory inventory;
     private int x;
     private int y;
 
+    /**
+     * class constructor
+     * @param y represents y co-ordinate of player
+     * @param x represents x co-ordinate of player
+     */
     public Player(int y, int x) {
         super(y, x, "file:Sprites/Actor.png");
         this.x = x;
         this.y = y;
         this.inventory = new PlayerInventory();
     }
+
+    /**
+     * gets inventory
+     * @return an instance of playerInventory
+     */
     public PlayerInventory getInventory() {
         return inventory;
     }
@@ -41,7 +63,7 @@ public class Player extends Actor{
     //move right
 
     /**
-     * move player one tile to the right
+     * moves player one tile to the right
      * @param tile represents the grid of tiles
      */
     public void moveRight(Tile[][] tile){
@@ -81,7 +103,7 @@ public class Player extends Actor{
 
     //move left
     /**
-     * move player one tile to the left
+     * moves player one tile to the left
      * @param tile represents the grid of tiles
      */
     public void moveLeft(Tile[][] tile){
@@ -125,7 +147,7 @@ public class Player extends Actor{
 
     //move up
     /**
-     * move player one tile up
+     * moves player one tile up
      * @param tile represents the grid of tiles
      */
     public void moveUp(Tile[][] tile){
@@ -159,7 +181,7 @@ public class Player extends Actor{
 
     //move down
     /**
-     * move player one tile down
+     * moves player one tile down
      * @param tile represents the grid of tiles
      */
     public void moveDown(Tile[][] tile){
@@ -217,47 +239,32 @@ public class Player extends Actor{
         }
     }
 
-    /**
-     * Determines if there is a blue key in inventory
-     * @param lockedDoorBlue represents an instance of LockedDoorBlue
-     */
+    
     public void handleLockedDoorBlueInteraction(LockedDoorBlue lockedDoorBlue) {
         if (inventoryContainsBlueKey()) {
             BlueKey blueKey = inventory.findAndRemoveBlueKey();
         }
     }
-    /**
-     * Determines if there is a red key in inventory
-     * @param lockedDoorRed represents an instance of LockedDoorBlue
-     */
+
     private void handleLockedDoorRedInteraction(LockedDoorRed lockedDoorRed) {
         if (inventoryContainsRedKey()) {
             RedKey redKey = inventory.findAndRemoveRedKey();
         }
     }
-    /**
-     * Determines if there is a green key in inventory
-     * @param lockedDoorGreen represents an instance of LockedDoorBlue
-     */
+
     private void handleLockedDoorGreenInteraction(LockedDoorGreen lockedDoorGreen) {
         if (inventoryContainsGreenKey()) {
             GreenKey greenKey = inventory.findAndRemoveGreenKey();
         }
     }
-    /**
-     * Determines if there is a yellow key in inventory
-     * @param lockedDoorYellow represents an instance of LockedDoorBlue
-     */
+
     private void handleLockedDoorYellowInteraction(LockedDoorYellow lockedDoorYellow) {
         if (inventoryContainsYellowKey()) {
             YellowKey yellowKey = inventory.findAndRemoveYellowKey();
         }
     }
 
-    /**
-     * Determines if there is a chip in inventory
-     * @param chipSocket represents an instance of chip socket
-     */
+
     public void handleChipSocketInteraction(ChipSocket chipSocket) {
         if (inventoryContainsChip()) {
             Chip chip = inventory.findAndRemoveChip();
@@ -290,6 +297,13 @@ public class Player extends Actor{
     }
 
     //check if player is in same tile as frog or ball or bug
+
+    /**
+     * Checks if player is on same tile as a monster or water
+     * @param actors represents a list of actors
+     * @param tile represents the grid of tiles
+     * @return true if player is on same tile as monster/water, false otherwise
+     */
     public boolean isKilled(ArrayList<Actor> actors, Tile[][] tile){
         for (Actor actor : actors){
             if (actor instanceof Frog){
@@ -312,11 +326,23 @@ public class Player extends Actor{
     }
 
     //check if won
+
+    /**
+     * checks if game has been won
+     * @param tile represents a grid of tiles
+     * @return true if player is on exit, false otherwise
+     */
     public boolean isWon(Tile[][] tile){
         return tile[y][x] instanceof Exit;
     }
 
     //check if next tile is dirt
+
+    /**
+     * checks if tile is dirt
+     * @param tile represents a grid of tiles
+     * @return true if tile is dirt, false otherwise
+     */
     public boolean isDirt(Tile[][] tile){
         return tile[y][x] instanceof Dirt;
     }
