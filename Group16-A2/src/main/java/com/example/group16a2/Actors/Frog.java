@@ -49,6 +49,12 @@ public class Frog extends Actor {
         return y;
     }
 
+    /**
+     * Finds a path to the specified player and adjust the frog's position
+     * accordingly.
+     * @param player The player object to find a path to.
+     * @param tiles Tiles that's representing the game.
+     */
     //finds path to player
     public void findPath(Player player, Tile[][] tiles){
         int playerX = player.getX();
