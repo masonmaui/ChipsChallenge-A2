@@ -57,6 +57,11 @@ public class Profile {
     }
 
 
+    /**
+     * Creates a new high score file for the current level.
+     * @throws IOException If an I/O error occurs during the file
+     *                     creation process.
+     */
     private void createHighScoresFile() {
         try {
             File myObj = new File("highscores"+currentLevel+".txt");
