@@ -42,6 +42,10 @@ public class CollectableItems {
         // Define any actions to be performed when the item is used or collected
     }
 
+    /**
+     * Gets the filename.
+     * @return filename of the item.
+     */
     // Get file name
     public String getFilename() {
         return filename;
