@@ -4,8 +4,8 @@ P P P P P P P P P P
 W P P P P P P P P P
 W P P ITR P P P P P P
 W # # I P P P P # P
-P P P P P P P P # P
-P P P P P P P P P P
+P P D D P P P P # P
+P P D D P P P P P P
 P P P P P P P P P P
 # P # # # # # # # #
 W P W W W W W W W W

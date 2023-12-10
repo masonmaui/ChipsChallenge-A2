@@ -40,6 +40,10 @@ public class Player extends Actor{
     public void moveRight(Tile[][] tile){
         if (isInBounds(x + 1, y, tile)){
             if (tile[y][x + 1].isPassable()){
+                if (isDirt(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 x++;
             }
         }
@@ -49,6 +53,10 @@ public class Player extends Actor{
     public void moveLeft(Tile[][] tile){
         if (isInBounds(x - 1, y, tile)){
             if (tile[y][x - 1].isPassable()){
+                if (isDirt(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 x--;
             }
         }
@@ -58,6 +66,10 @@ public class Player extends Actor{
     public void moveUp(Tile[][] tile){
         if (isInBounds(x, y - 1, tile)){
             if (tile[y - 1][x].isPassable()){
+                if (isDirt(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 y--;
             }
         }
@@ -67,6 +79,10 @@ public class Player extends Actor{
     public void moveDown(Tile[][] tile){
         if (isInBounds(x, y + 1, tile)){
             if (tile[y + 1][x].isPassable()){
+                if (isDirt(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 y++;
             }
         }
@@ -100,6 +116,11 @@ public class Player extends Actor{
     //check if won
     public boolean isWon(Tile[][] tile){
         return tile[y][x] instanceof Exit;
+    }
+
+    //check if next tile is dirt
+    public boolean isDirt(Tile[][] tile){
+        return tile[y][x] instanceof Dirt;
     }
 
     //to string

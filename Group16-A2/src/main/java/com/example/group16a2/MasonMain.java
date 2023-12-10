@@ -391,7 +391,7 @@ public class MasonMain extends Application {
         //show level number on screen
         Label levelLabel = new Label("Level: " + level);
         toolbar.getChildren().add(levelLabel);
-        
+
 
         // Create a GridPane for the inventory display
         GridPane inventoryGrid = new GridPane();
