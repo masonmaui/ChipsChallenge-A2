@@ -87,6 +87,9 @@ public class ActorLayer {
 
     }
 
+    /**
+     * Saves the actor layer from the file.
+     */
     public void saveLayer() {
     }
 
