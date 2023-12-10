@@ -170,10 +170,21 @@ public class PlayerInventory {
         return null;
     }
 
+    /**
+     * Gets a list of all collectable items present in the
+     * player's inventory.
+     * @return items a list containing all the collectable items.
+     */
     public List<CollectableItems> getItems() {
         return items;
     }
 
+    /**
+     * Gets a list of images associated with the collectable
+     * items currently present in the player's inventory.
+     * @return images a list containing image instances
+     * associated with the collectable items in player's inventory.
+     */
     public List<Image> getImages() {
         List<Image> images = new ArrayList<>();
         for (CollectableItems item : items) {
@@ -181,6 +192,7 @@ public class PlayerInventory {
         }
         return images;
     }
+
 
     public void setUpdateListener(InventoryUpdateListener listener) {
         this.updateListener = listener;
