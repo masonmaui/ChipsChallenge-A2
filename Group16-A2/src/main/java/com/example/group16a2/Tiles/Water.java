@@ -10,6 +10,13 @@ package com.example.group16a2.Tiles;
 public class Water extends Tile{
 
     private String filename;
+
+    /**
+     * Constructs water tile with the specified passability
+     * and default sprite image file path.
+     * @param isPassable true if it can pass through the tile,
+     *                   false otherwise.
+     */
     public Water(boolean isPassable) {
         super(isPassable , "file:Sprites/Water.png");
         filename = "file:Sprites/Water.png";
