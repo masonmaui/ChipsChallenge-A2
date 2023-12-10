@@ -24,7 +24,6 @@ public class PinkBall extends Actor{
     /**
      *
      * Constructs the pink ball with the initial position and direction.
-     *
      * @param y The y coordinate of the pink ball.
      * @param x The x coordinate of the pink ball.
      * @param direction The direction of the pink ball(N,S,E or W).
@@ -47,6 +46,10 @@ public class PinkBall extends Actor{
         this.y = y;
     }
 
+    /**
+     * Gets the x-coordinate of the pink ball on the grid.
+     * @return x x-coordinate of the pink ball.
+     */
     //get x
     public int getX(){
         return x;
