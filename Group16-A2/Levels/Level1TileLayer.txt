@@ -1,12 +1,16 @@
-11 10
-P P E # # P P P YD BD
-P P P P P P P P P YD
-W P P P P P P P P P
-W P P P P P P P P P
-W # # P P P P P # P
-P P D D P P P P # P
-P P D D P P P P P P
-P P P P P P P P P P
-# P # # # # # # # #
-W P W W W W W W W W
-W P W W W W W W W W
+15 15
+P P P P P # P P P # P P P P P
+P P P P P # P P P # P P P P P
+P P P P P YD P P P GD P P P P P
+P P P P P # P P P # P P P P P
+P P P P P # P P P # P P P P P
+# # # # # # P P P # # # # # #
+P P P P P P P P P P P P P P P
+P P P P P P P P P P P P P P P
+P P P P P P P P P P P P P P P
+# # # # # # P P P # # # # # #
+P P P P P # P P P # P P P P P
+P P P P P # P P P # P P P P P
+P P E P P BD P P P RD P P P P P
+P P P P P # P P P # P P P P P
+P P P P P # P P P # P P P P P

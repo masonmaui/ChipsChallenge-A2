@@ -1,12 +1,16 @@
-11 10 
-# # P P P P P P P P
-P CS2 P P P P I I ITR #
-# # P P P P I I I P
-P P P P P P P I I P
-P P P P P P P P IBR P
-P P P P P P W P P P
-P P P P P P P P P P
-P W W W P P P P # #
-P P P W P P P P # E
-P W W W P P P P # P
-P P P P P P P P BD P
+15 15
+# # # # # # # # # # # # # # #
+# I I I # ITL I I I I I I I I ITR
+# I B I # I I I I I I I I I I
+# I I I # I I I I I I I I I I
+# I I I # I I I # # # # I I I
+# I I I # I I I # ITL I B I I I
+# I I I # I I I # I I I I I I
+# I I I # I I I # IBL I I I I IBR
+# I I I # I I I # # # # # # #
+# I I I # I I I # P P P # P E
+# P P P # P P P # P P P # P P
+# P P P # P P P # P P P # P P
+# P P P T P P P T P P P CS1 P P
+# P P P # P P P # P P P # P P
+# # # # # # # # # # # # # # #
