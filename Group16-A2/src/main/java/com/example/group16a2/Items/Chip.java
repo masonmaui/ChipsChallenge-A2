@@ -1,8 +1,15 @@
 package com.example.group16a2.Items;
 
+/**
+ * Chip.java
+ * This class represents a chip that can be collected in the game.
+ * @author Mason Emery and Marco Silva
+ * @version 1.6
+ */
 public class Chip extends CollectableItems {
     private int chipValue;
     private String filename;
+
 
     public Chip(){
         super("file:Sprites/Chip.png");
