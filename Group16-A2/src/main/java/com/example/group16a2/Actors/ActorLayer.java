@@ -129,6 +129,12 @@ public class ActorLayer {
     public void getActor(Actor actor) {
     }
 
+
+    /**
+     * Remove the actor from the layer.
+     * @param actor To remove the actor.
+     */
+    
     public void removeActor(Actor actor) {
     }
 
