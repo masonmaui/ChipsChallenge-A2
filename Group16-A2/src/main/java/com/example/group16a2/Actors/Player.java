@@ -243,27 +243,51 @@ public class Player extends Actor{
         }
     }
 
+    /**
+     * checks if inventory contains a blue key
+     * @return true if inventory contains blue key
+     */
     public boolean inventoryContainsBlueKey() {
         return inventory.containsBlueKey();
     }
-
+    /**
+     * checks if inventory contains a red key
+     * @return true if inventory contains red key
+     */
     public boolean inventoryContainsRedKey() {
         return inventory.containsRedKey();
     }
-
+    /**
+     * checks if inventory contains a green key
+     * @return true if inventory contains green key
+     */
     public boolean inventoryContainsGreenKey() {
         return inventory.containsGreenKey();
     }
-
+    /**
+     * checks if inventory contains a yellow key
+     * @return true if inventory contains yellow key
+     */
     public boolean inventoryContainsYellowKey() {
         return inventory.containsYellowKey();
     }
-
+    /**
+     * checks if inventory contains a computer chip
+     * @return true if inventory contains computer chip
+     */
     public boolean inventoryContainsChip() {
         return inventory.containsChip();
     }
 
     //is in bounds
+
+    /**
+     * checks if tile to be moved to is in bounds
+     * @param x represents the x co-ordinate of the player
+     * @param y represents the y co-ordinate of the player
+     * @param tile represents the grid of tiles
+     * @return true if tile to be moved to is in bounds, false otherwise
+     */
     public boolean isInBounds(int x, int y, Tile[][] tile){
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
     }
@@ -321,6 +345,11 @@ public class Player extends Actor{
     }
 
     //to string
+
+    /**
+     * Returns a string representing the class
+     * @return a string giving name of class
+     */
     public String toString(){
         return "Player";
     }
