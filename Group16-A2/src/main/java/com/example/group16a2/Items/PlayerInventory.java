@@ -93,6 +93,12 @@ public class PlayerInventory {
         }
         return null;
     }
+
+    /**
+     * Searches for red key in the player's inventory and
+     * removes it.
+     * @return null if red key is not found.
+     */
     public RedKey findAndRemoveRedKey() {
         Iterator<CollectableItems> iterator = items.iterator();
         while (iterator.hasNext()) {
@@ -107,6 +113,11 @@ public class PlayerInventory {
         return null;
     }
 
+    /**
+     * Searches for green key in the player's inventory and
+     * removes it.
+     * @return null if green key is not found.
+     */
     public GreenKey findAndRemoveGreenKey() {
         Iterator<CollectableItems> iterator = items.iterator();
         while (iterator.hasNext()) {
