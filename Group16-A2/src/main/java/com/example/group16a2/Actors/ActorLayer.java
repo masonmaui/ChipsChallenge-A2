@@ -134,9 +134,17 @@ public class ActorLayer {
      * Remove the actor from the layer.
      * @param actor To remove the actor.
      */
-    
+
     public void removeActor(Actor actor) {
     }
+
+    /**
+     * Display information about all actors in the actor layer. It prints the
+     * details of the monsters, blocks and the player to the console.
+     * Includes the information of the string representation of all actors.
+     *
+     * @return null.
+     */
 
     public String allActors() {
         for (Actor value : monsters) {
