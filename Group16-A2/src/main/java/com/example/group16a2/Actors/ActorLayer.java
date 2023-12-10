@@ -161,6 +161,10 @@ public class ActorLayer {
     }
 
 
+    /**
+     * Gets the player from the actor list.
+     * @return null if no actor is present.
+     */
     
     public Player getPlayer() {
         //from arraylist
