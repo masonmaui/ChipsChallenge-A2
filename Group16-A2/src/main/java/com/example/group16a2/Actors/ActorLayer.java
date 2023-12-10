@@ -251,25 +251,4 @@ public class ActorLayer {
 
     }
 
-    /**
-     * To test the ActorLayer class and creates the instance of the class, loads
-     * actor data from the level 1 actor layer txt file format. If it has a valid file
-     * name it will print otherwise it returns null.
-     *
-     * @param args Command line arguments
-     */
-
-    public static void main(String[] args) {
-        ActorLayer actorlayer = new ActorLayer("Levels/Level1ActorLayer.txt");
-
-        //show file paths of all actord in list
-        for (Actor actor : actorlayer.getActorList()) {
-            if (actor != null) {
-                System.out.println(actor.getFileName());
-            }else{
-                System.out.println("null");
-            }
-        }
-    }
-
 }
