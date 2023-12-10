@@ -76,6 +76,11 @@ public class Profile {
         }
     }
 
+    /**
+     * Submits a high score for the current player, updating
+     * the high scores file for the current level.
+     * @param score The score to be submitted
+     */
     public void submitHighscore(int score){
         createHighScoresFile();
         boolean update = true;
