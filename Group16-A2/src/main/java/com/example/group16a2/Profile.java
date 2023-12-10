@@ -30,6 +30,10 @@ public class Profile {
         }
     }
 
+    /**
+     * Gets the name of the profile.
+     * @return The name of the profile.
+     */
     public String getName() {
         return name;
     }
