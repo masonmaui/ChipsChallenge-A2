@@ -224,6 +224,12 @@ public class Profile {
         return (name + " ".repeat(Math.max(0, 16 - name.length())));
     }
 
+    /**
+     * Reads profile name from profile.txt file and returns them as
+     * an ArrayList of strings.
+     * @return An ArrayList of strings containing profile names read
+     * from the "profiles.txt" files.
+     */
     public static ArrayList<String> readProfileFile(){
         ArrayList<String> names = new ArrayList<>();
         try {
