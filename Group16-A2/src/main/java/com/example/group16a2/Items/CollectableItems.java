@@ -51,14 +51,29 @@ public class CollectableItems {
         return filename;
     }
 
+    /**
+     * Checks if the item is consumable.
+     * @return true if the item is consumable, otherwise
+     * false.
+     */
     public Boolean getConsumable() {
         return isConsumable;
     }
 
+    /**
+     * Checks if the item is collected.
+     * @return true if item is collected, false
+     * otherwise.
+     */
     public boolean isCollected() {
         return isCollected;
     }
 
+    /**
+     * Set the collected status of the item.
+     * @param collected true, if the item is collected,
+     *                  otherwise false.
+     */
     public void setCollected(boolean collected) {
         isCollected = collected;
     }
