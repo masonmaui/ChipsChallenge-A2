@@ -69,6 +69,11 @@ public class CollectableItems {
         return isCollected;
     }
 
+    /**
+     * Set the collected status of the item.
+     * @param collected true, if the item is collected,
+     *                  otherwise false.
+     */
     public void setCollected(boolean collected) {
         isCollected = collected;
     }
