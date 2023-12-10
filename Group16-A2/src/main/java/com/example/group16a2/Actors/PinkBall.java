@@ -64,6 +64,12 @@ public class PinkBall extends Actor{
         return y;
     }
 
+    /**
+     * Moves the pink ball in different direction and bounces based on
+     * the grid.
+     * @param tiles Representing the grid of tiles that the pink ball
+     *              interacts with.
+     */
     public void bounce(Tile[][] tiles){
         if(Direction.equals("N")){
             if(isInBounds(x, y - 1, tiles)){
