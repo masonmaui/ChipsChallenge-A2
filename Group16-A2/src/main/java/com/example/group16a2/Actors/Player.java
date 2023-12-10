@@ -42,15 +42,26 @@ public class Player extends Actor{
         return inventory;
     }
 
+    /**
+     * gets x co-ordinate of player
+     * @return x x co-ordinate of player
+     */
     //overide super getx and gety
     public int getX(){
         return x;
     }
-
+    /**
+     * gets y co-ordinate of player
+     * @return y y co-ordinate of player
+     */
     public int getY(){
         return y;
     }
 
+    /**
+     * moves player one tile to the right
+     * @param tile represents the grid of tiles
+     */
     //move right
     public void moveRight(Tile[][] tile){
         if (isInBounds(x + 1, y, tile)){
@@ -105,6 +116,10 @@ public class Player extends Actor{
         }
     }
 
+    /**
+     * moves player one tile to the left
+     * @param tile represents the grid of tiles
+     */
     //move left
     public void moveLeft(Tile[][] tile){
         if (isInBounds(x - 1, y, tile)){
@@ -143,6 +158,10 @@ public class Player extends Actor{
         }
     }
 
+    /**
+     * moves player one tile up
+     * @param tile represents the grid of tiles
+     */
     public void moveUp(Tile[][] tile){
         if (isInBounds(x, y - 1, tile)){
             if (tile[y - 1][x].isPassable()){
@@ -181,6 +200,10 @@ public class Player extends Actor{
         }
     }
 
+    /**
+     * move player one tile down
+     * @param tile represents the grid of tiles
+     */
     //move down
     public void moveDown(Tile[][] tile){
         if (isInBounds(x, y + 1, tile)){
@@ -220,6 +243,10 @@ public class Player extends Actor{
         }
     }
 
+    /**
+     * checks if player is on the same tile as a door or chip socket
+     * @param tile represents the grid of tiles
+     */
     public void handlePlayerInteraction(Tile tile) {
         if (tile instanceof LockedDoorBlue) {
             handleLockedDoorBlueInteraction((LockedDoorBlue) tile);
