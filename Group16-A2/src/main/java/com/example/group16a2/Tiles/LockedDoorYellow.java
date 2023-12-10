@@ -23,6 +23,10 @@ public class LockedDoorYellow extends Tile{
         filename = "file:Sprites/YellowLock.png";
     }
 
+    /**
+     * Returns the filename of the sprite.
+     * @return The filename of the sprite.
+     */
     //get file name
     public String getFileName() {
         return filename;
