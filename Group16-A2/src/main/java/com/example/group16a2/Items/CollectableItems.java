@@ -26,6 +26,13 @@ public class CollectableItems {
         this.filename = filename;
     }
 
+    /**
+     * Adds the item to the player's inventory and set
+     * it as being collected.
+     * @param player The player to whose inventory the item
+     *               is added.
+     */
+
     public void addToPlayerInventory(Player player) {
         player.getInventory().addItem(this);
         setCollected(true);
