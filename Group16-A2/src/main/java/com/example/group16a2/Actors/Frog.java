@@ -30,6 +30,10 @@ public class Frog extends Actor {
         this.y = y;
     }
 
+    /**
+     * Gets the x-coordinate of the frog.
+     * @return The x-coordinate of the frog.
+     */
     //get x
     public int getX(){
         return x;
