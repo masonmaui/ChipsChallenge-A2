@@ -1,0 +1,21 @@
+20 20
+# # # # # # # # # # # # # # # # # # # #
+# P P P # I I I I I I I I I I I P P P #
+# P P P I I I I I I I I I I I I P P P #
+# P P P # I I I I I I I I I I I P P P #
+# # # # # # # # # # # # # # # # # I I #
+# I I I I I I I I I ITR # P P P P # I I #
+# I I I I I I I I I I # P P P P # I I #
+# I I # # # # # # I I # # GD # # # I I #
+# I I # P P P P P P P P P P P P # I I #
+# I I # P P P P P P P P P P P P # I I #
+# I I # P P P P P P P P P P P P # I I #
+# I I # P P P P P P P P P P P P # I I #
+# I I # # # # # # # # # # # # # # I I #
+# I I I I I I I P P P P I I I I I I I #
+# IBL I I I I I I P P P P I I I I I I IBR #
+# # # # # # # # P P P P # # # # # # # #
+# P P P P P P P P P P P P P P # P P P #
+# P P P P P P P P P P P P P P CS2 P E P #
+# P P P P P P P P P P P P P P # P P P #
+# # # # # # # # # # # # # # # # # # # #
