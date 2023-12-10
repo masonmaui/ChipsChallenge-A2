@@ -126,6 +126,12 @@ public class PinkBall extends Actor{
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
     }
 
+    /**
+     * Returns a string representation of the pink ball
+     * including the directions.
+     * @return A string representing the pink ball
+     * direction.
+     */
     //to string
     public String toString(){
         if(Direction.equals("N"))
