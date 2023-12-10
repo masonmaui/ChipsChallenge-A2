@@ -145,7 +145,7 @@ public class Profile {
     /**
      * Saves profile information to "profiles.txt".
      */
-    
+
     public void saveProfileToFile() {
         createProfilesFile();
         try {
@@ -190,6 +190,11 @@ public class Profile {
 
     }
 
+    /**
+     * Loads the profile with the specified name.
+     * @param profilename The name of the profile to load or create.
+     * @return the profile object that is loaded from the file.
+     */
     public static Profile loadProfile(String profilename) {
         deleteProfileFromFileProfiles(profilename);
         return new Profile(profilename);
