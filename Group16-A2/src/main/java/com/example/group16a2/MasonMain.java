@@ -152,7 +152,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
 
         //these added here for faster response times
         //check if player is killed
-        if (player.isKilled(actors) || timeLimit == 0){
+        if (player.isKilled(actors,tile) || timeLimit == 0){
             endgame();
         }
         //check if player is on exit
@@ -181,6 +181,12 @@ public class MasonMain extends Application implements InventoryUpdateListener {
             }
         }
 
+        //move bug
+        for (Actor actor : actors) {
+            if (actor instanceof Bug) {
+                ((Bug) actor).wallFollow(tile);
+            }
+        }
         //decrement time limit
         timeLimit--;
 
@@ -231,6 +237,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         event.consume();
     }
 
+    //used to check if player can move to a certain tile if its locked
     private boolean canMove(int targetX, int targetY) {
         // Check if the target position is within bounds
         if (targetX < 0 || targetX >= tile[0].length || targetY < 0 || targetY >= tile.length) {

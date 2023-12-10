@@ -57,6 +57,9 @@ public class Player extends Actor{
                 else if (isChipSocket(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                }else if (tile[y][x + 1] instanceof Ice){
+                    //change tile in that position to be path
+                    x++;
                 }
                 x++;
             }
@@ -70,28 +73,35 @@ public class Player extends Actor{
                 if (isDirt(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    x--;
                 }
                 else if (isLockedDoorBlue(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    x--;
                 }
                 else if (isLockedDoorRed(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    x--;
                 }
                 else if (isLockedDoorGreen(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    x--;
                 }
                 else if (isLockedDoorYellow(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    x--;
                 }
-                else if (isChipSocket(tile)){
+                else if (isChipSocket(tile)) {
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    x--;
+                }else{
+                    x--;
                 }
-                x--;
             }
         }
     }
@@ -103,26 +113,23 @@ public class Player extends Actor{
                 if (isDirt(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorBlue(tile)){
+                }else if (isLockedDoorBlue(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorRed(tile)){
+                }else if (isLockedDoorRed(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorGreen(tile)){
+                }else if (isLockedDoorGreen(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorYellow(tile)){
+                }else if (isLockedDoorYellow(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isChipSocket(tile)){
+                }else if (isChipSocket(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                }else if (tile[y - 1][x] instanceof Ice){
+                    y--;
                 }
                 y--;
             }
@@ -136,28 +143,33 @@ public class Player extends Actor{
                 if (isDirt(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorBlue(tile)){
+                    y++;
+                }else if (isLockedDoorBlue(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorRed(tile)){
+                    y++;
+                }else if (isLockedDoorRed(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorGreen(tile)){
+                    y++;
+                }else if (isLockedDoorGreen(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorYellow(tile)){
+                    y++;
+                }else if (isLockedDoorYellow(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isChipSocket(tile)){
+                    y++;
+                }else if (isChipSocket(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    y++;
+                }else if (tile[y + 1][x] instanceof Ice){
+                    y++;
+                    moveDown(tile);
+                }else {
+                    y++;
                 }
-                y++;
             }
         }
     }
@@ -232,7 +244,7 @@ public class Player extends Actor{
     }
 
     //check if player is in same tile as frog or ball or bug
-    public boolean isKilled(ArrayList<Actor> actors){
+    public boolean isKilled(ArrayList<Actor> actors, Tile[][] tile){
         for (Actor actor : actors){
             if (actor instanceof Frog){
                 if (actor.getX() == this.getX() && actor.getY() == this.getY()){
@@ -246,6 +258,8 @@ public class Player extends Actor{
                 if (actor.getX() == this.getX() && actor.getY() == this.getY()){
                     return true;
                 }
+            }else if (tile[y][x] instanceof Water){
+                return true;
             }
         }
         return false;
