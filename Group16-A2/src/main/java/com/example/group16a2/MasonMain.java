@@ -181,12 +181,14 @@ public class MasonMain extends Application implements InventoryUpdateListener {
             }
         }
 
-        //move bug
-        for (Actor actor : actors) {
-            if (actor instanceof Bug) {
-                ((Bug) actor).wallFollow(tile);
+        if (tickCounter % 3 == 0) {
+            for (Actor actor : actors) {
+                if (actor instanceof Bug) {
+                    ((Bug) actor).wallFollow(tile);
+                }
             }
         }
+
         //decrement time limit
         timeLimit--;
 

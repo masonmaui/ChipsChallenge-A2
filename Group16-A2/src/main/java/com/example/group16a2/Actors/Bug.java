@@ -46,39 +46,52 @@ public class Bug extends Actor{
             if (isInBounds(x - 1, y, tile)) {
                 if (!tile[y][x - 1].isPassableMonster()) {
                     moveUp(tile);
-                }else if(!tile[y][x + 1].isPassableMonster()) {
+                }
+                if(!tile[y][x + 1].isPassableMonster()) {
                     moveDown(tile);
-                }else if(!tile[y - 1][x].isPassableMonster()) {
+                }
+                if(!tile[y - 1][x].isPassableMonster()) {
                     moveRight(tile);
-                }else if(!tile[y + 1][x].isPassableMonster()) {
+                }
+                if(!tile[y + 1][x].isPassableMonster()) {
                     moveLeft(tile);
-                }else if(!tile[y+1][x - 1].isPassableMonster()) {
+                }
+                if(!tile[y+1][x - 1].isPassableMonster()) {
                     moveLeft(tile);
-                }else if(!tile[y+1][x + 1].isPassableMonster()) {
+                }
+                if(!tile[y+1][x + 1].isPassableMonster()) {
                     moveDown(tile);
-                }else if(!tile[y-1][x + 1].isPassableMonster()) {
+                }
+                if(!tile[y-1][x + 1].isPassableMonster()) {
                     moveRight(tile);
-                }else if(!tile[y-1][x - 1].isPassableMonster()) {
+                }
+                if(!tile[y-1][x - 1].isPassableMonster()) {
                     moveUp(tile);
                 }
             }
         }else if (wallToFollow.equals("R")){
             if (isInBounds(x + 1, y, tile)) {
+                if(!tile[y - 1][x].isPassableMonster()) {
+                    moveLeft(tile);
+                }
                 if (!tile[y][x + 1].isPassableMonster()) {
                     moveUp(tile);
-                }else if(!tile[y + 1][x].isPassableMonster()) {
+                }
+                if(!tile[y + 1][x].isPassableMonster()) {
                     moveRight(tile);
-                }else if(!tile[y][x - 1].isPassableMonster()) {
+                }
+                if(!tile[y][x - 1].isPassableMonster()) {
                     moveDown(tile);
-                }else if(!tile[y - 1][x].isPassableMonster()) {
-                    moveLeft(tile);
-                }else if(!tile[y+1][x + 1].isPassableMonster()) {
+                }
+                if(!tile[y+1][x + 1].isPassableMonster()) {
                     moveRight(tile);
-                }else if(!tile[y+1][x - 1].isPassableMonster()) {
+                }if(!tile[y+1][x - 1].isPassableMonster()) {
                     moveDown(tile);
-                }else if(!tile[y-1][x - 1].isPassableMonster()) {
+                }
+                if(!tile[y-1][x - 1].isPassableMonster()) {
                     moveLeft(tile);
-                }else if(!tile[y-1][x + 1].isPassableMonster()) {
+                }
+                if(!tile[y-1][x + 1].isPassableMonster()) {
                     moveUp(tile);
                 }
             }
