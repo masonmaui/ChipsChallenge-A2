@@ -148,12 +148,23 @@ public class Frog extends Actor {
         }
     }
 
+    /**
+     * Checks if the specified coordinate are within the bounds of the tiles.
+     * @param x The x-coordinate to check.
+     * @param y The y-coordinate to check.
+     * @param tile The tile that represents the chip challenge game.
+     * @return true, if the coordinates are within the bound, otherwise
+     * false.
+     */
     //is in bounds
     public boolean isInBounds(int x, int y, Tile[][] tile){
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
     }
 
-
+    /**
+     * Returns a string representation of the Frog.
+     * @return The string "Frog".
+     */
 
     //to string
     public String toString(){
