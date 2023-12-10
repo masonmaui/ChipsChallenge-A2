@@ -11,7 +11,7 @@ import java.util.Scanner;
  * This class represents the layer of the actor like the monsters,
  * blocks and the player in a 2D grid.
  * The layer can get information about the actors, their positions, and more.
- * @author Aman Bhavra
+ * @author Mason Emery
  * @version 1.6
  */
 public class ActorLayer {

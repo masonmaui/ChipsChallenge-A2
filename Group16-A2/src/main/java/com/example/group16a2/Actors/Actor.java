@@ -4,7 +4,7 @@ package com.example.group16a2.Actors;
  * Actor.java
  * This class represents an actor in a position of X coordinate and Y coordinate and to
  * access the actor's image.
- * @author Danah Abu Qrais
+ * @author Mason Emery
  * @version 1.6
  */
 
