@@ -21,6 +21,11 @@ public class TileLayer {
     private int x;
     private int y;
 
+    /**
+     * Constructs the tile layer object by reading tile information
+     * from specified file.
+     * @param filename The name of the file containing tile information.
+     */
     public TileLayer(String filename) {
         this.filename = filename;
         tiles = readDataFile(filename);
