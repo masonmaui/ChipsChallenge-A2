@@ -28,12 +28,17 @@ public class Trap extends Tile {
      * @return The file name of the sprite image for
      * the water tile.
      */
-    
+
     //get file name
     public String getFileName() {
         return filename;
     }
 
+
+    /**
+     * Returns a string representation of the trap tile.
+     * @return The string "Trap".
+     */
     //to string
     public String toString() {
         return "Trap";
