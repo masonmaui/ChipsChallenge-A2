@@ -6,6 +6,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * ActorLayer.java
+ * This class represents the layer of the actor like the monsters,
+ * blocks and the player in a 2D grid.
+ * The layer can get information about the actors, their positions, and more.
+ * @author Aman Bhavra
+ * @version 1.6
+ */
 public class ActorLayer {
     private Actor[] monsters;
     private Actor[] blocks;
