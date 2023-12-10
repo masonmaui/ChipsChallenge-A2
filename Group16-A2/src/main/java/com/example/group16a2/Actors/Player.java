@@ -98,7 +98,7 @@ public class Player extends Actor{
                     moveDown(tile);
                 }
                 else if (tile[y][x + 1] instanceof IceTopLeft){
-                    
+
                 }
                 else if (tile[y][x + 1] instanceof IceBottomLeft){
                 }
@@ -145,9 +145,20 @@ public class Player extends Actor{
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                     x--;
-                }else if (tile[y][x - 1] instanceof Ice){
+                }else if (tile[y][x - 1] instanceof Ice) {
                     x--;
                     moveLeft(tile);
+                }else if (tile[y][x - 1] instanceof IceTopRight){
+                }
+                else if (tile[y][x - 1] instanceof IceTopLeft){
+                    x--;
+                    moveDown(tile);
+                }
+                else if (tile[y][x - 1] instanceof IceBottomLeft){
+                    x--;
+                    moveUp(tile);
+                }
+                else if (tile[y][x - 1] instanceof IceBottomRight){
                 }else {
                     x--;
                 }
