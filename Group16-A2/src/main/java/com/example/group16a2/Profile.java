@@ -16,6 +16,11 @@ public class Profile {
     private int highestLevel = 1;
     private int currentLevel = 1;
 
+    /**
+     * Constructs the profile with the given name.
+     * @param name The name of the profile.
+     * @throws IllegalArgumentException if provided name is null.
+     */
     public Profile(String name) {
         if (name.length()>15) {
             this.name = name.substring(0, 15);
