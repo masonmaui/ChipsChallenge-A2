@@ -12,6 +12,12 @@ public class Tile {
 
     private String filename;
     
+    /**
+     * Constructs a new tile with the specified passable and
+     * filename.
+     * @param isInteractable true if the file is passable,false otherwise.
+     * @param filename The filename associated with the tile.
+     */
     public Tile(boolean isInteractable, String filename) {
         this.isPassable = isInteractable;
     }
