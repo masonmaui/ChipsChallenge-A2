@@ -37,31 +37,33 @@ public class Player extends Actor{
                 if (isDirt(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorBlue(tile)){
+                    x++;
+                }else if (isLockedDoorBlue(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorRed(tile)){
+                    x++;
+                }else if (isLockedDoorRed(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorGreen(tile)){
+                    x++;
+                }else if (isLockedDoorGreen(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isLockedDoorYellow(tile)){
+                    x++;
+                }else if (isLockedDoorYellow(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
-                }
-                else if (isChipSocket(tile)){
+                    x++;
+                }else if (isChipSocket(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    x++;
                 }else if (tile[y][x + 1] instanceof Ice){
-                    //change tile in that position to be path
+                    x++;
+                    moveRight(tile);
+                }else {
                     x++;
                 }
-                x++;
             }
         }
     }
@@ -74,64 +76,69 @@ public class Player extends Actor{
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                     x--;
-                }
-                else if (isLockedDoorBlue(tile)){
+                }else if (isLockedDoorBlue(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                    y--;
+                }else if (isLockedDoorRed(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                     x--;
-                }
-                else if (isLockedDoorRed(tile)){
+                }else if (isLockedDoorGreen(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                     x--;
-                }
-                else if (isLockedDoorGreen(tile)){
+                }else if (isLockedDoorYellow(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                     x--;
-                }
-                else if (isLockedDoorYellow(tile)){
+                }else if (isChipSocket(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                     x--;
-                }
-                else if (isChipSocket(tile)) {
-                    //change tile in that position to be path
-                    tile[y][x] = new Path(true);
+                }else if (tile[y][x - 1] instanceof Ice){
                     x--;
-                }else{
+                    moveLeft(tile);
+                }else {
                     x--;
                 }
             }
         }
     }
 
-    //move up
     public void moveUp(Tile[][] tile){
         if (isInBounds(x, y - 1, tile)){
             if (tile[y - 1][x].isPassable()){
                 if (isDirt(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    y--;
                 }else if (isLockedDoorBlue(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    y--;
                 }else if (isLockedDoorRed(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    y--;
                 }else if (isLockedDoorGreen(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    y--;
                 }else if (isLockedDoorYellow(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    y--;
                 }else if (isChipSocket(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
+                    y--;
                 }else if (tile[y - 1][x] instanceof Ice){
                     y--;
+                    moveUp(tile);
+                }else {
+                    y--;
                 }
-                y--;
             }
         }
     }

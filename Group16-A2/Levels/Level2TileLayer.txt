@@ -1,9 +1,9 @@
 11 10 
-# # P P P P I I ITR #
-P CS2 P P P P P # I #
-# # P P P P P I I IBR #
+# # P P P P P P P P
+P CS2 P P P P I I I #
+# # P P P P I I I P
 P P P P P P P P P P
-P P P P P P P W P P
+P P P P P P P P P P
 P P P P P P W W P P
 P P P P P P P P P P
 P W W W P P P P # #
