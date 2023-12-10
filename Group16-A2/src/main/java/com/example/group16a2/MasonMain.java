@@ -1,10 +1,11 @@
 package com.example.group16a2;
 
 import com.example.group16a2.Actors.*;
+import com.example.group16a2.Items.BlueKey;
 import com.example.group16a2.Items.CollectableItems;
+import com.example.group16a2.Items.InventoryUpdateListener;
+import com.example.group16a2.Tiles.*;
 import com.example.group16a2.Items.ItemLayer;
-import com.example.group16a2.Tiles.Tile;
-import com.example.group16a2.Tiles.TileLayer;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -16,8 +17,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -27,9 +26,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.input.KeyCode;
 import java.util.ArrayList;
-
-public class MasonMain extends Application {
-
+public class MasonMain extends Application implements InventoryUpdateListener {
     private static final int WINDOW_WIDTH = 800;
     private static final int WINDOW_HEIGHT = 500;
 
@@ -97,6 +94,9 @@ public class MasonMain extends Application {
 
         // Update inventory display when the game starts
         updateInventoryDisplay();
+
+        //Updates as soon as an item is collected or deleted
+        player.getInventory().setUpdateListener(this);
     }
 
 
@@ -186,16 +186,24 @@ public class MasonMain extends Application {
         // We change the behaviour depending on the actual key that was pressed.
         switch (event.getCode()) {
             case RIGHT:
-                player.moveRight(tile);
+                if (canMove(player.getX() + 1, player.getY())) {
+                    player.moveRight(tile);
+                }
                 break;
             case LEFT:
-                player.moveLeft(tile);
+                if (canMove(player.getX() - 1, player.getY())) {
+                    player.moveLeft(tile);
+                }
                 break;
             case UP:
-                player.moveUp(tile);
+                if (canMove(player.getX(), player.getY() - 1)) {
+                    player.moveUp(tile);
+                }
                 break;
             case DOWN:
-                player.moveDown(tile);
+                if (canMove(player.getX(), player.getY() + 1)) {
+                    player.moveDown(tile);
+                }
                 break;
             default:
                 // Do nothing for all other keys.
@@ -208,11 +216,78 @@ public class MasonMain extends Application {
             collectItems();
         }
 
-        // Redraw game as the player may have moved.
-        drawGame();
+
+        // Check if the player has moved and update the game state
+        updateGameState(event);
 
         // Consume the event. This means we mark it as dealt with. This stops other GUI nodes (buttons etc) responding to it.
         event.consume();
+    }
+
+    private boolean canMove(int targetX, int targetY) {
+        // Check if the target position is within bounds
+        if (targetX < 0 || targetX >= tile[0].length || targetY < 0 || targetY >= tile.length) {
+            return false;
+        }
+
+        // Check the tile type at the target position
+        Tile targetTile = tile[targetY][targetX];
+
+        // Check if the player has the key in their inventory
+        boolean hasBlueKey = player.getInventory().containsBlueKey();
+        boolean hasRedKey = player.getInventory().containsRedKey();
+        boolean hasGreenKey = player.getInventory().containsGreenKey();
+        boolean hasYellowKey = player.getInventory().containsYellowKey();
+
+
+        // Check if the target tile is a LockedDoorBlue and the player doesn't have the blue key
+        if (targetTile instanceof LockedDoorBlue && !hasBlueKey) {
+            ((LockedDoorBlue) targetTile).blockPlayer(); // Perform actions when player is blocked
+            return false; // Player can't move onto the LockedDoorBlue without the blue key
+        }
+
+        if (targetTile instanceof LockedDoorRed && !hasRedKey) {
+            ((LockedDoorRed) targetTile).blockPlayer();
+            return false;
+        }
+
+        if (targetTile instanceof LockedDoorGreen && !hasGreenKey) {
+            ((LockedDoorGreen) targetTile).blockPlayer();
+            return false;
+        }
+
+        if (targetTile instanceof LockedDoorYellow && !hasYellowKey) {
+            ((LockedDoorYellow) targetTile).blockPlayer();
+            return false;
+        }
+        return true;
+    }
+
+    // Update the code where you call handleLockedDoorBlueInteraction in MasonMain
+    private void updateGameState(KeyEvent event) {
+        Tile currentTile = tile[player.getY()][player.getX()];
+
+        // Check the current tile and handle player interaction
+        player.handlePlayerInteraction(currentTile);
+
+        if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.LEFT ||
+                event.getCode() == KeyCode.UP || event.getCode() == KeyCode.DOWN) {
+            collectItems();
+        }
+
+        // Check if the player has used a blue key and update the display
+        if (currentTile instanceof LockedDoorBlue) {
+            if (player.getInventory().containsBlueKey()) {
+                BlueKey blueKey = player.getInventory().findAndRemoveBlueKey();
+                if (blueKey != null) {
+                    // Successfully found and removed one blue key, handle door opening logic
+                    ((LockedDoorBlue) currentTile).openDoor();
+                }
+            }
+        }
+
+        // Redraw the game as the player may have moved.
+        drawGame();
     }
 
     //takes items from the item layer and adds them to the player inventory
@@ -228,6 +303,13 @@ public class MasonMain extends Application {
             updateInventoryDisplay();
         }
     }
+
+    @Override
+    public void onInventoryUpdate() {
+        // Update the inventory display when notified about the inventory change
+        updateInventoryDisplay();
+    }
+
     private void updateInventoryDisplay() {
         BorderPane borderPane = (BorderPane) canvas.getParent();
         VBox inventoryVBox = (VBox) borderPane.getRight();

@@ -3,36 +3,129 @@ package com.example.group16a2.Items;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class PlayerInventory {
-    private ArrayList<CollectableItems> items;
+    private List<CollectableItems> items;
+
+    private int blueKeyCount = 0;
+    private int redKeyCount = 0;
+    private int greenKeyCount = 0;
+    private int yellowKeyCount = 0;
+
+    private InventoryUpdateListener updateListener;
 
     public PlayerInventory() {
-        this.items = new ArrayList<>();
+        items = new ArrayList<>();
     }
 
     public void addItem(CollectableItems item) {
         items.add(item);
+        if (item instanceof BlueKey) {
+            blueKeyCount++;
+        }
+        else if (item instanceof RedKey) {
+            redKeyCount++;
+        }
+        else if (item instanceof GreenKey) {
+            greenKeyCount++;
+        }
+        else if (item instanceof YellowKey) {
+            yellowKeyCount++;
+        }
     }
 
-    public void removeItem(CollectableItems item) {
-        items.remove(item);
+    public boolean containsBlueKey() {
+        return blueKeyCount > 0;
     }
 
-    public ArrayList<CollectableItems> getItems() {
+    public boolean containsRedKey() {
+        return redKeyCount > 0;
+    }
+
+    public boolean containsGreenKey() {
+        return greenKeyCount > 0;
+    }
+
+    public boolean containsYellowKey() {
+        return yellowKeyCount > 0;
+    }
+
+    public BlueKey findAndRemoveBlueKey() {
+        Iterator<CollectableItems> iterator = items.iterator();
+        while (iterator.hasNext()) {
+            CollectableItems item = iterator.next();
+            if (item instanceof BlueKey) {
+                iterator.remove();
+                blueKeyCount--;
+                notifyUpdateListener();
+                return (BlueKey) item;  // Return the removed BlueKey instance
+            }
+        }
+        return null;
+    }
+    public RedKey findAndRemoveRedKey() {
+        Iterator<CollectableItems> iterator = items.iterator();
+        while (iterator.hasNext()) {
+            CollectableItems item = iterator.next();
+            if (item instanceof RedKey) {
+                iterator.remove();
+                redKeyCount--;
+                notifyUpdateListener();
+                return (RedKey) item;
+            }
+        }
+        return null;
+    }
+
+    public GreenKey findAndRemoveGreenKey() {
+        Iterator<CollectableItems> iterator = items.iterator();
+        while (iterator.hasNext()) {
+            CollectableItems item = iterator.next();
+            if (item instanceof GreenKey) {
+                iterator.remove();
+                greenKeyCount--;
+                notifyUpdateListener();
+                return (GreenKey) item;
+            }
+        }
+        return null;
+    }
+
+    public YellowKey findAndRemoveYellowKey() {
+        Iterator<CollectableItems> iterator = items.iterator();
+        while (iterator.hasNext()) {
+            CollectableItems item = iterator.next();
+            if (item instanceof YellowKey) {
+                iterator.remove();
+                yellowKeyCount--;
+                notifyUpdateListener();
+                return (YellowKey) item;
+            }
+        }
+        return null;
+    }
+
+    public List<CollectableItems> getItems() {
         return items;
     }
 
     public List<Image> getImages() {
         List<Image> images = new ArrayList<>();
         for (CollectableItems item : items) {
-            if (item.isCollected()) {
-                // Assuming getFilename() returns the file path or URL of the item's image
-                Image image = new Image(item.getFilename());
-                images.add(image);
-            }
+            images.add(new Image(item.getFilename()));
         }
         return images;
+    }
+
+    public void setUpdateListener(InventoryUpdateListener listener) {
+        this.updateListener = listener;
+    }
+
+    private void notifyUpdateListener() {
+        if (updateListener != null) {
+            updateListener.onInventoryUpdate();
+        }
     }
 }

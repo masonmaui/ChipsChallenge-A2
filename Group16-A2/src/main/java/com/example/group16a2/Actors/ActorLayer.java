@@ -125,9 +125,8 @@ public class ActorLayer {
                 String actorType = lineScanner2.next();
                 if (actorType.equals("-")) {
                     continue;
-                } else if (actorType.equals("P")) {
-                    actorList.add(new Player(lineCount, i));
-                }else if(actorType.equals("B")) {
+                }
+                else if(actorType.equals("B")) {
                     actorList.add(new Block(lineCount, i));
                 }else if(actorType.equals("PBN")) {
                     actorList.add(new PinkBall(lineCount, i, "N"));
@@ -142,6 +141,9 @@ public class ActorLayer {
                 }else if(actorType.equals("F")) {
                     actorList.add(new Frog(lineCount, i));
                 }
+                else if (actorType.equals("P")) {
+                actorList.add(new Player(lineCount, i));
+            }
             }
             lineCount++;
 

@@ -1,28 +1,26 @@
 package com.example.group16a2.Actors;
 
-import com.example.group16a2.Items.PlayerInventory;
-import com.example.group16a2.MasonMain;
+import com.example.group16a2.Items.*;
 import com.example.group16a2.Tiles.*;
+import com.example.group16a2.Tiles.LockedDoorBlue;
+import com.example.group16a2.Tiles.LockedDoorRed;
+import com.example.group16a2.Tiles.LockedDoorGreen;
+import com.example.group16a2.Tiles.LockedDoorYellow;
+
 
 import java.util.ArrayList;
 
 public class Player extends Actor{
-    private String player;
     private PlayerInventory inventory;
-    private int[] inv;
-    private String filename;
     private int x;
     private int y;
 
-    public Player(int y, int x){
-        super(y, x, "file:Sprites/PlayerTrans.png");
-        this.filename = "file:Sprites/PlayerTrans.png";
-        //grab values from super
+    public Player(int y, int x) {
+        super(y, x, "file:Sprites/Actor.png");
         this.x = x;
         this.y = y;
         this.inventory = new PlayerInventory();
     }
-
     public PlayerInventory getInventory() {
         return inventory;
     }
@@ -44,6 +42,22 @@ public class Player extends Actor{
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                 }
+                else if (isLockedDoorBlue(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorRed(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorGreen(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorYellow(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 x++;
             }
         }
@@ -54,6 +68,22 @@ public class Player extends Actor{
         if (isInBounds(x - 1, y, tile)){
             if (tile[y][x - 1].isPassable()){
                 if (isDirt(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorBlue(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorRed(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorGreen(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorYellow(tile)){
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                 }
@@ -70,6 +100,22 @@ public class Player extends Actor{
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                 }
+                else if (isLockedDoorBlue(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorRed(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorGreen(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorYellow(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 y--;
             }
         }
@@ -83,9 +129,93 @@ public class Player extends Actor{
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                 }
+                else if (isLockedDoorBlue(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorRed(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorGreen(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
+                else if (isLockedDoorYellow(tile)){
+                    //change tile in that position to be path
+                    tile[y][x] = new Path(true);
+                }
                 y++;
             }
         }
+    }
+
+    public void handlePlayerInteraction(Tile tile) {
+        if (tile instanceof LockedDoorBlue) {
+            handleLockedDoorBlueInteraction((LockedDoorBlue) tile);
+        } else if (tile instanceof LockedDoorRed) {
+            handleLockedDoorRedInteraction((LockedDoorRed) tile);
+        } else if (tile instanceof LockedDoorGreen) {
+            handleLockedDoorGreenInteraction((LockedDoorGreen) tile);
+        } else if (tile instanceof LockedDoorYellow) {
+            handleLockedDoorYellowInteraction((LockedDoorYellow) tile);
+        }
+    }
+
+    public void handleLockedDoorBlueInteraction(LockedDoorBlue lockedDoorBlue) {
+        if (inventoryContainsBlueKey()) {
+            BlueKey blueKey = inventory.findAndRemoveBlueKey();
+            lockedDoorBlue.openDoor();
+            System.out.println("Removed Red key from inventory: " + blueKey);
+        } else {
+            lockedDoorBlue.blockPlayer();
+        }
+    }
+
+    private void handleLockedDoorRedInteraction(LockedDoorRed lockedDoorRed) {
+        if (inventoryContainsRedKey()) {
+            RedKey redKey = inventory.findAndRemoveRedKey();
+            lockedDoorRed.openDoor();
+            System.out.println("Removed Red key from inventory: " + redKey);
+        } else {
+            lockedDoorRed.blockPlayer();
+        }
+    }
+
+    private void handleLockedDoorGreenInteraction(LockedDoorGreen lockedDoorGreen) {
+        if (inventoryContainsGreenKey()) {
+            GreenKey greenKey = inventory.findAndRemoveGreenKey();
+            lockedDoorGreen.openDoor();
+            System.out.println("Removed green key from inventory: " + greenKey);
+        } else {
+            lockedDoorGreen.blockPlayer();
+        }
+    }
+
+    private void handleLockedDoorYellowInteraction(LockedDoorYellow lockedDoorYellow) {
+        if (inventoryContainsYellowKey()) {
+            YellowKey yellowKey = inventory.findAndRemoveYellowKey();
+            lockedDoorYellow.openDoor();
+            System.out.println("Removed Yellow Key from inventory: " + yellowKey);
+        } else {
+            lockedDoorYellow.blockPlayer();
+        }
+    }
+
+    public boolean inventoryContainsBlueKey() {
+        return inventory.containsBlueKey();
+    }
+
+    public boolean inventoryContainsRedKey() {
+        return inventory.containsRedKey();
+    }
+
+    public boolean inventoryContainsGreenKey() {
+        return inventory.containsGreenKey();
+    }
+
+    public boolean inventoryContainsYellowKey() {
+        return inventory.containsYellowKey();
     }
 
     //is in bounds
@@ -122,6 +252,23 @@ public class Player extends Actor{
     public boolean isDirt(Tile[][] tile){
         return tile[y][x] instanceof Dirt;
     }
+
+    public boolean isLockedDoorBlue(Tile[][] tile){
+        return tile[y][x] instanceof LockedDoorBlue;
+    }
+
+    public boolean isLockedDoorYellow(Tile[][] tile){
+        return tile[y][x] instanceof LockedDoorYellow;
+    }
+
+    public boolean isLockedDoorRed(Tile[][] tile){
+        return tile[y][x] instanceof LockedDoorRed;
+    }
+
+    public boolean isLockedDoorGreen(Tile[][] tile){
+        return tile[y][x] instanceof LockedDoorGreen;
+    }
+
 
     //to string
     public String toString(){
