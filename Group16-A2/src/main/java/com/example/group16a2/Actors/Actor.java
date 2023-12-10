@@ -39,6 +39,10 @@ public class Actor {
         return posX;
     }
 
+    /**
+     * Gets the Y coordinator.
+     * @return The y coordinator of the actor's position.
+     */
     //get y
     public int getY() {
         return Posy;
