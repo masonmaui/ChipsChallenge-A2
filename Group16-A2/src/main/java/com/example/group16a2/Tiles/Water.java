@@ -22,6 +22,11 @@ public class Water extends Tile{
         filename = "file:Sprites/Water.png";
     }
 
+    /**
+     * Gets the file name associated with the water tile.
+     * @return The file name of the sprite image for
+     * the water tile.
+     */
     //get file name
     public String getFileName() {
         return filename;
