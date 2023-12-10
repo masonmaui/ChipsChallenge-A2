@@ -5,6 +5,13 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * ItemLayer.java
+ * Represents the layer where items lie
+ * @author Marco Silva
+ * @author Mason Emery
+ * @version 1.6
+ */
 
 public class ItemLayer {
     private int[] size = new int[2];
@@ -21,23 +28,36 @@ public class ItemLayer {
     private int x;
     private int y;
 
+
     public ItemLayer(int x, int y) {
         size = new int[]{x, y};
         currentLayer = new String[x][y];
     }
 
+    /**
+     * Class constructor
+     * @param filename filename of image
+     */
     public ItemLayer(String filename) {
         this.filename = filename;
         items = readDataFile(filename);
     }
 
+    /**
+     * Return an array of all items
+     * @return an array of items
+     */
     //get tiles
     public CollectableItems[][] getItems() {
         return items;
     }
 
-    //Adds item to inventory array inside ItemLayer, unique to each ItemLayer, might be changed.
-    //Also called in CollectableItems so items can be added directly.
+    /**
+     * Adds item to inventory array inside ItemLayer, unique to each ItemLayer, might be changed.
+     * Also called in CollectableItems so items can be added directly.
+     * @param pickedUpItem Represents item picked up by player
+     */
+
     public void insertToInventory(CollectableItems pickedUpItem) {
         inventory.add(pickedUpItem);
     }
@@ -75,6 +95,11 @@ public class ItemLayer {
     }
 
 
+    /**
+     * Reads in items from the text file line by line
+     * @param in Scanner
+     * @return a grid of all the items
+     */
     //used to read each line of the file
     public CollectableItems[][] readEachLine(Scanner in) {
         int lineCount = 0;
@@ -109,6 +134,11 @@ public class ItemLayer {
 
     }
 
+    /**
+     *checks if file can be found
+     * @param filename name of image file
+     * @return a grid of items(by calling readEachLine)
+     */
     //used to check file exists
     public CollectableItems[][] readDataFile(String filename) {
         Scanner in = null;
