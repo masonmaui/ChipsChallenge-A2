@@ -27,7 +27,17 @@ public class ActorLayer {
 
     private String filename;
 
-
+    /**
+     *
+     * To create an actor layer with the actors, layer size and a
+     * player actor.
+     *
+     * @param monsters The array of the monsters.
+     * @param blocks The array of the blocks.
+     * @param layerSize The array that represents the size of the layer (x,y).
+     * @param playerActor represents the actor player.
+     */
+    
     // Parameterised constructor
     public ActorLayer(Actor[] monsters, Actor[] blocks, int[] layerSize, Player playerActor) {
         this.monsters = monsters;
