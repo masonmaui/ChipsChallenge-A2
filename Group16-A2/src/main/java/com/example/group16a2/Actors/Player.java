@@ -95,19 +95,11 @@ public class Player extends Actor{
                     tile[y][x] = new Path(true);
                     x--;
                 }
-                else if (isChipSocket(tile)){
+                else if (isChipSocket(tile)) {
                     //change tile in that position to be path
                     tile[y][x] = new Path(true);
                     x--;
-                }else if (tile[y][x - 1] instanceof Ice){
-                    x--;
-                    //if next tile is wall move back to original position
-                    if (tile[y][x - 1] instanceof Wall){
-                        x++;
-                    }else{
-                        moveLeft(tile);
-                    } 
-                }else {
+                }else{
                     x--;
                 }
             }
@@ -252,7 +244,7 @@ public class Player extends Actor{
     }
 
     //check if player is in same tile as frog or ball or bug
-    public boolean isKilled(ArrayList<Actor> actors){
+    public boolean isKilled(ArrayList<Actor> actors, Tile[][] tile){
         for (Actor actor : actors){
             if (actor instanceof Frog){
                 if (actor.getX() == this.getX() && actor.getY() == this.getY()){
@@ -266,6 +258,8 @@ public class Player extends Actor{
                 if (actor.getX() == this.getX() && actor.getY() == this.getY()){
                     return true;
                 }
+            }else if (tile[y][x] instanceof Water){
+                return true;
             }
         }
         return false;

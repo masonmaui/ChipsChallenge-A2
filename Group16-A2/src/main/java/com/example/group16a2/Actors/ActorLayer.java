@@ -136,8 +136,10 @@ public class ActorLayer {
                     actorList.add(new PinkBall(lineCount, i, "W"));
                 }else if(actorType.equals("PBS")) {
                     actorList.add(new PinkBall(lineCount, i, "S"));
-                }else if(actorType.equals("BG")) {
-                    actorList.add(new Bug(lineCount, i));
+                }else if(actorType.equals("BGR")) {
+                    actorList.add(new Bug(lineCount, i, "R"));
+                }else if (actorType.equals("BGL")) {
+                    actorList.add(new Bug(lineCount, i, "L"));
                 }else if(actorType.equals("F")) {
                     actorList.add(new Frog(lineCount, i));
                 }

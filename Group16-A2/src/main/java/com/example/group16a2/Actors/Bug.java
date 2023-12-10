@@ -4,20 +4,23 @@ import com.example.group16a2.Tiles.Tile;
 
 public class Bug extends Actor{
 
-    private String filename;
+    private String fileName;
     private int x;
     private int y;
 
-    public Bug(int y, int x){
+    private String wallToFollow;
+
+    public Bug(int y, int x, String wallToFollow){
         super(y, x, "file:Sprites/BugUp.png");
-        this.filename = "file:Sprites/BugUp.png";
+        this.fileName = "file:Sprites/BugUp.png";
         this.x = x;
         this.y = y;
+        this.wallToFollow = wallToFollow;
     }
 
     //get file name
     public String getFileName(){
-        return filename;
+        return fileName;
     }
 
     //get x
@@ -30,35 +33,98 @@ public class Bug extends Actor{
         return y;
     }
 
-    //bug needs to follow an edge of passable tiles
-    public void move(Tile[][] tile){
-        if (isInBounds(x + 1, y, tile)){
-            if (tile[y][x + 1].isPassableMonster()){
-                x++;
-                filename = "file:Sprites/BugRight.png";
+    //wall follow using left and right
+    public void wallFollow(Tile[][] tile){
+        if (wallToFollow.equals("left")){
+            if (isInBounds(x - 1, y, tile)){
+                if (tile[y][x - 1].isPassableMonster()){
+                    moveLeft(tile);
+                } else {
+                    if (isInBounds(x, y - 1, tile)){
+                        if (tile[y - 1][x].isPassableMonster()){
+                            moveUp(tile);
+                        } else {
+                            moveDown(tile);
+                        }
+                    } else {
+                        moveDown(tile);
+                    }
+                }
+            } else {
+                if (isInBounds(x, y - 1, tile)){
+                    if (tile[y - 1][x].isPassableMonster()){
+                        moveUp(tile);
+                    } else {
+                        moveDown(tile);
+                    }
+                } else {
+                    moveDown(tile);
+                }
             }
-        }
-        else if (isInBounds(x - 1, y, tile)){
-            if (tile[y][x - 1].isPassableMonster()){
-                x--;
-                filename = "file:Sprites/BugLeft.png";
-            }
-        }
-        else if (isInBounds(x, y + 1, tile)){
-            if (tile[y + 1][x].isPassableMonster()){
-                y++;
-                filename = "file:Sprites/BugDown.png";
-            }
-        }
-        else if (isInBounds(x, y - 1, tile)){
-            if (tile[y - 1][x].isPassableMonster()){
-                y--;
-                filename = "file:Sprites/BugUp.png";
+        } else {
+            if (isInBounds(x + 1, y, tile)){
+                if (tile[y][x + 1].isPassableMonster()){
+                    moveRight(tile);
+                } else {
+                    if (isInBounds(x, y - 1, tile)){
+                        if (tile[y - 1][x].isPassableMonster()){
+                            moveUp(tile);
+                        } else {
+                            moveDown(tile);
+                        }
+                    } else {
+                        moveDown(tile);
+                    }
+                }
+            } else {
+                if (isInBounds(x, y - 1, tile)){
+                    if (tile[y - 1][x].isPassableMonster()){
+                        moveUp(tile);
+                    } else {
+                        moveDown(tile);
+                    }
+                } else {
+                    moveDown(tile);
+                }
             }
         }
     }
 
-    //is in bounds
+    //move right
+    public void moveRight(Tile[][] tile){
+        if (isInBounds(x + 1, y, tile)){
+            if (tile[y][x + 1].isPassableMonster()){
+                x++;
+            }
+        }
+    }
+
+    //move left
+    public void moveLeft(Tile[][] tile){
+        if (isInBounds(x - 1, y, tile)){
+            if (tile[y][x - 1].isPassableMonster()) {
+                x--;
+            }
+        }
+    }
+
+    //move up
+    public void moveUp(Tile[][] tile){
+        if (isInBounds(x, y - 1, tile)){
+            if (tile[y - 1][x].isPassableMonster()) {
+                y--;
+            }
+        }
+    }
+
+    //move down
+    public void moveDown(Tile[][] tile){
+        if (isInBounds(x, y + 1, tile)){
+            if (tile[y + 1][x].isPassableMonster()){
+                y++;
+            }
+        }
+    }
     public boolean isInBounds(int x, int y, Tile[][] tile){
         if (x < 0 || x >= tile[0].length || y < 0 || y >= tile.length){
             return false;
