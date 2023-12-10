@@ -19,6 +19,11 @@ public class RedKey extends CollectableItems{
         filename = "file:Sprites/RedKey.png";
     }
 
+    /**
+     * Returns a string representation of the red
+     * key.
+     * @return the string "Red Key".
+     */
     public String toString() {
         return "Red Key";
     }
