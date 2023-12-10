@@ -11,6 +11,13 @@ public class Trap extends Tile {
 
     private String filename;
 
+    /**
+     * Constructs trap tile with the specified passable
+     * and default sprite image file path.
+     * @param isPassable true if it can pass through the tile,
+     *                   false otherwise.
+     */
+    
     public Trap(boolean isPassable) {
         super(isPassable, "file:Sprites/Trap.png");
         filename = "file:Sprites/Trap.png";
