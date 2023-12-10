@@ -225,6 +225,15 @@ public class ActorLayer {
         return actorList;
     }
 
+    /**
+     *
+     * Constructs the array list of actors based on the information in the file
+     * and reads the actor data from the file.
+     *
+     * @param filename The path to the file containing actor data.
+     * @return readEachLine The array list contains the actors that is created from the
+     * data in the file.
+     */
 
     public ArrayList<Actor> readDataFile (String filename){
         Scanner in = null;
