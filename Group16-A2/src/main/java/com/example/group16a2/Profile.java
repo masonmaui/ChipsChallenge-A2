@@ -176,7 +176,10 @@ public class Profile {
         }
     }
 
-
+    /**
+     * Deletes the profile entry from the profile txt file.
+     * @param profilename The name of the profile to be deleted.
+     */
 
     public static void deleteProfileFromFileProfiles(String profilename) {
         try {
