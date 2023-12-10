@@ -53,7 +53,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-    private int level = 1;
+    private int level = 3;
 
     public MasonMain() {
         this.profile = null;
@@ -181,12 +181,14 @@ public class MasonMain extends Application implements InventoryUpdateListener {
             }
         }
 
-        //move bug
-        for (Actor actor : actors) {
-            if (actor instanceof Bug) {
-                ((Bug) actor).wallFollow(tile);
+        if (tickCounter % 3 == 0) {
+            for (Actor actor : actors) {
+                if (actor instanceof Bug) {
+                    ((Bug) actor).wallFollow(tile);
+                }
             }
         }
+
         //decrement time limit
         timeLimit--;
 

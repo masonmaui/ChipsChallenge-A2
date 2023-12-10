@@ -11,7 +11,7 @@ import java.util.Scanner;
  * This class represents the layer of the actor like the monsters,
  * blocks and the player in a 2D grid.
  * The layer can get information about the actors, their positions, and more.
- * @author Aman Bhavra
+ * @author Mason Emery
  * @version 1.6
  */
 public class ActorLayer {
@@ -27,6 +27,16 @@ public class ActorLayer {
 
     private String filename;
 
+    /**
+     *
+     * To create an actor layer with the actors, layer size and a
+     * player actor.
+     *
+     * @param monsters The array of the monsters.
+     * @param blocks The array of the blocks.
+     * @param layerSize The array that represents the size of the layer (x,y).
+     * @param playerActor represents the actor player.
+     */
 
     // Parameterised constructor
     public ActorLayer(Actor[] monsters, Actor[] blocks, int[] layerSize, Player playerActor) {
@@ -39,10 +49,19 @@ public class ActorLayer {
         actors = new Actor[x][y];
     }
 
+    /**
+     * Creating the actor layer by reading data from a file.
+     * @param filename The file path containing actor data.
+     */
+
     public ActorLayer(String filename) {
         actorList = readDataFile(filename);
     }
 
+    /**
+     * Gets the list of actors in the layer.
+     * @return the actorList the array list contains all the actors in the layer.
+     */
     //get array list
     public ArrayList<Actor> getActorList() {
         return actorList;
@@ -61,12 +80,26 @@ public class ActorLayer {
     }
      */
 
+    /**
+     * Loads the actor layer from the file.
+     */
     public void loadLayer() {
 
     }
 
+    /**
+     * Saves the actor layer from the file.
+     */
     public void saveLayer() {
     }
+
+    /**
+     *
+     * Gets the position of the actor in the layer.
+     * @param actor
+     * @return The position (the row and column) of the actor.
+     */
+
 
     // Getter method for position
     public int[] getActorPosition(Actor actor) {
@@ -88,11 +121,30 @@ public class ActorLayer {
     }
 
 
+    /**
+     * Gets information of the actor.
+     * @param actor To retrieve information about the actor.
+     */
+
     public void getActor(Actor actor) {
     }
 
+
+    /**
+     * Remove the actor from the layer.
+     * @param actor To remove the actor.
+     */
+
     public void removeActor(Actor actor) {
     }
+
+    /**
+     * Display information about all actors in the actor layer. It prints the
+     * details of the monsters, blocks and the player to the console.
+     * Includes the information of the string representation of all actors.
+     *
+     * @return null.
+     */
 
     public String allActors() {
         for (Actor value : monsters) {
@@ -107,6 +159,12 @@ public class ActorLayer {
 
         return null;
     }
+
+
+    /**
+     * Gets the player from the actor list.
+     * @return null if no actor is present.
+     */
     
     public Player getPlayer() {
         //from arraylist
@@ -117,6 +175,16 @@ public class ActorLayer {
         }
         return null;
     }
+
+    /**
+     *
+     * Reads each line from the Scanner and constructs a list of actors
+     * based on the information in the lines.
+     *
+     * @param in the Scanner provides the input stream to read from.
+     * @return actorList the array list containing actors created from
+     * the input lines.
+     */
 
     public ArrayList<Actor> readEachLine(Scanner in) {
         int lineCount = 0;
@@ -161,6 +229,15 @@ public class ActorLayer {
         return actorList;
     }
 
+    /**
+     *
+     * Constructs the array list of actors based on the information in the file
+     * and reads the actor data from the file.
+     *
+     * @param filename The path to the file containing actor data.
+     * @return readEachLine The array list contains the actors that is created from the
+     * data in the file.
+     */
 
     public ArrayList<Actor> readDataFile (String filename){
         Scanner in = null;
@@ -172,19 +249,6 @@ public class ActorLayer {
         }
         return readEachLine(in);
 
-    }
-
-    public static void main(String[] args) {
-        ActorLayer actorlayer = new ActorLayer("Levels/Level1ActorLayer.txt");
-
-        //show file paths of all actord in list
-        for (Actor actor : actorlayer.getActorList()) {
-            if (actor != null) {
-                System.out.println(actor.getFileName());
-            }else{
-                System.out.println("null");
-            }
-        }
     }
 
 }

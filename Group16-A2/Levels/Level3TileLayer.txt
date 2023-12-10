@@ -3,8 +3,8 @@ P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
-P P P P P P P P P P P P P P P P P P P P
-P P P P P P P P P P P P P P P P P P P P
+P P P # # # # # P P P P P P P P P P P P
+P P P P P D D P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P

@@ -2,6 +2,16 @@ package com.example.group16a2.Actors;
 
 import com.example.group16a2.Tiles.Tile;
 
+/**
+ *
+ * PinkBall.java
+ * This class represents the pink ball in the game.
+ * Also implements for moving and bouncing off obstacles.
+ * @author Mason Emery
+ * @version 1.6
+ *
+ */
+
 public class PinkBall extends Actor{
     private String pinkBall;
     private String filename;
@@ -10,6 +20,14 @@ public class PinkBall extends Actor{
 
     private int x;
     private int y;
+
+    /**
+     *
+     * Constructs the pink ball with the initial position and direction.
+     * @param y The y coordinate of the pink ball.
+     * @param x The x coordinate of the pink ball.
+     * @param direction The direction of the pink ball(N,S,E or W).
+     */
 
     public PinkBall(int y, int x, String direction) {
         super(y, x, "file:Sprites/Ball.png");
@@ -28,16 +46,30 @@ public class PinkBall extends Actor{
         this.y = y;
     }
 
+    /**
+     * Gets the x-coordinate of the pink ball on the grid.
+     * @return x x-coordinate of the pink ball.
+     */
     //get x
     public int getX(){
         return x;
     }
 
+    /**
+     * Gets the y-coordinate of the pink ball on the grid.
+     * @return y y-coordinate of the pink ball.
+     */
     //get y
     public int getY(){
         return y;
     }
 
+    /**
+     * Moves the pink ball in different direction and bounces based on
+     * the grid.
+     * @param tiles Representing the grid of tiles that the pink ball
+     *              interacts with.
+     */
     public void bounce(Tile[][] tiles){
         if(Direction.equals("N")){
             if(isInBounds(x, y - 1, tiles)){
@@ -82,11 +114,24 @@ public class PinkBall extends Actor{
         }
     }
 
+    /**
+     * Checks if the specified coordinates are in the bounds.
+     * @param x The x-coordinate to be checked for within the bounds.
+     * @param y The y-coordinate to be checked for within the bounds.
+     * @param tile Representing the grid.
+     * @return true if coordinates within the bounds, false otherwise.
+     */
     //is in bounds
     public boolean isInBounds(int x, int y, Tile[][] tile){
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
     }
 
+    /**
+     * Returns a string representation of the pink ball
+     * including the directions.
+     * @return A string representing the pink ball
+     * direction.
+     */
     //to string
     public String toString(){
         if(Direction.equals("N"))
