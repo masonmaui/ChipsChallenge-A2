@@ -101,7 +101,7 @@ public class Frog extends Actor {
      * passable,otherwise the frog will move up if it's not passable.
      * @param tile Tile that's representing the chip challenge game.
      */
-    
+
     //move left
     public void moveLeft(Tile[][] tile){
         if (isInBounds(x - 1, y, tile)){
@@ -114,6 +114,11 @@ public class Frog extends Actor {
         }
     }
 
+    /**
+     * Moves the frog upward if the tile upward is passable,
+     * otherwise the frog will move right if it's not passable.
+     * @param tile Tile that's representing the chip challenge game.
+     */
     //move up
     public void moveUp(Tile[][] tile){
         if (isInBounds(x, y - 1, tile)){
