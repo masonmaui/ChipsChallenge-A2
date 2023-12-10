@@ -156,7 +156,7 @@ public class Player extends Actor{
                     tile[y][x] = new Path(true);
                     x--;
                 }else if (tile[y][x - 1] instanceof Ice) {
-                    if (tile[y][x - 1] instanceof Wall) {
+                    if (tile[y][x - 2] instanceof Wall) {
                         moveRight(tile);
                     }else {
                         x--;
@@ -173,7 +173,7 @@ public class Player extends Actor{
                     }
                 }
                 else if (tile[y][x - 1] instanceof IceBottomLeft){
-                    if(tile[y][x - 2] instanceof Wall) {
+                    if(tile[y][x - 1] instanceof Wall) {
                         moveDown(tile);
                     }else {
                         x--;
@@ -285,7 +285,7 @@ public class Player extends Actor{
                     tile[y][x] = new Path(true);
                     y++;
                 }else if (tile[y + 1][x] instanceof Ice){
-                    if(tile[y + 1][x] instanceof Wall) {
+                    if(tile[y + 2][x] instanceof Wall) {
                         moveUp(tile);
                     }else {
                         y++;
