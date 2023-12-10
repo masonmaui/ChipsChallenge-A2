@@ -53,7 +53,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-    private int level = 1;
+    private int level = 3;
 
     public MasonMain() {
         this.profile = null;
