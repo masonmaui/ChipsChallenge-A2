@@ -53,13 +53,15 @@ public class MasonMain extends Application {
     private int tickCounter;
     private int timeLimit;
 
+    private int level = 1;
+
     public void start(Stage primaryStage) {
 
         //making layers
         //initialising the different layers of the game
-        TileLayer tilelayer = new TileLayer("Levels/Level2TileLayer.txt");
-        ItemLayer itemLayer = new ItemLayer("Levels/Level2ItemLayer.txt");
-        ActorLayer actorLayer = new ActorLayer("Levels/Level2ActorLayer.txt");
+        TileLayer tilelayer = new TileLayer("Levels/Level" + level +"TileLayer.txt");
+        ItemLayer itemLayer = new ItemLayer("Levels/Level" + level + "ItemLayer.txt");
+        ActorLayer actorLayer = new ActorLayer("Levels/Level" + level + "ActorLayer.txt");
         tile = tilelayer.getTiles();
         items = itemLayer.getItems();
         actors = actorLayer.getActorList();
@@ -70,7 +72,7 @@ public class MasonMain extends Application {
         CANVAS_WIDTH = tile[0].length * GRID_CELL_WIDTH;
 
         //set time limit
-        timeLimit = 150;
+        timeLimit = 50;
 
         Pane root = buildGUI();
 
@@ -162,7 +164,7 @@ public class MasonMain extends Application {
         }
 
         //check if player is killed
-        if (player.isKilled(actors)) {
+        if (player.isKilled(actors) || timeLimit == 0){
             endgame();
         }
 
@@ -200,6 +202,7 @@ public class MasonMain extends Application {
                 break;
         }
 
+        //collect items is here so it is a seemless transition
         if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.LEFT ||
                 event.getCode() == KeyCode.UP || event.getCode() == KeyCode.DOWN) {
             collectItems();
@@ -293,7 +296,7 @@ public class MasonMain extends Application {
         //create new border pane
         BorderPane endPane = new BorderPane();
         //create new label
-        Label endLabel = new Label("You died!");
+        Label endLabel = new Label("Game Over!");
         //set label to center
         endPane.setCenter(endLabel);
         //create new scene
@@ -308,21 +311,25 @@ public class MasonMain extends Application {
     public void endgameWon(){
         //stop ticks
         tickTimeline.stop();
-        //create new stage
-        Stage endStage = new Stage();
-        //create new border pane
-        BorderPane endPane = new BorderPane();
-        //create new label
-        Label endLabel = new Label("You won!");
-        //set label to center
-        endPane.setCenter(endLabel);
-        //create new scene
-        Scene endScene = new Scene(endPane, 200, 200);
-        //set scene to stage
-        endStage.setScene(endScene);
-        //show stage
-        endStage.show();
+
+        //increment level
+        level++;
+
+        //close old game screen
+        Stage stage = (Stage) canvas.getScene().getWindow();
+        stage.close();
+
+        //reset game
+        resetGame();
+
     }
+
+    //resets game calls start again
+    public void resetGame(){
+        Stage stage = new Stage();
+        start(stage);
+    }
+
 
     private Pane buildGUI() {
         // Create top-level panel that will hold all GUI nodes.
@@ -380,6 +387,11 @@ public class MasonMain extends Application {
             tickTimeline.stop();
             startTickTimelineButton.setDisable(false);
         });
+
+        //show level number on screen
+        Label levelLabel = new Label("Level: " + level);
+        toolbar.getChildren().add(levelLabel);
+        
 
         // Create a GridPane for the inventory display
         GridPane inventoryGrid = new GridPane();
