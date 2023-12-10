@@ -29,6 +29,11 @@ public class Chip extends CollectableItems {
         this.chipValue = chipValue;
     }
 
+    /**
+     * Adds the chip to the player's inventory.
+     * @param targetInv The target item layer representing the player's
+     *                  inventory.
+     */
     public void addToPlayerInventory(ItemLayer targetInv){
         Action(targetInv);
     }
