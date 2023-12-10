@@ -117,8 +117,7 @@ public class Player extends Actor{
                         x++;
                         moveUp(tile);
                     }
-                }
-                else {
+                }else {
                     x++;
                 }
             }
@@ -494,6 +493,31 @@ public class Player extends Actor{
 
     public boolean isChipSocket(Tile[][] tile){
         return tile[y][x] instanceof ChipSocket;
+    }
+
+    public void checkBlock(ArrayList<Actor>actors, String direction){
+        for (Actor actor : actors){
+            if (actor instanceof Block){
+                if (direction.equals("right")){
+                    if (actor.getX() == this.getX() && actor.getY() == this.getY()){
+                        ((Block) actor).moveRight();
+                    }
+                }else if (direction.equals("left")){
+                    if (actor.getX() == this.getX() && actor.getY() == this.getY()){
+                        ((Block) actor).moveLeft();
+                    }
+                }else if (direction.equals("up")){
+                    if (actor.getX() == this.getX() && actor.getY() == this.getY()){
+                        ((Block) actor).moveUp();
+                    }
+                }else if (direction.equals("down")){
+                    if (actor.getX() == this.getX() && actor.getY() == this.getY()){
+                        ((Block) actor).moveDown();
+                    }
+                }
+            }
+        }
+
     }
 
     //to string

@@ -205,21 +205,25 @@ public class MasonMain extends Application implements InventoryUpdateListener {
                 if (canMove(player.getX() + 1, player.getY())) {
                     player.moveRight(tile);
                 }
+                player.checkBlock(actors, "right");
                 break;
             case LEFT:
                 if (canMove(player.getX() - 1, player.getY())) {
                     player.moveLeft(tile);
                 }
+                player.checkBlock(actors, "left");
                 break;
             case UP:
                 if (canMove(player.getX(), player.getY() - 1)) {
                     player.moveUp(tile);
                 }
+                player.checkBlock(actors, "up");
                 break;
             case DOWN:
                 if (canMove(player.getX(), player.getY() + 1)) {
                     player.moveDown(tile);
                 }
+                player.checkBlock(actors, "down");
                 break;
             default:
                 break;

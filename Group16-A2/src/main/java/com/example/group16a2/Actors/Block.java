@@ -8,16 +8,27 @@ import com.example.group16a2.Tiles.Tile;
 import com.example.group16a2.Tiles.TileLayer;
 import com.example.group16a2.Tiles.Wall;
 
+import java.util.ArrayList;
+
 public class Block extends Actor{
     private String block;
     private String filename;
     private int x;
     private int y;
-    public Block(int x, int y){
-        super(x, y, "file:Sprites/Block.png");
+    public Block(int y, int x){
+        super(y, x, "file:Sprites/Block.png");
         this.filename = "file:Sprites/Block.png";
         this.x = x;
         this.y = y;
+    }
+
+    //get x and y
+    public int getX(){
+        return x;
+    }
+
+    public int getY(){
+        return y;
     }
 
 
@@ -59,6 +70,23 @@ public class Block extends Actor{
         }
     }
 
+
+    //moving functions for block
+    public void moveUp(){
+        y--;
+    }
+
+    public void moveDown(){
+        y++;
+    }
+
+    public void moveLeft(){
+        x--;
+    }
+
+    public void moveRight() {
+        x++;
+    }
     private boolean hasActors(Actor tile) {
         return tile != null;
     }
