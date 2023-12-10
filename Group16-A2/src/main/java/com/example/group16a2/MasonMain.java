@@ -32,7 +32,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private final Profile profile;
 
     private static final int WINDOW_WIDTH = 1200;
-    private static final int WINDOW_HEIGHT = 800;
+    private static final int WINDOW_HEIGHT = 700;
 
     private int CANVAS_WIDTH;
     private int CANVAS_HEIGHT;
@@ -54,6 +54,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private int tickCounter;
     private int timeLimit;
     private int level = 5;
+
 
     public MasonMain() {
         this.profile = null;
@@ -157,8 +158,12 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         }
         //check if player is on exit
         if(player.isWon(tile)){
-            endgameWon();
+            assert profile != null;
+            profile.deleteProfileFromFileHighscore(profile.getName(),timeLimit);
+            profile.submitHighscore(timeLimit);
             profile.updateCurrentLevel();
+            endgameWon();
+            Profile.deleteProfileFromFileProfiles(profile.getName());
             profile.saveProfileToFile();
         }
     }
@@ -211,25 +216,21 @@ public class MasonMain extends Application implements InventoryUpdateListener {
                 if (canMove(player.getX() + 1, player.getY())) {
                     player.moveRight(tile);
                 }
-                player.checkBlock(actors, "right");
                 break;
             case LEFT:
                 if (canMove(player.getX() - 1, player.getY())) {
                     player.moveLeft(tile);
                 }
-                player.checkBlock(actors, "left");
                 break;
             case UP:
                 if (canMove(player.getX(), player.getY() - 1)) {
                     player.moveUp(tile);
                 }
-                player.checkBlock(actors, "up");
                 break;
             case DOWN:
                 if (canMove(player.getX(), player.getY() + 1)) {
                     player.moveDown(tile);
                 }
-                player.checkBlock(actors, "down");
                 break;
             default:
                 break;
@@ -283,13 +284,8 @@ public class MasonMain extends Application implements InventoryUpdateListener {
             return false;
         }
 
-        if (targetTile instanceof ChipSocket) {
-            ChipSocket chipSocket = (ChipSocket) targetTile;
-            int requiredChips = chipSocket.getChipsRequired();
-
-            if (!hasChip || player.getInventory().getChipCount() < requiredChips) {
-                return false;
-            }
+        if (targetTile instanceof ChipSocket && !hasChip) {
+            return false;
         }
         return true;
     }

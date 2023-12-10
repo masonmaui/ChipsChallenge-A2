@@ -1,8 +1,8 @@
 package com.example.group16a2;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Profile {
 
@@ -34,6 +34,45 @@ public class Profile {
         updateHighestLevel();
     }
 
+    private void createHighScoresFile() {
+        try {
+            File myObj = new File("highscores"+currentLevel+".txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    public void submitHighscore(int score){
+        createHighScoresFile();
+        boolean update = true;
+        String profilename = this.getName();
+        try {
+            File inputFile = new File("highscores" + currentLevel + ".txt");
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with lineToRemove
+                int score_from_line = Integer.parseInt((currentLine.trim()).substring(16));
+                update = score_from_line<score;
+            }
+            if (update) {
+                FileWriter myWriter = new FileWriter("highscores" + currentLevel + ".txt", true);
+                myWriter.write(this.toStringForSave() + score + "\n");
+                myWriter.close();
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred in writing highscore for: " + name + ".");
+            e.printStackTrace();
+        }
+    }
+
     private static void createProfilesFile() {
         try {
             File myObj = new File("profiles.txt");
@@ -48,11 +87,40 @@ public class Profile {
         }
     }
 
+    public void deleteProfileFromFileHighscore(String profilename,int score) {
+        try {
+            File inputFile = new File("highscores" + currentLevel + ".txt");
+            File tempFile = new File("highscorehandle.txt");
+            tempFile.createNewFile();
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with lineToRemove
+                String trimmedLine = (currentLine.trim()).split(" ")[0];
+                int score_from_line = Integer.parseInt((currentLine.trim()).substring(16));
+                if (trimmedLine.equals(profilename)&&(score > score_from_line)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+            inputFile.delete();
+            boolean successful = tempFile.renameTo(inputFile);
+            System.out.println(successful);
+        } catch (IOException e) {
+            System.out.println("Error in profile edit");
+            e.printStackTrace();
+        }
+    }
+
     public void saveProfileToFile() {
         createProfilesFile();
         try {
             FileWriter myWriter = new FileWriter("profiles.txt",true);
-            myWriter.write(this.toStringForSave() + "\n");
+            myWriter.write(this.toStringForSave() + highestLevel + "\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
@@ -61,21 +129,61 @@ public class Profile {
         }
     }
 
-    public static Profile findProfileInFile(String profilename) {
-        return null;
+
+
+    public static void deleteProfileFromFileProfiles(String profilename) {
+        try {
+            File inputFile = new File("profiles.txt");
+            File tempFile = new File("profilehandletemp.txt");
+            tempFile.createNewFile();
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with lineToRemove
+                String trimmedLine = (currentLine.trim()).split(" ")[0];
+                if (trimmedLine.equals(profilename)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+            inputFile.delete();
+            boolean successful = tempFile.renameTo(inputFile);
+            System.out.println(successful);
+        } catch (IOException e) {
+            System.out.println("Error in profile edit");
+            e.printStackTrace();
+        }
+
     }
 
     public static Profile loadProfile(String profilename) {
-//        findProfileInFile(profilename);
+        deleteProfileFromFileProfiles(profilename);
         return new Profile(profilename);
     }
 
     public String toStringForSave(){
-        return (name + " ".repeat(Math.max(0, 16 - name.length())) + highestLevel);
+        return (name + " ".repeat(Math.max(0, 16 - name.length())));
     }
 
-    public static void readProfileFile(){
-        //
+    public static ArrayList<String> readProfileFile(){
+        ArrayList<String> names = new ArrayList<>();
+        try {
+            File file = new File("profiles.txt");
+            Scanner myReader = new Scanner(file);
+            while (myReader.hasNextLine()) {
+                String data = (myReader.nextLine()).split(" ")[0];
+                names.add(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return names;
     }
 
     @Override
@@ -84,7 +192,7 @@ public class Profile {
     }
 
     public static void main(String[] args) {
-        Profile profile = new Profile("mc");
-        System.out.println(profile.toStringForSave());
+        Profile marco = new Profile("Marco");
+        marco.submitHighscore(25);
     }
 }
