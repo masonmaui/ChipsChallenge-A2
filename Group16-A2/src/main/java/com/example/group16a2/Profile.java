@@ -38,6 +38,9 @@ public class Profile {
         return name;
     }
 
+    /**
+     * Updates the highest level achieved by the profile.
+     */
     public void updateHighestLevel() {
         if (highestLevel < currentLevel) {
             highestLevel = currentLevel;
