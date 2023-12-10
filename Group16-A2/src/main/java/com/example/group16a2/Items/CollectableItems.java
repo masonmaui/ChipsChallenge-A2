@@ -51,6 +51,11 @@ public class CollectableItems {
         return filename;
     }
 
+    /**
+     * Checks if the item is consumable.
+     * @return true if the item is consumable, otherwise
+     * false.
+     */
     public Boolean getConsumable() {
         return isConsumable;
     }
