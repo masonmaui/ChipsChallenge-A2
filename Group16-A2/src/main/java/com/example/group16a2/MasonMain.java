@@ -53,7 +53,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-    private int level = 2;
+    private int level = 4;
 
     public MasonMain() {
         this.profile = null;
@@ -189,6 +189,15 @@ public class MasonMain extends Application implements InventoryUpdateListener {
             }
         }
 
+        //foreach block check if it is on water
+        for (Actor actor : actors) {
+            if (actor instanceof Block) {
+                if (((Block) actor).isOnWater(tile)){
+                    //remove block from actor list
+                    actors.remove(actor);
+                }
+            }
+        }
         //decrement time limit
         timeLimit--;
 
