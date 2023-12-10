@@ -21,6 +21,10 @@ public class BlueKey extends CollectableItems{
         filename = "file:Sprites/BlueKey.png";
     }
 
+    /**
+     * Returns a string representation of the blue key.
+     * @return the string "Blue Key".
+     */
     public String toString() {
         return "Blue Key";
     }
