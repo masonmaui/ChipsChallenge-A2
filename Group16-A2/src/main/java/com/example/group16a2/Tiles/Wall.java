@@ -10,6 +10,13 @@ package com.example.group16a2.Tiles;
 public class Wall extends Tile {
 
         String fileName;
+
+    /**
+     * Constructs wall tile with the specified passable
+     * and default sprite image file path.
+     * @param isPassable true if it can pass through the tile,
+     *                   false otherwise.
+     */
         public Wall(boolean isPassable) {
             super(isPassable , "file:Sprites/Wall.png");
             fileName = "file:Sprites/Wall.png";
