@@ -4,6 +4,12 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * Profile.java
+ * This class represents the player profile in the game.
+ * @author Marco Silva
+ * @version 1.6
+ */
 public class Profile {
 
     private final String name;
