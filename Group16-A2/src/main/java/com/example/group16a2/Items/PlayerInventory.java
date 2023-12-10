@@ -32,6 +32,10 @@ public class PlayerInventory {
         return chipCount;
     }
 
+    /**
+     * Adds collectable item into the player's inventory.
+     * @param item The collectable item to be added into the inventory.
+     */
     public void addItem(CollectableItems item) {
         items.add(item);
         if (item instanceof BlueKey) {
@@ -71,6 +75,11 @@ public class PlayerInventory {
         return chipCount > 0;
     }
 
+    /**
+     * Searches for blue key in the player's inventory and
+     * removes it.
+     * @return null if blue key is not found.
+     */
     public BlueKey findAndRemoveBlueKey() {
         Iterator<CollectableItems> iterator = items.iterator();
         while (iterator.hasNext()) {
