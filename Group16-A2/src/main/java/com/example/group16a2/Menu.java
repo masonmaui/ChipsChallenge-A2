@@ -6,9 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 
 
@@ -37,7 +34,9 @@ public class Menu extends Application  {
     @FXML
     public void handleSubmitClick(){
         String user = this.user.getText();
+        Profile profile = Profile.loadProfile(user);
         MasonMain game = new MasonMain(Profile.loadProfile(user));
+        profile.saveProfileToFile();
         game.start(new Stage());
     }
 

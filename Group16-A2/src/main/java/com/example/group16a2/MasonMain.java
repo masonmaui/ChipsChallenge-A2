@@ -157,9 +157,9 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         //check if player is on exit
         if(player.isWon(tile)){
             endgameWon();
+            profile.updateCurrentLevel();
+            profile.saveProfileToFile();
         }
-
-
     }
 
     public void tick(){
