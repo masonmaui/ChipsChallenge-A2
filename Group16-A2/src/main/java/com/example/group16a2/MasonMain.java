@@ -180,7 +180,6 @@ public class MasonMain extends Application implements InventoryUpdateListener {
 
             }
         }
-
         //decrement time limit
         timeLimit--;
 
