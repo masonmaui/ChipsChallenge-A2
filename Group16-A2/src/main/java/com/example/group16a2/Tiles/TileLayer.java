@@ -31,6 +31,10 @@ public class TileLayer {
         tiles = readDataFile(filename);
     }
 
+    /**
+     * Gets the time limit for the game.
+     * @return the timeLimit for the game.
+     */
     //get time limit
     public int getTimeLimit() {
         return timeLimit;
