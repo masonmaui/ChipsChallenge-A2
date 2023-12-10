@@ -113,6 +113,10 @@ public class TileLayer {
         return grid;
     }
 
+    /**
+     * @param filename The name of the file containing tile information.
+     * @return readEachLine reads each of the line.
+     */
     public Tile[][] readDataFile(String filename) {
         Scanner in = null;
         try {
