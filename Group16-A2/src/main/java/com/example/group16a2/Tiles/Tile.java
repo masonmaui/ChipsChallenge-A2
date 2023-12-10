@@ -1,11 +1,17 @@
 package com.example.group16a2.Tiles;
 
+/**
+ * Tile.java
+ * This class represents the basic tile in the game.
+ * @author Mason Emery
+ * @version 1.6
+ */
 public class Tile {
 
     private boolean isPassable;
 
     private String filename;
-
+    
     public Tile(boolean isInteractable, String filename) {
         this.isPassable = isInteractable;
     }
