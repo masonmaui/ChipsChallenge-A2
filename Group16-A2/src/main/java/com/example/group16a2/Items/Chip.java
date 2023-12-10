@@ -11,6 +11,9 @@ public class Chip extends CollectableItems {
     private String filename;
 
 
+    /**
+     * Constructs the default chip and the filename.
+     */
     public Chip(){
         super("file:Sprites/Chip.png");
         filename = "file:Sprites/Chip.png";
