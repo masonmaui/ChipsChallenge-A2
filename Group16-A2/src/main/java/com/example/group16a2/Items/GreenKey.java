@@ -8,6 +8,11 @@ package com.example.group16a2.Items;
  */
 public class GreenKey extends CollectableItems{
     private String filename;
+
+    /**
+     * Initialize the green key with the image file
+     * path.
+     */
     public GreenKey() {
         super( "file:Sprites/GreenKey.png");
         filename = "file:Sprites/GreenKey.png";
