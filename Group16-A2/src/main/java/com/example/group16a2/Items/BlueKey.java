@@ -3,7 +3,6 @@ package com.example.group16a2.Items;
 /**
  * BlueKey.java
  * This class represents a blue key in the game.
- * socket challenge game.
  * @author Mason Emery
  * @version 1.6
  */
