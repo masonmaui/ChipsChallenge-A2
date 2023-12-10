@@ -39,6 +39,11 @@ public class Frog extends Actor {
         return x;
     }
 
+    /**
+     * Gets the y-coordinate of the frog.
+     * @return The y-coordinate of the frog.
+     */
+
     //get y
     public int getY(){
         return y;
