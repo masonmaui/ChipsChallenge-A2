@@ -142,6 +142,10 @@ public class Profile {
         }
     }
 
+    /**
+     * Saves profile information to "profiles.txt".
+     */
+    
     public void saveProfileToFile() {
         createProfilesFile();
         try {
