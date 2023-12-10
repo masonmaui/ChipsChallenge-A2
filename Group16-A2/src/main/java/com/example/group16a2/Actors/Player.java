@@ -494,24 +494,24 @@ public class Player extends Actor{
         return tile[y][x] instanceof ChipSocket;
     }
 
-    public void checkBlock(ArrayList<Actor>actors, String direction){
+    public void checkBlock(ArrayList<Actor>actors, String direction, Tile[][] tile){
         for (Actor actor : actors){
             if (actor instanceof Block){
                 if (direction.equals("right")){
                     if (actor.getX() == this.getX() && actor.getY() == this.getY()){
-                        ((Block) actor).moveRight();
+                        ((Block) actor).moveRight(tile);
                     }
                 }else if (direction.equals("left")){
                     if (actor.getX() == this.getX() && actor.getY() == this.getY()){
-                        ((Block) actor).moveLeft();
+                        ((Block) actor).moveLeft(tile);
                     }
                 }else if (direction.equals("up")){
                     if (actor.getX() == this.getX() && actor.getY() == this.getY()){
-                        ((Block) actor).moveUp();
+                        ((Block) actor).moveUp(tile);
                     }
                 }else if (direction.equals("down")){
                     if (actor.getX() == this.getX() && actor.getY() == this.getY()){
-                        ((Block) actor).moveDown();
+                        ((Block) actor).moveDown(tile);
                     }
                 }
             }

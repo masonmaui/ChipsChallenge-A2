@@ -32,7 +32,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private final Profile profile;
 
     private static final int WINDOW_WIDTH = 1200;
-    private static final int WINDOW_HEIGHT = 700;
+    private static final int WINDOW_HEIGHT = 800;
 
     private int CANVAS_WIDTH;
     private int CANVAS_HEIGHT;
@@ -53,7 +53,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-    private int level = 3;
+    private int level = 4;
 
 
     public MasonMain() {
@@ -216,25 +216,25 @@ public class MasonMain extends Application implements InventoryUpdateListener {
                 if (canMove(player.getX() + 1, player.getY())) {
                     player.moveRight(tile);
                 }
-                player.checkBlock(actors, "right");
+                player.checkBlock(actors, "right", tile);
                 break;
             case LEFT:
                 if (canMove(player.getX() - 1, player.getY())) {
                     player.moveLeft(tile);
                 }
-                player.checkBlock(actors, "left");
+                player.checkBlock(actors, "left",tile);
                 break;
             case UP:
                 if (canMove(player.getX(), player.getY() - 1)) {
                     player.moveUp(tile);
                 }
-                player.checkBlock(actors, "up");
+                player.checkBlock(actors, "up",tile);
                 break;
             case DOWN:
                 if (canMove(player.getX(), player.getY() + 1)) {
                     player.moveDown(tile);
                 }
-                player.checkBlock(actors, "down");
+                player.checkBlock(actors, "down",tile);
                 break;
             default:
                 break;
