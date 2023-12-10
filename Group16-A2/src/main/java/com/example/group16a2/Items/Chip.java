@@ -50,6 +50,10 @@ public class Chip extends CollectableItems {
         targetItemLayer.removeItemFromLayer(targetItemLayer.findItemInLayer(this),this);
     }
 
+    /**
+     * Returns a string representation of the chip.
+     * @return The string "chip".
+     */
     //to string
     public String toString() {
         return "Chip";
