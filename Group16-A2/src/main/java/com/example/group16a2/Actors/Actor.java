@@ -19,6 +19,11 @@ public class Actor {
         this.fileName = fileName;
     }
 
+    /**
+     * Gets the filename.
+     * @return The filename of the actor's image.
+     */
+
     //get file name
     public String getFileName() {
         return fileName;
