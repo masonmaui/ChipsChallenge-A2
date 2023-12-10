@@ -192,10 +192,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         //foreach block check if it is on water
         for (Actor actor : actors) {
             if (actor instanceof Block) {
-                if (((Block) actor).isOnWater(tile)){
-                    //remove block from actor list
-                    actors.remove(actor);
-                }
+                ((Block) actor).isOnWater(tile,actors);
             }
         }
         //decrement time limit

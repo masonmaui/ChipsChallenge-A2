@@ -46,13 +46,13 @@ public class Block extends Actor{
     }
 
     //check block is on water
-    public boolean isOnWater(Tile[][] tile){
-        if(tile[y][x] instanceof Water){
+    public void isOnWater(Tile[][] tile,ArrayList<Actor> actors){
+        if(tile[y][x] instanceof Water) {
             //if it is set water to be a path
             tile[y][x] = new Path(true);
-            return true;
+            //remove block from actors using try catch
+            actors.remove(this);
         }
-        return false;
     }
 
     //to string
