@@ -31,6 +31,10 @@ public class Tile {
         return filename;
     }
 
+    /**
+     * Checks if the tile is passable.
+     * @return true if the tile is passable, false otherwise.
+     */
     public boolean isPassable() {
         return isPassable;
     }
