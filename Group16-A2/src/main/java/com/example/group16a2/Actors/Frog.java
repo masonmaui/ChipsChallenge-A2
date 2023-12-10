@@ -17,6 +17,12 @@ public class Frog extends Actor {
     private int x;
     private int y;
 
+    /**
+     * Constructs with the specified coordinates.
+     * @param y The initial y-coordinate of the frog.
+     * @param x The initial x-coordinate of the frog.
+     */
+
     public Frog(int y, int x){
         super(y, x, "file:Sprites/Frog.png");
         this.filename = "file:Sprites/Frog.png";
