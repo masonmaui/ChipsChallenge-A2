@@ -11,7 +11,7 @@ public class Tile {
     private boolean isPassable;
 
     private String filename;
-    
+
     /**
      * Constructs a new tile with the specified passable and
      * filename.
@@ -22,6 +22,10 @@ public class Tile {
         this.isPassable = isInteractable;
     }
 
+    /**
+     * Gets the file name associated with the tile.
+     * @return the filename of the tile.
+     */
     //get filename
     public String getFileName() {
         return filename;
