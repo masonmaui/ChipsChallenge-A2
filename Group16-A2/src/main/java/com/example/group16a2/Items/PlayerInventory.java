@@ -132,6 +132,11 @@ public class PlayerInventory {
         return null;
     }
 
+    /**
+     * Searches for yellow key in the player's inventory and
+     * removes it.
+     * @return null if yellow key is not found.
+     */
     public YellowKey findAndRemoveYellowKey() {
         Iterator<CollectableItems> iterator = items.iterator();
         while (iterator.hasNext()) {
@@ -146,6 +151,11 @@ public class PlayerInventory {
         return null;
     }
 
+    /**
+     * Searches for chip in the player's inventory and
+     * removes it.
+     * @return null if chip key is not found.
+     */
     public Chip findAndRemoveChip() {
         Iterator<CollectableItems> iterator = items.iterator();
         while (iterator.hasNext()) {
