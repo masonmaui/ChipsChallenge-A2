@@ -29,6 +29,11 @@ public class Actor {
         return fileName;
     }
 
+    /**
+     * Gets the X coordinator.
+     * @return The x coordinator of the actor's position.
+     */
+
     //get x
     public int getX() {
         return posX;
