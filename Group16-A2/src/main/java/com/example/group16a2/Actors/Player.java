@@ -22,15 +22,28 @@ public class Player extends Actor{
     }
 
     //overide super getx and gety
+
+    /**
+     * gets x co-ordinate of player
+     * @return x x co-ordinate of player
+     */
     public int getX(){
         return x;
     }
-
+    /**
+     * gets y co-ordinate of player
+     * @return y y co-ordinate of player
+     */
     public int getY(){
         return y;
     }
 
     //move right
+
+    /**
+     * move player one tile to the right
+     * @param tile represents the grid of tiles
+     */
     public void moveRight(Tile[][] tile){
         if (isInBounds(x + 1, y, tile)){
             if (tile[y][x + 1].isPassable()){
@@ -67,6 +80,10 @@ public class Player extends Actor{
     }
 
     //move left
+    /**
+     * move player one tile to the left
+     * @param tile represents the grid of tiles
+     */
     public void moveLeft(Tile[][] tile){
         if (isInBounds(x - 1, y, tile)){
             if (tile[y][x - 1].isPassable()){
@@ -107,6 +124,10 @@ public class Player extends Actor{
     }
 
     //move up
+    /**
+     * move player one tile up
+     * @param tile represents the grid of tiles
+     */
     public void moveUp(Tile[][] tile){
         if (isInBounds(x, y - 1, tile)){
             if (tile[y - 1][x].isPassable()){
@@ -137,6 +158,10 @@ public class Player extends Actor{
     }
 
     //move down
+    /**
+     * move player one tile down
+     * @param tile represents the grid of tiles
+     */
     public void moveDown(Tile[][] tile){
         if (isInBounds(x, y + 1, tile)){
             if (tile[y + 1][x].isPassable()){
@@ -174,6 +199,10 @@ public class Player extends Actor{
         }
     }
 
+    /**
+     * Determines if player is on the same tile as a door or chip socket
+     * @param tile represents the grid of tiles
+     */
     public void handlePlayerInteraction(Tile tile) {
         if (tile instanceof LockedDoorBlue) {
             handleLockedDoorBlueInteraction((LockedDoorBlue) tile);
@@ -188,30 +217,47 @@ public class Player extends Actor{
         }
     }
 
+    /**
+     * Determines if there is a blue key in inventory
+     * @param lockedDoorBlue represents an instance of LockedDoorBlue
+     */
     public void handleLockedDoorBlueInteraction(LockedDoorBlue lockedDoorBlue) {
         if (inventoryContainsBlueKey()) {
             BlueKey blueKey = inventory.findAndRemoveBlueKey();
         }
     }
-
+    /**
+     * Determines if there is a red key in inventory
+     * @param lockedDoorRed represents an instance of LockedDoorBlue
+     */
     private void handleLockedDoorRedInteraction(LockedDoorRed lockedDoorRed) {
         if (inventoryContainsRedKey()) {
             RedKey redKey = inventory.findAndRemoveRedKey();
         }
     }
-
+    /**
+     * Determines if there is a green key in inventory
+     * @param lockedDoorGreen represents an instance of LockedDoorBlue
+     */
     private void handleLockedDoorGreenInteraction(LockedDoorGreen lockedDoorGreen) {
         if (inventoryContainsGreenKey()) {
             GreenKey greenKey = inventory.findAndRemoveGreenKey();
         }
     }
-
+    /**
+     * Determines if there is a yellow key in inventory
+     * @param lockedDoorYellow represents an instance of LockedDoorBlue
+     */
     private void handleLockedDoorYellowInteraction(LockedDoorYellow lockedDoorYellow) {
         if (inventoryContainsYellowKey()) {
             YellowKey yellowKey = inventory.findAndRemoveYellowKey();
         }
     }
 
+    /**
+     * Determines if there is a chip in inventory
+     * @param chipSocket represents an instance of chip socket
+     */
     public void handleChipSocketInteraction(ChipSocket chipSocket) {
         if (inventoryContainsChip()) {
             Chip chip = inventory.findAndRemoveChip();
