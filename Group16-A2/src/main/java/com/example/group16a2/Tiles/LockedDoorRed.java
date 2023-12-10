@@ -21,12 +21,20 @@ public class LockedDoorRed extends Tile{
         filename = "file:Sprites/RedLock.png";
     }
 
-
+    /**
+     * Returns the filename of the sprite.
+     * @return The filename of the sprite.
+     */
     //get file name
     public String getFileName() {
         return filename;
     }
 
+    /**
+     * Returns a string representation of the locked
+     * door red.
+     * @return The string "LockedDoorRed".
+     */
     //to string
     public String toString() {
         return "LockedDoorRed";
