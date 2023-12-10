@@ -18,6 +18,12 @@ public class YellowKey extends CollectableItems{
         filename = "file:Sprites/YellowKey.png";
     }
 
+    /**
+     * Returns a string representation of the yellow
+     * key.
+     * @return the string "Yellow Key".
+     */
+    
     public String toString() {
         return "Yellow Key";
     }
