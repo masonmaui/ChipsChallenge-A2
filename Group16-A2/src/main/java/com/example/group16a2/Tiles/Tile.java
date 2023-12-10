@@ -43,6 +43,8 @@ public class Tile {
             return false;
         }else if(this instanceof LockedDoorYellow) {
             return false;
+        }else if (this instanceof Dirt){
+            return false;
         }
         return true;
     }

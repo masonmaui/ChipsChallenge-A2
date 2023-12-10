@@ -1,10 +1,10 @@
 20 20 
 P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
-P P P # # # # P P P P P P P P P P P P P
-P P P GD P P P # P P P P P P P P P P P P
-P P P # # # # # P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
+P P P P P P P P P P P P P P P P P P P P
+P P P # # # # # P P P P P P P P P P P P
+P P P P P D D P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
