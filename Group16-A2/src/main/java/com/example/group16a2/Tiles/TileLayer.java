@@ -3,6 +3,13 @@ package com.example.group16a2.Tiles;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * TileLayer.java
+ * This class represents the layers of tiles for a game
+ * map.
+ * @author Mason Emery
+ * @version 1.6
+ */
 
 public class TileLayer {
 
