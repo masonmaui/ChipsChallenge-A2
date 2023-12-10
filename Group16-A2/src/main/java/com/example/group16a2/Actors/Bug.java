@@ -2,6 +2,13 @@ package com.example.group16a2.Actors;
 
 import com.example.group16a2.Tiles.Tile;
 
+/**
+ * Bug.java
+ * This class implements the bug actor in the chip challenge game.
+ * @author Mason Emery
+ * @version 1.6
+ */
+
 public class Bug extends Actor{
 
     private String fileName;
