@@ -95,19 +95,16 @@ public class Player extends Actor{
                     moveRight(tile);
                 }else if (tile[y][x + 1] instanceof IceTopRight){
                     x++;
-                    moveRight(tile);
+                    moveDown(tile);
                 }
                 else if (tile[y][x + 1] instanceof IceTopLeft){
-                    x++;
-                    moveRight(tile);
+                    
                 }
                 else if (tile[y][x + 1] instanceof IceBottomLeft){
-                    x++;
-                    moveRight(tile);
                 }
                 else if (tile[y][x + 1] instanceof IceBottomRight){
                     x++;
-                    moveRight(tile);
+                    moveUp(tile);
                 }
                 else {
                     x++;
