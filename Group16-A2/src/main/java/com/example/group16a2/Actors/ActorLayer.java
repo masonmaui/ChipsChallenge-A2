@@ -93,6 +93,14 @@ public class ActorLayer {
     public void saveLayer() {
     }
 
+    /**
+     *
+     * Gets the position of the actor in the layer.
+     * @param actor
+     * @return The position (the row and column) of the actor.
+     */
+
+
     // Getter method for position
     public int[] getActorPosition(Actor actor) {
         int[] position = new int[]{-1, -1}; // Default position if actor is not found
