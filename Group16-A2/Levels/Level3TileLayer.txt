@@ -1,8 +1,8 @@
 20 20 
 P P P P P P P P P P P P P P P P P P P P
-P P P P P P P P P P P P P P P P P P P P
-P P P P P P P P P P P P P P P P P P P P
-P P P P P P P P P P P P P P P P P P P P
+P # # # P P P P P P P P P P P P P P P P
+P # P LDG P P P P P P P P P P P P P P P P
+P # # # P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P
 P P P P P P P P P P P P P P P P P P P P

@@ -35,6 +35,14 @@ public class Tile {
             return false;
         }else if(this instanceof IceTopRight) {
             return false;
+        }else if(this instanceof LockedDoorBlue) {
+            return false;
+        }else if(this instanceof LockedDoorGreen) {
+            return false;
+        }else if(this instanceof LockedDoorRed) {
+            return false;
+        }else if(this instanceof LockedDoorYellow) {
+            return false;
         }
         return true;
     }
