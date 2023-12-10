@@ -26,4 +26,5 @@ public class Actor {
     public int getY() {
         return Posy;
     }
+
 }

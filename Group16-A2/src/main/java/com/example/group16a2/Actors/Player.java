@@ -2,7 +2,9 @@ package com.example.group16a2.Actors;
 
 import com.example.group16a2.Items.PlayerInventory;
 import com.example.group16a2.MasonMain;
-import com.example.group16a2.Tiles.Tile;
+import com.example.group16a2.Tiles.*;
+
+import java.util.ArrayList;
 
 public class Player extends Actor{
     private String player;
@@ -75,12 +77,29 @@ public class Player extends Actor{
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
     }
 
-    //set y
-    public void setY(int y){
-        this.y = y;
+    //check if player is in same tile as frog or ball or bug
+    public boolean isKilled(ArrayList<Actor> actors){
+        for (Actor actor : actors){
+            if (actor instanceof Frog){
+                if (actor.getX() == this.getX() && actor.getY() == this.getY()){
+                    return true;
+                }
+            }else if (actor instanceof PinkBall){
+                if (actor.getX() == this.getX() && actor.getY() == this.getY()){
+                    return true;
+                }
+            }else if (actor instanceof Bug){
+                if (actor.getX() == this.getX() && actor.getY() == this.getY()){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
-    public void addItems(int item){
-        inv[item]++; 
+
+    //check if won
+    public boolean isWon(Tile[][] tile){
+        return tile[y][x] instanceof Exit;
     }
 
     //to string

@@ -46,39 +46,39 @@ public class TileLayer {
                     grid[lineCount][i] = new Path(true);
                 } else if (tileType.equals("D")) {
                     grid[lineCount][i] = new Dirt(true);
-                } else if (tileType.equals("#")){
+                } else if (tileType.equals("#")) {
                     grid[lineCount][i] = new Wall(false);
-                } else if (tileType.equals("E")){
+                } else if (tileType.equals("E")) {
                     grid[lineCount][i] = new Exit(true);
-                }else if (tileType.equals("B")){
+                } else if (tileType.equals("B")) {
                     grid[lineCount][i] = new Button(true);
-                }else if(tileType.equals("T")) {
+                } else if (tileType.equals("T")) {
                     grid[lineCount][i] = new Trap(true);
-                }else if(tileType.equals("W")){
+                } else if (tileType.equals("W")) {
                     grid[lineCount][i] = new Water(true);
-                }else if(tileType.equals("CS1")){
+                } else if (tileType.equals("CS1")) {
                     grid[lineCount][i] = new ChipSocket(true, 1);
-                }else if(tileType.equals("CS2")) {
+                } else if (tileType.equals("CS2")) {
                     grid[lineCount][i] = new ChipSocket(true, 2);
-                }else if(tileType.equals("CS3")) {
+                } else if (tileType.equals("CS3")) {
                     grid[lineCount][i] = new ChipSocket(true, 3);
-                }else if(tileType.equals("RD")) {
+                } else if (tileType.equals("RD")) {
                     grid[lineCount][i] = new LockedDoorRed(true);
-                }else if(tileType.equals("GD")) {
+                } else if (tileType.equals("GD")) {
                     grid[lineCount][i] = new LockedDoorGreen(true);
-                }else if(tileType.equals("YD")) {
+                } else if (tileType.equals("YD")) {
                     grid[lineCount][i] = new LockedDoorYellow(true);
-                }else if(tileType.equals("BD")) {
+                } else if (tileType.equals("BD")) {
                     grid[lineCount][i] = new LockedDoorBlue(true);
-                }else if(tileType.equals("I")) {
+                } else if (tileType.equals("I")) {
                     grid[lineCount][i] = new Ice(true);
-                }else if(tileType.equals("ITL")) {
+                } else if (tileType.equals("ITL")) {
                     grid[lineCount][i] = new IceTopLeft(true);
-                }else if(tileType.equals("ITR")) {
+                } else if (tileType.equals("ITR")) {
                     grid[lineCount][i] = new IceTopRight(true);
-                }else if(tileType.equals("IBL")) {
+                } else if (tileType.equals("IBL")) {
                     grid[lineCount][i] = new IceBottomLeft(true);
-                }else if(tileType.equals("IBR")) {
+                } else if (tileType.equals("IBR")) {
                     grid[lineCount][i] = new IceBottomRight(true);
                 }
             }
@@ -107,21 +107,6 @@ public class TileLayer {
     //get y
     public int getY() {
         return y;
-    }
-
-
-    //testing
-    public static void main(String[] args) {
-        TileLayer tl = new TileLayer("Levels/Level1TileLayer.txt");
-        for (int i = 0; i < tl.getTiles().length; i++) {
-            for (int j = 0; j < tl.getTiles()[i].length; j++) {
-                System.out.print(tl.getTiles()[i][j] + " ");
-            }
-            System.out.println();
-        }
-
-        System.out.println(tl.getX());
-        System.out.println(tl.getY());
     }
 }
 

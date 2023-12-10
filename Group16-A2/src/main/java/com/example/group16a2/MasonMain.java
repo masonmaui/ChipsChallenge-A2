@@ -161,6 +161,16 @@ public class MasonMain extends Application {
             }
         }
 
+        //check if player is killed
+        if (player.isKilled(actors)) {
+            endgame();
+        }
+
+        //check if player is on exit
+        if(player.isWon(tile)){
+            endgameWon();
+        }
+
         //decrement time limit
         timeLimit--;
 
@@ -272,6 +282,46 @@ public class MasonMain extends Application {
     }
 
     public void movePlayerToCenter() {
+    }
+
+    //ends game
+    public void endgame(){
+        //stop ticks
+        tickTimeline.stop();
+        //create new stage
+        Stage endStage = new Stage();
+        //create new border pane
+        BorderPane endPane = new BorderPane();
+        //create new label
+        Label endLabel = new Label("You died!");
+        //set label to center
+        endPane.setCenter(endLabel);
+        //create new scene
+        Scene endScene = new Scene(endPane, 200, 200);
+        //set scene to stage
+        endStage.setScene(endScene);
+        //show stage
+        endStage.show();
+    }
+
+    //ends game
+    public void endgameWon(){
+        //stop ticks
+        tickTimeline.stop();
+        //create new stage
+        Stage endStage = new Stage();
+        //create new border pane
+        BorderPane endPane = new BorderPane();
+        //create new label
+        Label endLabel = new Label("You won!");
+        //set label to center
+        endPane.setCenter(endLabel);
+        //create new scene
+        Scene endScene = new Scene(endPane, 200, 200);
+        //set scene to stage
+        endStage.setScene(endScene);
+        //show stage
+        endStage.show();
     }
 
     private Pane buildGUI() {
