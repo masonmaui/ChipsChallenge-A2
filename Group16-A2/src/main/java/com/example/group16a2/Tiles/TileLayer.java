@@ -49,6 +49,11 @@ public class TileLayer {
         return tiles;
     }
 
+    /**
+     * Reads each line of the file.
+     * @param in The scanner object for reading from the file.
+     * @return grid representing the game map.
+     */
     //file to read all data in
     public Tile[][] readEachLine(Scanner in) {
         int lineCount = 0;
