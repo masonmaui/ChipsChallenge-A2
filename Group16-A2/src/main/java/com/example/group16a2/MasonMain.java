@@ -142,6 +142,16 @@ public class MasonMain extends Application {
         Label timeLabel = new Label("Time: " + timeLimit);
         ((BorderPane) canvas.getParent()).setBottom(timeLabel);
 
+        //these added here for faster response times
+        //check if player is killed
+        if (player.isKilled(actors) || timeLimit == 0){
+            endgame();
+        }
+        //check if player is on exit
+        if(player.isWon(tile)){
+            endgameWon();
+        }
+
 
     }
 
@@ -161,16 +171,6 @@ public class MasonMain extends Application {
                 }
 
             }
-        }
-
-        //check if player is killed
-        if (player.isKilled(actors) || timeLimit == 0){
-            endgame();
-        }
-
-        //check if player is on exit
-        if(player.isWon(tile)){
-            endgameWon();
         }
 
         //decrement time limit
