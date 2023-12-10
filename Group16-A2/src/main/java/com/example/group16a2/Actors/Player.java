@@ -332,8 +332,20 @@ public class Player extends Actor{
             handleLockedDoorGreenInteraction((LockedDoorGreen) tile);
         } else if (tile instanceof LockedDoorYellow) {
             handleLockedDoorYellowInteraction((LockedDoorYellow) tile);
-        } else if (tile instanceof ChipSocket) {
-            handleChipSocketInteraction((ChipSocket) tile);
+        }  else if (tile instanceof ChipSocket) {
+            ChipSocket chipSocket = (ChipSocket) tile;
+            if (chipSocket.getChipsRequired() == 1) {
+                handleChipSocketInteraction(chipSocket);
+
+            } else if (chipSocket.getChipsRequired() == 2) {
+                handleChipSocketInteraction(chipSocket);
+                handleChipSocketInteraction(chipSocket);
+
+            } else if (chipSocket.getChipsRequired() == 3) {
+                handleChipSocketInteraction(chipSocket);
+                handleChipSocketInteraction(chipSocket);
+                handleChipSocketInteraction(chipSocket);
+            }
         }
     }
 

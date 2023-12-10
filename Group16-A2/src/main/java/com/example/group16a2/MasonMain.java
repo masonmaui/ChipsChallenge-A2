@@ -273,8 +273,13 @@ public class MasonMain extends Application implements InventoryUpdateListener {
             return false;
         }
 
-        if (targetTile instanceof ChipSocket && !hasChip) {
-            return false;
+        if (targetTile instanceof ChipSocket) {
+            ChipSocket chipSocket = (ChipSocket) targetTile;
+            int requiredChips = chipSocket.getChipsRequired();
+
+            if (!hasChip || player.getInventory().getChipCount() < requiredChips) {
+                return false;
+            }
         }
         return true;
     }
