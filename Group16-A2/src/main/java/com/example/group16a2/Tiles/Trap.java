@@ -17,12 +17,18 @@ public class Trap extends Tile {
      * @param isPassable true if it can pass through the tile,
      *                   false otherwise.
      */
-    
+
     public Trap(boolean isPassable) {
         super(isPassable, "file:Sprites/Trap.png");
         filename = "file:Sprites/Trap.png";
     }
 
+    /**
+     * Gets the file name associated with the trap tile.
+     * @return The file name of the sprite image for
+     * the water tile.
+     */
+    
     //get file name
     public String getFileName() {
         return filename;
