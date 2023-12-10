@@ -22,6 +22,12 @@ public class Path extends Tile {
         filename = "file:Sprites/Path.png";
     }
 
+    /**
+     * Gets the filename of the image associated with the
+     * path tile.
+     * @return filename of the image.
+     */
+
     //get file name
     public String getFileName() {
         return filename;
