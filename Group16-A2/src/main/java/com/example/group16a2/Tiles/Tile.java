@@ -39,6 +39,12 @@ public class Tile {
         return isPassable;
     }
 
+    /**
+     * Checks if the tile is passable for the monster.
+     * @return true if the tile is passable for the monster, false
+     * otherwise.
+     */
+    
     //ispassabelMonster
     public boolean isPassableMonster() {
         if (this instanceof Water){
