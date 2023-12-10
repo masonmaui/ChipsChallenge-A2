@@ -5,18 +5,39 @@ import com.example.group16a2.Tiles.*;
 import com.example.group16a2.Tiles.ChipSocket;
 
 import java.util.ArrayList;
-
+/**
+ *
+ * Player.java
+ * Represents the player
+ * Handles player movement
+ * Handles interactions with other actors and items
+ * @author Aman Bhavra
+ * @author Mason Emery
+ * @author James Buckley
+ * @version 1.6
+ */
 public class Player extends Actor{
     private PlayerInventory inventory;
     private int x;
     private int y;
 
+    /**
+     * class constructor
+     * @param y represents y co-ordinate of player
+     * @param x represents x co-ordinate of player
+     */
     public Player(int y, int x) {
         super(y, x, "file:Sprites/Actor.png");
         this.x = x;
         this.y = y;
         this.inventory = new PlayerInventory();
     }
+
+    /**
+     * gets inventory
+     * @return an instance of playerInventory
+     */
+
     public PlayerInventory getInventory() {
         return inventory;
     }
@@ -292,6 +313,12 @@ public class Player extends Actor{
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
     }
 
+    /**
+     * Checks if player is on same tile as a monster or water
+     * @param actors represents a list of actors
+     * @param tile represents the grid of tiles
+     * @return true if player is on same tile as monster/water, false otherwise
+     */
     //check if player is in same tile as frog or ball or bug
     public boolean isKilled(ArrayList<Actor> actors, Tile[][] tile){
         for (Actor actor : actors){
@@ -314,11 +341,21 @@ public class Player extends Actor{
         return false;
     }
 
+    /**
+     * checks if game has been won
+     * @param tile represents a grid of tiles
+     * @return true if player is on exit, false otherwise
+     */
     //check if won
     public boolean isWon(Tile[][] tile){
         return tile[y][x] instanceof Exit;
     }
 
+    /**
+     * checks if tile is dirt
+     * @param tile represents a grid of tiles
+     * @return true if tile is dirt, false otherwise
+     */
     //check if next tile is dirt
     public boolean isDirt(Tile[][] tile){
         return tile[y][x] instanceof Dirt;
