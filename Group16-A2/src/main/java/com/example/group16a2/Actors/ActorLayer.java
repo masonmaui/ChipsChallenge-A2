@@ -58,6 +58,10 @@ public class ActorLayer {
         actorList = readDataFile(filename);
     }
 
+    /**
+     * Gets the list of actors in the layer.
+     * @return the actorList the array list contains all the actors in the layer.
+     */
     //get array list
     public ArrayList<Actor> getActorList() {
         return actorList;
