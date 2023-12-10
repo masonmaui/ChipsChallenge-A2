@@ -2,6 +2,14 @@ package com.example.group16a2.Actors;
 
 import com.example.group16a2.Tiles.Tile;
 
+/**
+ * Frog.java
+ * Represents the frog actor in the game.
+ * @author Mason Emery
+ * @version 1.6
+ *
+ */
+
 public class Frog extends Actor {
 
     private String filename;
