@@ -11,7 +11,6 @@ import java.util.ArrayList;
  * Represents the player
  * Handles player movement
  * Handles interactions with other actors and items
- * @author Aman Bhavra
  * @author Mason Emery
  * @author James Buckley
  * @version 1.6

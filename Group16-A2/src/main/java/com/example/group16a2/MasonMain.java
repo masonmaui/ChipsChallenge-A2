@@ -53,7 +53,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-    private int level = 4;
+    private int level = 5;
 
     public MasonMain() {
         this.profile = null;
@@ -78,7 +78,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         CANVAS_WIDTH = tile[0].length * GRID_CELL_WIDTH;
 
         //set time limit
-        timeLimit = 50;
+        timeLimit = 75;
 
         Pane root = buildGUI();
 
@@ -188,9 +188,9 @@ public class MasonMain extends Application implements InventoryUpdateListener {
                 }
             }
         }
-
+        ArrayList<Actor> actorsCopy = new ArrayList<>(actors);
         //foreach block check if it is on water
-        for (Actor actor : actors) {
+        for (Actor actor : actorsCopy) {
             if (actor instanceof Block) {
                 ((Block) actor).isOnWater(tile,actors);
             }

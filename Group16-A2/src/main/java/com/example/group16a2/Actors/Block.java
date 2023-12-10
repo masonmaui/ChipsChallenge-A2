@@ -41,7 +41,7 @@ public class Block extends Actor{
     public void moveRight() {
         x++;
     }
-    
+
     //check block is on water
     public void isOnWater(Tile[][] tile,ArrayList<Actor> actors){
         if(tile[y][x] instanceof Water) {
