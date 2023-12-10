@@ -56,6 +56,7 @@ public class Profile {
         updateHighestLevel();
     }
 
+
     private void createHighScoresFile() {
         try {
             File myObj = new File("highscores"+currentLevel+".txt");
@@ -95,6 +96,9 @@ public class Profile {
         }
     }
 
+    /**
+     * Creates a profile file name "profiles.txt".
+     */
     private static void createProfilesFile() {
         try {
             File myObj = new File("profiles.txt");
