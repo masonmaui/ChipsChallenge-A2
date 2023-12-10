@@ -121,6 +121,11 @@ public class ActorLayer {
     }
 
 
+    /**
+     * Gets information of the actor.
+     * @param actor To retrieve information about the actor.
+     */
+
     public void getActor(Actor actor) {
     }
 
