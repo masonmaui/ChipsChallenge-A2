@@ -11,6 +11,11 @@ package com.example.group16a2.Items;
 public class BlueKey extends CollectableItems{
 
     private String filename;
+
+    /**
+     * Constructs the object with the default image
+     * filename.
+     */
     public BlueKey() {
         super( "file:Sprites/BlueKey.png");
         filename = "file:Sprites/BlueKey.png";
