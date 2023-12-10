@@ -129,6 +129,10 @@ public class TileLayer {
 
     }
 
+    /**
+     * Gets the width of the tile layer.
+     * @return The width of tile layer.
+     */
     //get x
     public int getX() {
         return x;
