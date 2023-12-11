@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Profile {
 
-    private final String name;
+    private String name;
     private int highestLevel = 1;
     private int currentLevel = 1;
 
@@ -24,6 +24,8 @@ public class Profile {
     public Profile(String name) {
         if (name.length()>15) {
             this.name = name.substring(0, 15);
+        } else if (name.equals("")){
+            this.name = "test";
         }
         else {
             this.name = name;
