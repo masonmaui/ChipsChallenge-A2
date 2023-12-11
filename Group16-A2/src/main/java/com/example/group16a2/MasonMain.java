@@ -53,7 +53,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-    private int level = 4;
+    private int level = 5;
 
 
     public MasonMain() {
@@ -159,9 +159,13 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         //check if player is on exit
         if(player.isWon(tile)){
             assert profile != null;
-            profile.deleteProfileFromFileHighscore(profile.getName(),timeLimit);
+            if (level != 1){
+                profile.updateCurrentLevel(level);
+            } else {
+                profile.updateCurrentLevel();
+            }
+            profile.deleteProfileFromFileHighscore(profile.getName(), timeLimit);
             profile.submitHighscore(timeLimit);
-            profile.updateCurrentLevel();
             endgameWon();
             Profile.deleteProfileFromFileProfiles(profile.getName());
             profile.saveProfileToFile();

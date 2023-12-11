@@ -55,6 +55,14 @@ public class Profile {
         currentLevel++;
         updateHighestLevel();
     }
+    /**
+     * Updates the current level of the profile by taking a parameter.
+     * @param currentLevel the new level
+     */
+    public void updateCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
+        updateHighestLevel();
+    }
 
 
     /**
@@ -68,7 +76,7 @@ public class Profile {
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {
-                System.out.println("File already exists.");
+                System.out.println("File already exists: " + currentLevel);
             }
         } catch (IOException e) {
             System.out.println("An error occurred.");
@@ -84,18 +92,24 @@ public class Profile {
     public void submitHighscore(int score){
         createHighScoresFile();
         boolean update = true;
+        boolean matchFound = false;
         String profilename = this.getName();
         try {
             File inputFile = new File("highscores" + currentLevel + ".txt");
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             String currentLine;
-
             while ((currentLine = reader.readLine()) != null) {
                 // trim newline when comparing with lineToRemove
-                int score_from_line = Integer.parseInt((currentLine.trim()).substring(16));
-                update = score_from_line<score;
+                String trimmedLine = currentLine.split(" ")[0];
+                int score_from_line = Integer.parseInt(currentLine.trim().substring(16));
+                matchFound = profilename.equals(trimmedLine);
+                update = (score_from_line<=score && matchFound);
             }
             if (update) {
+                FileWriter myWriter = new FileWriter("highscores" + currentLevel + ".txt", true);
+                myWriter.write(this.toStringForSave() + score + "\n");
+                myWriter.close();
+            } else if (!matchFound) {
                 FileWriter myWriter = new FileWriter("highscores" + currentLevel + ".txt", true);
                 myWriter.write(this.toStringForSave() + score + "\n");
                 myWriter.close();
@@ -132,6 +146,7 @@ public class Profile {
      */
     public void deleteProfileFromFileHighscore(String profilename,int score) {
         try {
+            createHighScoresFile();
             File inputFile = new File("highscores" + currentLevel + ".txt");
             File tempFile = new File("highscorehandle.txt");
             tempFile.createNewFile();
