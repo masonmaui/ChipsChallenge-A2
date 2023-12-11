@@ -90,7 +90,7 @@ public class Game extends Application implements InventoryUpdateListener {
         CANVAS_WIDTH = tile[0].length * GRID_CELL_WIDTH;
 
         //set time limit
-        timeLimit = 75;
+        timeLimit = 150;
 
         Pane root = buildGUI();
 
