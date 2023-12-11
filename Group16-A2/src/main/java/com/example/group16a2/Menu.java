@@ -79,6 +79,13 @@ public class Menu extends Application  {
         primaryStage.show();
     }
 
+    @FXML
+    public void Level1() throws IOException {
+        Stage gameStage = new Stage();  // Create a new Stage
+        createNameInputTextField(gameStage);  // Pass the new Stage to the method
+        gameStage.show();  // Show the new Stage
+    }
+
 //    @FXML
 //    public void handleHighScoresClick() throws IOException {
 //        createHighScoreField();  // Pass the new Stage to the method

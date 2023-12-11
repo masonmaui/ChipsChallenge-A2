@@ -87,14 +87,7 @@ public class ItemLayer {
     public void removeItemFromLayer(int[] coords, CollectableItems itemToRemove) {
         //insert item into whatever javafx stuff going on at coords, also check it's within bounds
     }
-
-    public void saveLayer() {
-        //Inventory section
-        //Use toString functions from each item to create strings for each corrosponding item
-        // use "/" for empty space
-    }
-
-
+    
     /**
      * Reads in items from the text file line by line
      * @param in Scanner

@@ -28,7 +28,6 @@ public class PinkBall extends Actor{
      * @param x The x coordinate of the pink ball.
      * @param direction The direction of the pink ball(N,S,E or W).
      */
-
     public PinkBall(int y, int x, String direction) {
         super(y, x, "file:Sprites/Ball.png");
         this.filename = "file:Sprites/Ball.png";

@@ -30,8 +30,8 @@
             </Button>
             <MenuButton layoutX="138.0" layoutY="104.0" mnemonicParsing="false" text="Level Select">
               <items>
-                <MenuItem mnemonicParsing="false" text="Level 1" />
-                <MenuItem mnemonicParsing="false" text="Level 1" />
+                <MenuItem mnemonicParsing="false" text="Level 1" onAction="#Level1"/>
+                <MenuItem mnemonicParsing="false" text="Level 2" />
               </items>
             </MenuButton>
             <Button layoutX="138.0" layoutY="145.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Highscores" />
