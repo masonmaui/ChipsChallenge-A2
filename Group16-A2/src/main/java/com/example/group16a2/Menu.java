@@ -1,12 +1,4 @@
 package com.example.group16a2;
-
-/**
- * Menu.java
- * This class represents the Menu application using JavaFX.
- * @author Marco Silva
- * @version 1.6
- */
-
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +11,12 @@ import javafx.scene.control.TextField;
 
 import java.io.*;
 
-
+/**
+ * Menu.java
+ * This class represents the Menu application using JavaFX.
+ * @author Marco Silva
+ * @version 1.6
+ */
 public class Menu extends Application  {
     @FXML
     private TextField user;
@@ -30,7 +27,6 @@ public class Menu extends Application  {
      * @throws IOException If an error occurs during loading the
      *                      FXML.
      */
-
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("MenuLayout.fxml"));
@@ -83,6 +79,11 @@ public class Menu extends Application  {
         primaryStage.show();
     }
 
+    /**
+     * Handles the click event for the level 1 button.
+     * @throws IOException If an error occurs during loading the
+     *                     FXML.
+     */
     @FXML
     public void Level1() throws IOException {
         Stage gameStage = new Stage();  // Create a new Stage
@@ -91,6 +92,11 @@ public class Menu extends Application  {
     }
 
 
+    /**
+     * Handles the click event for the high scores button.
+     * @throws IOException If an error occurs during loading the
+     *                     FXML.
+     */
     public void handleHighScoresClick() throws IOException {
         Stage highScoreStage = new Stage();
         createHighScoreField(highScoreStage);  // Pass the new Stage to the method
@@ -99,6 +105,10 @@ public class Menu extends Application  {
     @FXML
     private Label label = new Label();
 
+    /**
+     * Initializes the high score screen.
+     * @throws IOException
+     */
     public void initialize() throws IOException {
         File highScoreFile = new File("highscores1.txt");
         BufferedReader reader = new BufferedReader(new FileReader(highScoreFile));
@@ -117,6 +127,11 @@ public class Menu extends Application  {
         label.setText(String.valueOf(scores));
     }
 
+    /**
+     * Creates a new stage for entering the username.
+     * @param primaryStage The primary stage for the application
+     * @throws IOException
+     */
     public void createHighScoreField(Stage primaryStage) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("HighScoreLayoutTest.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 271, 490);
