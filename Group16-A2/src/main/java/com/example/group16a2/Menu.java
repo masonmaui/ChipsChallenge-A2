@@ -48,6 +48,10 @@ public class Menu extends Application  {
         gameStage.show();  // Show the new Stage
     }
 
+    /**
+     * Starts the application.
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         Application.launch(args);
     }
@@ -107,7 +111,7 @@ public class Menu extends Application  {
 
     /**
      * Initializes the high score screen.
-     * @throws IOException
+     * @throws IOException If an error occurs during loading the
      */
     public void initialize() throws IOException {
         File highScoreFile = new File("highscores1.txt");
@@ -130,7 +134,7 @@ public class Menu extends Application  {
     /**
      * Creates a new stage for entering the username.
      * @param primaryStage The primary stage for the application
-     * @throws IOException
+     * @throws IOException If an error occurs during loading the
      */
     public void createHighScoreField(Stage primaryStage) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("HighScoreLayoutTest.fxml"));

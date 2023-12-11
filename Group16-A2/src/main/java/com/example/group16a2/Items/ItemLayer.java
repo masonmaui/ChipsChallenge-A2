@@ -28,12 +28,6 @@ public class ItemLayer {
     private int x;
     private int y;
 
-
-    public ItemLayer(int x, int y) {
-        size = new int[]{x, y};
-        currentLayer = new String[x][y];
-    }
-
     /**
      * Class constructor
      * @param filename filename of image

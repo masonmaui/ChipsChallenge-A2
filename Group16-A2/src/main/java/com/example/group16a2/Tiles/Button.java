@@ -14,7 +14,8 @@ public class Button extends Tile{
 
     /**
      * Class constructor
-     * @param isPassable
+     * @param isPassable if passable
+     * @param ID ID of button
      */
     public Button(boolean isPassable, String ID) {
         super(isPassable , "file:Sprites/Button.png");
@@ -51,7 +52,7 @@ public class Button extends Tile{
 
     /**
      * set activated
-     * @param activated
+     * @param activated if activated
      */
     //set activated
     public void setActivated(boolean activated){

@@ -238,6 +238,10 @@ public class Profile {
         return new Profile(profilename);
     }
 
+    /**
+     * Returns a string representation of the profile for saving.
+     * @return A string representation of the profile for saving.
+     */
     public String toStringForSave(){
         return (name + " ".repeat(Math.max(0, 16 - name.length())));
     }
@@ -270,6 +274,10 @@ public class Profile {
         return (name + " " + highestLevel + " " + currentLevel);
     }
 
+    /**
+     * Returns a string representation of the profile.
+     * @return A string representation of the profile.
+     */
     public static void main(String[] args) {
         Profile marco = new Profile("Marco");
         marco.submitHighscore(25);

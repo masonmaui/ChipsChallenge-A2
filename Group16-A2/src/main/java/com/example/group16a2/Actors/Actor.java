@@ -12,7 +12,13 @@ public class Actor {
     private String fileName;
     private int posX;
     private int Posy;
-    // Constructor
+
+    /**
+     * Constructs the actor with the specified position and image file name.
+     * @param y The y coordinate of the actor's position.
+     * @param x The x coordinate of the actor's position.
+     * @param fileName The file name of the actor's image.
+     */
     public Actor(int y, int x, String fileName) {
         this.posX = x;
         this.Posy = y;
@@ -42,5 +48,5 @@ public class Actor {
     public int getY() {
         return Posy;
     }
-    
+
 }

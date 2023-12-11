@@ -347,30 +347,50 @@ public class Player extends Actor{
         }
     }
 
+    /**
+     * handles interaction with locked door
+     * @param lockedDoorBlue represents a locked door
+     */
     public void handleLockedDoorBlueInteraction(LockedDoorBlue lockedDoorBlue) {
         if (inventoryContainsBlueKey()) {
             BlueKey blueKey = inventory.findAndRemoveBlueKey();
         }
     }
 
+    /**
+     * handles interaction with locked door
+     * @param lockedDoorRed represents a locked door
+     */
     private void handleLockedDoorRedInteraction(LockedDoorRed lockedDoorRed) {
         if (inventoryContainsRedKey()) {
             RedKey redKey = inventory.findAndRemoveRedKey();
         }
     }
 
+    /**
+     * handles interaction with locked door
+     * @param lockedDoorGreen represents a locked door
+     */
     private void handleLockedDoorGreenInteraction(LockedDoorGreen lockedDoorGreen) {
         if (inventoryContainsGreenKey()) {
             GreenKey greenKey = inventory.findAndRemoveGreenKey();
         }
     }
 
+    /**
+     * handles interaction with locked door
+     * @param lockedDoorYellow represents a locked door
+     */
     private void handleLockedDoorYellowInteraction(LockedDoorYellow lockedDoorYellow) {
         if (inventoryContainsYellowKey()) {
             YellowKey yellowKey = inventory.findAndRemoveYellowKey();
         }
     }
 
+    /**
+     * handles interaction with chip socket
+     * @param chipSocket represents a chip socket
+     */
     public void handleChipSocketInteraction(ChipSocket chipSocket) {
         if (inventoryContainsChip()) {
             Chip chip = inventory.findAndRemoveChip();
@@ -459,7 +479,6 @@ public class Player extends Actor{
      * @param tile represents a grid of tiles
      * @return true if player is on exit, false otherwise
      */
-    //check if won
     public boolean isWon(Tile[][] tile){
         return tile[y][x] instanceof Exit;
     }
@@ -469,31 +488,61 @@ public class Player extends Actor{
      * @param tile represents a grid of tiles
      * @return true if tile is dirt, false otherwise
      */
-    //check if next tile is dirt
     public boolean isDirt(Tile[][] tile){
         return tile[y][x] instanceof Dirt;
     }
 
+    /**
+     * checks if tile is a locked door
+     * @param tile represents a grid of tiles
+     * @return true if tile is a locked door, false otherwise
+     */
     public boolean isLockedDoorBlue(Tile[][] tile){
         return tile[y][x] instanceof LockedDoorBlue;
     }
 
+    /**
+     * checks if tile is a locked door
+     * @param tile represents a grid of tiles
+     * @return true if tile is a locked door, false otherwise
+     */
     public boolean isLockedDoorYellow(Tile[][] tile){
         return tile[y][x] instanceof LockedDoorYellow;
     }
 
+    /**
+     * checks if tile is a locked door
+     * @param tile represents a grid of tiles
+     * @return true if tile is a locked door, false otherwise
+     */
     public boolean isLockedDoorRed(Tile[][] tile){
         return tile[y][x] instanceof LockedDoorRed;
     }
 
+    /**
+     * checks if tile is a locked door
+     * @param tile represents a grid of tiles
+     * @return true if tile is a locked door, false otherwise
+     */
     public boolean isLockedDoorGreen(Tile[][] tile){
         return tile[y][x] instanceof LockedDoorGreen;
     }
 
+    /**
+     * checks if tile is a chip socket
+     * @param tile represents a grid of tiles
+     * @return true if tile is a chip socket, false otherwise
+     */
     public boolean isChipSocket(Tile[][] tile){
         return tile[y][x] instanceof ChipSocket;
     }
 
+    /**
+     * checks if block can be moved
+     * @param tile represents a grid of tiles
+     * @param direction represents the direction the block is being moved
+     * @param actors represents a list of actors
+     */
     public void checkBlock(ArrayList<Actor>actors, String direction, Tile[][] tile){
         for (Actor actor : actors){
             if (actor instanceof Block){

@@ -62,16 +62,24 @@ public class Game extends Application implements InventoryUpdateListener {
     private int level = 1;
 
 
+    /**
+     * Constructs the game.
+     */
     public Game() {
         this.profile = null;
     }
+
+    /**
+     * Constructs the game with a profile.
+     * @param profile The profile to be used.
+     */
     public Game(Profile profile){
         this.profile = profile;
     }
 
     /**
      * Starts the game and displays the GUI.
-     * @param primaryStage
+     * @param primaryStage The stage to display the GUI on.
      */
     public void start(Stage primaryStage) {
 
@@ -602,6 +610,10 @@ public class Game extends Application implements InventoryUpdateListener {
         return root;
     }
 
+    /**
+     * The main method for the game.
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         launch(args);
     }

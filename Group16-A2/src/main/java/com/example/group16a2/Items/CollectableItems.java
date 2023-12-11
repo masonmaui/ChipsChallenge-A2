@@ -14,7 +14,7 @@ import com.example.group16a2.Actors.Player;
  */
 public class CollectableItems {
     private Boolean isConsumable = true;
-    public String filename;
+    public String fileName;
     private boolean isCollected;
 
 
@@ -23,7 +23,7 @@ public class CollectableItems {
      * @param filename The filename associated with the item.
      */
     public CollectableItems(String filename) {
-        this.filename = filename;
+        this.fileName = filename;
     }
 
     /**
@@ -38,6 +38,9 @@ public class CollectableItems {
         setCollected(true);
     }
 
+    /**
+     * Gets the action being performed when the item is used.
+     */
     public void Action() {
         // Define any actions to be performed when the item is used or collected
     }
@@ -48,7 +51,7 @@ public class CollectableItems {
      */
     // Get file name
     public String getFilename() {
-        return filename;
+        return fileName;
     }
 
     /**

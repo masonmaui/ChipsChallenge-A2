@@ -14,7 +14,7 @@ public class Path extends Tile {
     /**
      * Constructs the path with the specified passable
      * and image file name.
-     * @param isPassable
+     * @param isPassable if the path is passable.
      */
 
     public Path(boolean isPassable) {

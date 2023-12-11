@@ -117,6 +117,7 @@ public class TileLayer {
     }
 
     /**
+     * Reads the data file.
      * @param filename The name of the file containing tile information.
      * @return readEachLine reads each of the line.
      */

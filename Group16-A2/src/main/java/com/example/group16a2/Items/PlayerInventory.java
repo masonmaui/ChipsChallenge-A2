@@ -24,10 +24,17 @@ public class PlayerInventory {
 
     private InventoryUpdateListener updateListener;
 
+    /**
+     * Constructs the player's inventory.
+     */
     public PlayerInventory() {
         items = new ArrayList<>();
     }
 
+    /**
+     * Gets the number of blue keys in the player's inventory.
+     * @return blueKeyCount the number of blue keys.
+     */
     public int getChipCount() {
         return chipCount;
     }
