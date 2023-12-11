@@ -95,6 +95,12 @@ public class PlayerInventory {
         return yellowKeyCount > 0;
     }
 
+    /**
+     * Checks whether the player's inventory contains
+     * at least one chip.
+     * @return true if the player's inventory contains at
+     * least one chip, false otherwise.
+     */
     public boolean containsChip() {
         return chipCount > 0;
     }
