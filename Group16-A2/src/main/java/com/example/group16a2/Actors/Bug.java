@@ -67,53 +67,69 @@ public class Bug extends Actor{
         if (wallToFollow.equals("L")) {
             if (isInBounds(x - 1, y, tile)) {
                 if (!tile[y][x - 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugUp.png";
                     moveUp(tile);
                 }
                 if(!tile[y][x + 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugDown.png";
                     moveDown(tile);
                 }
                 if(!tile[y - 1][x].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugRight.png";
                     moveRight(tile);
                 }
                 if(!tile[y + 1][x].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugLeft.png";
                     moveLeft(tile);
                 }
                 if(!tile[y+1][x - 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugLeft.png";
                     moveLeft(tile);
                 }
                 if(!tile[y+1][x + 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugDown.png";
                     moveDown(tile);
                 }
                 if(!tile[y-1][x + 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugRight.png";
                     moveRight(tile);
                 }
                 if(!tile[y-1][x - 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugUp.png";
                     moveUp(tile);
                 }
             }
         }else if (wallToFollow.equals("R")){
             if (isInBounds(x + 1, y, tile)) {
                 if(!tile[y - 1][x].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugLeft.png";
                     moveLeft(tile);
                 }
                 if (!tile[y][x + 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugUp.png";
                     moveUp(tile);
                 }
                 if(!tile[y + 1][x].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugRight.png";
                     moveRight(tile);
                 }
                 if(!tile[y][x - 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugDown.png";
                     moveDown(tile);
                 }
                 if(!tile[y+1][x + 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugRight.png";
                     moveRight(tile);
                 }if(!tile[y+1][x - 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugDown.png";
                     moveDown(tile);
                 }
                 if(!tile[y-1][x - 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugLeft.png";
                     moveLeft(tile);
                 }
                 if(!tile[y-1][x + 1].isPassableMonster()) {
+                    this.fileName = "file:Sprites/BugUp.png";
                     moveUp(tile);
                 }
             }
