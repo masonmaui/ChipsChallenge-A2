@@ -25,6 +25,13 @@ public class Menu extends Application  {
     @FXML
     private TextField user;
 
+    /**
+     * Main entry point for the application.
+     * @param primaryStage The primary stage for the application.
+     * @throws IOException If an error occurs during loading the
+     *                      FXML.
+     */
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("MenuLayout.fxml"));
@@ -34,6 +41,11 @@ public class Menu extends Application  {
         primaryStage.show();
     }
 
+    /**
+     * Starts a new game by creating a new stage.
+     * @throws IOException If an error occurs during loading the
+     *                     FXML.
+     */
     @FXML
     public void startGame() throws IOException {
         Stage gameStage = new Stage();  // Create a new Stage
