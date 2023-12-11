@@ -75,10 +75,22 @@ public class PlayerInventory {
         return redKeyCount > 0;
     }
 
+    /**
+     * Checks whether the player's inventory contains
+     * at least one green key.
+     * @return true if the player's inventory contains at
+     * least one green key, false otherwise.
+     */
     public boolean containsGreenKey() {
         return greenKeyCount > 0;
     }
 
+    /**
+     * Checks whether the player's inventory contains
+     * at least one yellow key.
+     * @return true if the player's inventory contains at
+     * least one yellow key, false otherwise.
+     */
     public boolean containsYellowKey() {
         return yellowKeyCount > 0;
     }
