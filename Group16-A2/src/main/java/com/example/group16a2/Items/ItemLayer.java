@@ -87,7 +87,7 @@ public class ItemLayer {
     public void removeItemFromLayer(int[] coords, CollectableItems itemToRemove) {
         //insert item into whatever javafx stuff going on at coords, also check it's within bounds
     }
-    
+
     /**
      * Reads in items from the text file line by line
      * @param in Scanner
@@ -144,18 +144,5 @@ public class ItemLayer {
         return readEachLine(in);
 
     }
-
-    public static void main(String[] args) {
-        ItemLayer itemlayer = new ItemLayer("Levels/Level1ItemLayer.txt");
-
-        for (int i = 0; i < itemlayer.getItems().length; i++) {
-            for (int j = 0; j < itemlayer.getItems()[i].length; j++) {
-                System.out.print(itemlayer.getItems()[i][j] + " ");
-            }
-            System.out.println();
-        }
-
-        //get file names of the items
-        System.out.println(itemlayer.getItems()[0][0].getFilename());
-    }
+    
 }
