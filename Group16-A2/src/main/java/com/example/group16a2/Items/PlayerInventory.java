@@ -54,7 +54,7 @@ public class PlayerInventory {
             chipCount++;
         }
     }
-
+    
     public boolean containsBlueKey() {
         return blueKeyCount > 0;
     }
@@ -194,10 +194,18 @@ public class PlayerInventory {
     }
 
 
+    /**
+     * Sets the listener for inventory update events.
+     * @param listener to be set as the update listener.
+     */
     public void setUpdateListener(InventoryUpdateListener listener) {
         this.updateListener = listener;
     }
 
+    /**
+     * Notifies the notifyUpdateListener of a change in
+     * the player's inventory.
+     */
     private void notifyUpdateListener() {
         if (updateListener != null) {
             updateListener.onInventoryUpdate();
