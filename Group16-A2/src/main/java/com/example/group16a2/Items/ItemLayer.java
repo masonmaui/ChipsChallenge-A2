@@ -75,15 +75,21 @@ public class ItemLayer {
     public void updateChipCount(int toIncrement) {
         chipCount += toIncrement;
     }
-
-    public void addItemToLayer(int[] coords, CollectableItems itemToInsert) {
-        //insert item into whatever javafx stuff going on at coords, also check it's within bounds
-    }
-
+    
+    /**
+     * Finds item in layer
+     * @param itemQuery item to find
+     * @return coordinates of item
+     */
     public int[] findItemInLayer(CollectableItems itemQuery) {
         return new int[]{0, 0};
     }
 
+    /**
+     * Removes item from layer
+     * @param coords coordinates of item
+     * @param itemToRemove item to remove
+     */
     public void removeItemFromLayer(int[] coords, CollectableItems itemToRemove) {
         //insert item into whatever javafx stuff going on at coords, also check it's within bounds
     }
@@ -144,5 +150,5 @@ public class ItemLayer {
         return readEachLine(in);
 
     }
-    
+
 }
