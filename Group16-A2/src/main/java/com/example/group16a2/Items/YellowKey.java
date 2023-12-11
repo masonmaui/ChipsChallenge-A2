@@ -7,7 +7,7 @@ package com.example.group16a2.Items;
  * @version 1.6
  */
 public class YellowKey extends CollectableItems{
-    private String filename;
+    private String fileName;
 
     /**
      * Initialize the yellow key with the image file
@@ -15,7 +15,7 @@ public class YellowKey extends CollectableItems{
      */
     public YellowKey() {
         super( "file:Sprites/YellowKey.png");
-        filename = "file:Sprites/YellowKey.png";
+        fileName = "file:Sprites/YellowKey.png";
     }
 
     /**

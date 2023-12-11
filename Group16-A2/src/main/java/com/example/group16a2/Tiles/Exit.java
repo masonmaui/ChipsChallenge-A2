@@ -8,7 +8,7 @@ package com.example.group16a2.Tiles;
  */
 public class Exit extends Tile {
 
-    private String filename;
+    private String fileName;
 
     /**
      * Class constructor takes isPassable as parameter
@@ -16,7 +16,7 @@ public class Exit extends Tile {
      */
     public Exit(boolean isPassable) {
         super(isPassable, "file:Sprites/Exit.png");
-        filename = "file:Sprites/Exit.png";
+        fileName = "file:Sprites/Exit.png";
     }
 
     /**
@@ -25,7 +25,7 @@ public class Exit extends Tile {
      */
     //get file name
     public String getFileName() {
-        return filename;
+        return fileName;
     }
 
     /**

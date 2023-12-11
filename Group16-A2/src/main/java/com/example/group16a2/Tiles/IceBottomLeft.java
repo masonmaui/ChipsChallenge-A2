@@ -7,16 +7,14 @@ package com.example.group16a2.Tiles;
  * @version 1.6
  */
 public class IceBottomLeft extends Tile{
-
-            private String filename;
-
+            private String fileName;
             /**
              * Class constructor takes isPassable as parameter
              * @param isPassable represents whether tile can be moved past
             */
             public IceBottomLeft(boolean isPassable) {
                 super(isPassable, "file:Sprites/IceBottomLeft.png");
-                filename = "file:Sprites/IceBottomLeft.png";
+                fileName = "file:Sprites/IceBottomLeft.png";
             }
 
             /**
@@ -25,7 +23,7 @@ public class IceBottomLeft extends Tile{
             */
             //get file name
             public String getFileName() {
-                return filename;
+                return fileName;
             }
 
             /**

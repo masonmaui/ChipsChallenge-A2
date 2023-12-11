@@ -8,7 +8,7 @@ package com.example.group16a2.Tiles;
  */
 public class IceTopLeft extends Tile{
 
-            private String filename;
+            private String fileName;
 
             /**
             * Class constructor takes isPassable as parameter
@@ -16,7 +16,7 @@ public class IceTopLeft extends Tile{
             */
             public IceTopLeft(boolean isPassable) {
                 super(isPassable, "file:Sprites/IceTopLeft.png");
-                filename = "file:Sprites/IceTopLeft.png";
+                fileName = "file:Sprites/IceTopLeft.png";
             }
 
             /**
@@ -25,7 +25,7 @@ public class IceTopLeft extends Tile{
             */
             //get file name
             public String getFileName() {
-                return filename;
+                return fileName;
             }
 
             /**

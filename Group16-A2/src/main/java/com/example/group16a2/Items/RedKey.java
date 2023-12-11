@@ -7,16 +7,15 @@ package com.example.group16a2.Items;
  * @version 1.6
  */
 public class RedKey extends CollectableItems{
-    private String filename;
+    private String fileName;
 
     /**
      * Initialize the red key with the image file
      * path.
      */
-
     public RedKey() {
         super( "file:Sprites/RedKey.png");
-        filename = "file:Sprites/RedKey.png";
+        fileName = "file:Sprites/RedKey.png";
     }
 
     /**

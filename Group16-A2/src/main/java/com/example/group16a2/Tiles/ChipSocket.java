@@ -9,7 +9,7 @@ package com.example.group16a2.Tiles;
 
 
 public class ChipSocket extends Tile {
-    private String filename;
+    private String fileName;
     private int chipsRequired;
 
     /**
@@ -25,11 +25,11 @@ public class ChipSocket extends Tile {
 
         // Corrected logic to set the filename based on the chipsRequired value
         if (chipsRequired == 1) {
-            filename = "file:Sprites/ChipSocket1.png";
+            fileName = "file:Sprites/ChipSocket1.png";
         } else if (chipsRequired == 2) {
-            filename = "file:Sprites/ChipSocket2.png";  // Corrected filename
+            fileName = "file:Sprites/ChipSocket2.png";  // Corrected filename
         } else if (chipsRequired == 3) {
-            filename = "file:Sprites/ChipSocket3.png";
+            fileName = "file:Sprites/ChipSocket3.png";
         } else {
             throw new IllegalArgumentException("Invalid chipsRequired value");
         }
@@ -50,7 +50,7 @@ public class ChipSocket extends Tile {
      * @return image filename
      */
     public String getFileName() {
-        return filename;
+        return fileName;
     }
 
     /**

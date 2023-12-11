@@ -8,7 +8,7 @@ package com.example.group16a2.Tiles;
  */
 public class Dirt extends Tile {
 
-    private String filename;
+    private String fileName;
 
     /**
      * Class constructor takes is passable as parameter
@@ -16,7 +16,7 @@ public class Dirt extends Tile {
      */
     public Dirt(boolean isPassable) {
         super(isPassable, "file:Sprites/Dirt.png");
-        filename = "file:Sprites/Dirt.png";
+        fileName = "file:Sprites/Dirt.png";
     }
 
     /**
@@ -25,7 +25,7 @@ public class Dirt extends Tile {
      */
     //get file name
     public String getFileName() {
-        return filename;
+        return fileName;
     }
 
     /**
