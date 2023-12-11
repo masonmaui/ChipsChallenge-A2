@@ -54,11 +54,23 @@ public class PlayerInventory {
             chipCount++;
         }
     }
-    
+
+    /**
+     * Checks whether the player's inventory contains
+     * at least one blue key.
+     * @return true if the player's inventory contains at
+     * least one blue key, false otherwise.
+     */
     public boolean containsBlueKey() {
         return blueKeyCount > 0;
     }
 
+    /**
+     * Checks whether the player's inventory contains
+     * at least one red key.
+     * @return true if the player's inventory contains at
+     * least one red key, false otherwise.
+     */
     public boolean containsRedKey() {
         return redKeyCount > 0;
     }
