@@ -34,7 +34,7 @@ public class Frog extends Actor {
      * Gets the x-coordinate of the frog.
      * @return The x-coordinate of the frog.
      */
-    //get x
+    
     public int getX(){
         return x;
     }
@@ -44,18 +44,17 @@ public class Frog extends Actor {
      * @return The y-coordinate of the frog.
      */
 
-    //get y
     public int getY(){
         return y;
     }
 
     /**
-     * Finds a path to the specified player and adjust the frog's position
+     * Finds a path to the specified player and adjusts the frog's position
      * accordingly.
-     * @param player The player object to find a path to.
-     * @param tiles Tiles that's representing the game.
+     * @param player The player objects to find a path to.
+     * @param tiles Tiles that are representing the game.
      */
-    //finds path to player
+    
     public void findPath(Player player, Tile[][] tiles){
         int playerX = player.getX();
         int playerY = player.getY();
@@ -80,11 +79,10 @@ public class Frog extends Actor {
 
     /**
      * Moves the frog to the right if the tile on the right is
-     * passable,otherwise the frog will move down if it's not passable.
+     * passable, otherwise the frog will move down if it's not passable.
      * @param tile Tile that's representing the chip challenge game.
      */
 
-    //move right
     public void moveRight(Tile[][] tile){
         if (isInBounds(x + 1, y, tile)){
             if (tile[y][x + 1].isPassableMonster()){
@@ -98,11 +96,10 @@ public class Frog extends Actor {
 
     /**
      * Moves the frog to the left if the tile on the left is
-     * passable,otherwise the frog will move up if it's not passable.
+     * passable, otherwise the frog will move up if it's not passable.
      * @param tile Tile that's representing the chip challenge game.
      */
 
-    //move left
     public void moveLeft(Tile[][] tile){
         if (isInBounds(x - 1, y, tile)){
             if (tile[y][x - 1].isPassableMonster()) {
@@ -119,7 +116,7 @@ public class Frog extends Actor {
      * otherwise the frog will move right if it's not passable.
      * @param tile Tile that's representing the chip challenge game.
      */
-    //move up
+    
     public void moveUp(Tile[][] tile){
         if (isInBounds(x, y - 1, tile)){
             if (tile[y - 1][x].isPassableMonster()) {
@@ -136,7 +133,7 @@ public class Frog extends Actor {
      * otherwise the frog will move left if it's not passable.
      * @param tile Tile that's representing the chip challenge game.
      */
-    //move down
+    
     public void moveDown(Tile[][] tile){
         if (isInBounds(x, y + 1, tile)){
             if (tile[y + 1][x].isPassableMonster()){
@@ -156,7 +153,7 @@ public class Frog extends Actor {
      * @return true, if the coordinates are within the bound, otherwise
      * false.
      */
-    //is in bounds
+    
     public boolean isInBounds(int x, int y, Tile[][] tile){
         return (x >= 0 && x < tile[0].length && y >= 0 && y < tile.length);
     }
@@ -166,7 +163,6 @@ public class Frog extends Actor {
      * @return The string "Frog".
      */
 
-    //to string
     public String toString(){
         return "Frog";
     }
