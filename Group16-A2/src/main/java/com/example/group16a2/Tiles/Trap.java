@@ -9,7 +9,7 @@ package com.example.group16a2.Tiles;
  */
 public class Trap extends Tile {
 
-    private String filename;
+    private String fileName;
     private boolean activated = true;
     String ID;
 
@@ -22,7 +22,7 @@ public class Trap extends Tile {
 
     public Trap(boolean isPassable, String ID) {
         super(isPassable, "file:Sprites/Trap.png");
-        filename = "file:Sprites/Trap.png";
+        fileName = "file:Sprites/Trap.png";
         this.ID = ID;
     }
 
@@ -61,7 +61,7 @@ public class Trap extends Tile {
 
     //get file name
     public String getFileName() {
-        return filename;
+        return fileName;
     }
 
 

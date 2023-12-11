@@ -10,7 +10,7 @@ package com.example.group16a2.Tiles;
 
 public class LockedDoorYellow extends Tile{
 
-    private String filename;
+    private String fileName;
 
 
     /**
@@ -20,7 +20,7 @@ public class LockedDoorYellow extends Tile{
      */
     public LockedDoorYellow(boolean isPassable) {
         super(isPassable, "file:Sprites/YellowLock.png");
-        filename = "file:Sprites/YellowLock.png";
+        fileName = "file:Sprites/YellowLock.png";
     }
 
     /**
@@ -29,7 +29,7 @@ public class LockedDoorYellow extends Tile{
      */
     //get file name
     public String getFileName() {
-        return filename;
+        return fileName;
     }
 
     /**

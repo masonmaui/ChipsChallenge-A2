@@ -9,7 +9,7 @@ package com.example.group16a2.Tiles;
  */
 public class Path extends Tile {
 
-    private String filename;
+    private String fileName;
 
     /**
      * Constructs the path with the specified passable
@@ -19,7 +19,7 @@ public class Path extends Tile {
 
     public Path(boolean isPassable) {
         super(isPassable, "file:Sprites/Path.png");
-        filename = "file:Sprites/Path.png";
+        fileName = "file:Sprites/Path.png";
     }
 
     /**
@@ -30,7 +30,7 @@ public class Path extends Tile {
 
     //get file name
     public String getFileName() {
-        return filename;
+        return fileName;
     }
 
     /**

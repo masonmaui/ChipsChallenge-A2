@@ -10,13 +10,12 @@ import java.util.Scanner;
  * @author Mason Emery
  * @version 1.6
  */
-
 public class TileLayer {
 
     private Tile[][] tiles;
     private int timeLimit;
 
-    String filename;
+    String fileName;
 
     private int x;
     private int y;
@@ -27,7 +26,7 @@ public class TileLayer {
      * @param filename The name of the file containing tile information.
      */
     public TileLayer(String filename) {
-        this.filename = filename;
+        this.fileName = filename;
         tiles = readDataFile(filename);
     }
 

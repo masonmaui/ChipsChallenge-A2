@@ -10,7 +10,7 @@ public class Tile {
 
     private boolean isPassable;
 
-    private String filename;
+    private String fileName;
 
     /**
      * Constructs a new tile with the specified passable and
@@ -28,7 +28,7 @@ public class Tile {
      */
     //get filename
     public String getFileName() {
-        return filename;
+        return fileName;
     }
 
     /**

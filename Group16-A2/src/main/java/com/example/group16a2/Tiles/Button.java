@@ -8,7 +8,7 @@ package com.example.group16a2.Tiles;
  */
 public class Button extends Tile{
 
-    private String fileName;
+    private String filename;
     private boolean activated = false;
     private String ID;
 
@@ -18,7 +18,7 @@ public class Button extends Tile{
      */
     public Button(boolean isPassable, String ID) {
         super(isPassable , "file:Sprites/Button.png");
-        fileName = "file:Sprites/Button.png";
+        filename = "file:Sprites/Button.png";
         this.ID = ID;
     }
 
@@ -37,7 +37,7 @@ public class Button extends Tile{
      */
     //get file name
     public String getFileName() {
-        return fileName;
+        return filename;
     }
 
     /**

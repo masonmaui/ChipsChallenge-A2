@@ -9,7 +9,7 @@ package com.example.group16a2.Tiles;
  */
 public class Water extends Tile{
 
-    private String filename;
+    private String fileName;
 
     /**
      * Constructs water tile with the specified passability
@@ -19,7 +19,7 @@ public class Water extends Tile{
      */
     public Water(boolean isPassable) {
         super(isPassable , "file:Sprites/Water.png");
-        filename = "file:Sprites/Water.png";
+        fileName = "file:Sprites/Water.png";
     }
 
     /**
@@ -29,7 +29,7 @@ public class Water extends Tile{
      */
     //get file name
     public String getFileName() {
-        return filename;
+        return fileName;
     }
 
     /**
