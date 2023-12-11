@@ -23,7 +23,7 @@ public class ItemLayer {
     //item array
     private CollectableItems[][] items;
 
-    private String filename;
+    private String fileName;
 
     private int x;
     private int y;
@@ -39,7 +39,7 @@ public class ItemLayer {
      * @param filename filename of image
      */
     public ItemLayer(String filename) {
-        this.filename = filename;
+        this.fileName = filename;
         items = readDataFile(filename);
     }
 
@@ -50,26 +50,6 @@ public class ItemLayer {
     //get tiles
     public CollectableItems[][] getItems() {
         return items;
-    }
-
-    /**
-     * Adds item to inventory array inside ItemLayer, unique to each ItemLayer, might be changed.
-     * Also called in CollectableItems so items can be added directly.
-     * @param pickedUpItem Represents item picked up by player
-     */
-
-    public void insertToInventory(CollectableItems pickedUpItem) {
-        inventory.add(pickedUpItem);
-    }
-
-    //Each item will have an Action function, this function can be called when the conditions of
-    //the item are reached. <- GameController will most likely make the checks for them like:
-    // Actor next to door -> use corresponding key (call this function)
-    public void useFromInventory(CollectableItems usedItem) {
-        usedItem.Action();
-        if (usedItem.getConsumable()) {
-            inventory.remove(usedItem);
-        }
     }
 
     public void updateChipCount(int toIncrement) {

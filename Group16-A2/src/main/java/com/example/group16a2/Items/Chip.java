@@ -18,7 +18,7 @@ public class Chip extends CollectableItems {
         super("file:Sprites/Chip.png");
         filename = "file:Sprites/Chip.png";
     }
-    
+
     /**
      * Adds the chip to the player's inventory.
      * @param targetInv The target item layer representing the player's
