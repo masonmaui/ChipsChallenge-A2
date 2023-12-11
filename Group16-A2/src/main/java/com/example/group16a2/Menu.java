@@ -11,13 +11,8 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 
 
@@ -57,6 +52,9 @@ public class Menu extends Application  {
         Application.launch(args);
     }
 
+    /**
+     * Handles the click event for the submit button.
+     */
     @FXML
     public void handleSubmitClick(){
         String user = this.user.getText();
@@ -66,6 +64,13 @@ public class Menu extends Application  {
         game.start(new Stage());
     }
 
+    /**
+     * Creates a new stage for entering the username.
+     * @param primaryStage The primary stage for the application
+     *                     where the username input will be set.
+     * @throws IOException If an error occurs during loading the
+     *                     FXML.
+     */
     public void createNameInputTextField(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("UsernamePanel.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 300);
@@ -74,35 +79,10 @@ public class Menu extends Application  {
         primaryStage.show();
     }
 
-    @FXML
-    public void handleHighScoresClick() throws IOException {
-        createHighScoreField();  // Pass the new Stage to the method
-    }
+//    @FXML
+//    public void handleHighScoresClick() throws IOException {
+//        createHighScoreField();  // Pass the new Stage to the method
+//    }
 
-    @FXML
-    private Text highscores;
-
-    public void createHighScoreField() throws IOException {
-        StringBuilder scores = new StringBuilder();
-        for (int i = 1; i<5; i++) {
-            try (BufferedReader reader = new BufferedReader(new FileReader("highscores" + i + ".txt"))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    scores.append(line);
-                }
-                FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("highscores.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 500, 300);
-                Stage primaryStage = new Stage();
-                primaryStage.setTitle("Highscores for level: " + i);
-                primaryStage.setScene(scene);
-                highscores.setText(String.valueOf(scores));
-                primaryStage.show();
-                scores = new StringBuilder();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
 
