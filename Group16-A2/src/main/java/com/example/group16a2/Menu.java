@@ -57,6 +57,9 @@ public class Menu extends Application  {
         Application.launch(args);
     }
 
+    /**
+     * Handles the click event for the submit button.
+     */
     @FXML
     public void handleSubmitClick(){
         String user = this.user.getText();
@@ -66,6 +69,13 @@ public class Menu extends Application  {
         game.start(new Stage());
     }
 
+    /**
+     * Creates a new stage for entering the username.
+     * @param primaryStage The primary stage for the application
+     *                     where the username input will be set.
+     * @throws IOException If an error occurs during loading the
+     *                     FXML.
+     */
     public void createNameInputTextField(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("UsernamePanel.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 300);
