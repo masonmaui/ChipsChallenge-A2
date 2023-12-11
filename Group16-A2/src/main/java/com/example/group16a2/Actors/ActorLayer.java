@@ -25,30 +25,6 @@ public class ActorLayer {
     private int x;
     private int y;
 
-    private String filename;
-
-    /**
-     *
-     * To create an actor layer with the actors, layer size and a
-     * player actor.
-     *
-     * @param monsters The array of the monsters.
-     * @param blocks The array of the blocks.
-     * @param layerSize The array that represents the size of the layer (x,y).
-     * @param playerActor represents the actor player.
-     */
-
-    // Parameterised constructor
-    public ActorLayer(Actor[] monsters, Actor[] blocks, int[] layerSize, Player playerActor) {
-        this.monsters = monsters;
-        this.blocks = blocks;
-        this.layerSize = layerSize;
-        int x = layerSize[0];
-        int y = layerSize[1];
-        this.playerActor = playerActor;
-        actors = new Actor[x][y];
-    }
-
     /**
      * Creating the actor layer by reading data from a file.
      * @param filename The file path containing actor data.
@@ -67,105 +43,11 @@ public class ActorLayer {
         return actorList;
     }
 
-    /*
-    public void setLocation(Actor actor, int[] newlocation) {
-        int[] oldlocation = actor.getPosition();
-        int oldy = oldlocation[0];
-        int oldx = oldlocation[1];
-        int newy = newlocation[0];
-        int newx = newlocation[1];
-        actors[oldy][oldx] = actor;
-        actors[newy][newx] = actor;
-        System.out.println(Arrays.deepToString(actors)); //for testing
-    }
-     */
-
-    /**
-     * Loads the actor layer from the file.
-     */
-    public void loadLayer() {
-
-    }
-
-    /**
-     * Saves the actor layer from the file.
-     */
-    public void saveLayer() {
-    }
-
-    /**
-     *
-     * Gets the position of the actor in the layer.
-     * @param actor
-     * @return The position (the row and column) of the actor.
-     */
-
-
-    // Getter method for position
-    public int[] getActorPosition(Actor actor) {
-        int[] position = new int[]{-1, -1}; // Default position if actor is not found
-
-        for (int i = 0; i < actors.length; i++) {
-            for (int j = 0; j < actors[i].length; j++) {
-                if (actors[i][j].equals(actor)) {
-                    position[0] = i; // Set the row index where actor is found
-                    position[1] = j; // Set the column index where actor is found
-                    break;
-                }
-            }
-            if (position[0] != -1) {
-                break; // Break the outer loop if actor is found
-            }
-        }
-        return position;
-    }
-
-
-    /**
-     * Gets information of the actor.
-     * @param actor To retrieve information about the actor.
-     */
-
-    public void getActor(Actor actor) {
-    }
-
-
-    /**
-     * Remove the actor from the layer.
-     * @param actor To remove the actor.
-     */
-
-    public void removeActor(Actor actor) {
-    }
-
-    /**
-     * Display information about all actors in the actor layer. It prints the
-     * details of the monsters, blocks and the player to the console.
-     * Includes the information of the string representation of all actors.
-     *
-     * @return null.
-     */
-
-    public String allActors() {
-        for (Actor value : monsters) {
-            System.out.println(value);
-        }
-
-        for (Actor value : blocks) {
-            System.out.println(value);
-        }
-
-        System.out.println(playerActor);
-
-        return null;
-    }
-
 
     /**
      * Gets the player from the actor list.
      * @return null if no actor is present.
      */
-    
     public Player getPlayer() {
         //from arraylist
         for (Actor actor : actorList) {
