@@ -201,7 +201,6 @@ public class Block extends Actor{
                         if(((Trap) tile[i][j]).getID().equals(((Button) tile[y][x]).getID())){
                             //set trap to be passable using set activated
                             ((Trap) tile[i][j]).setActivated(false);
-                            System.out.println("Trap deactivated");
                         }
                     }
                 }

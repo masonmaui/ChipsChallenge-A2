@@ -159,11 +159,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         //check if player is on exit
         if(player.isWon(tile)){
             assert profile != null;
-            if (level != 1){
-                profile.updateCurrentLevel(level);
-            } else {
-                profile.updateCurrentLevel();
-            }
+            profile.updateCurrentLevel(level);
             profile.deleteProfileFromFileHighscore(profile.getName(), timeLimit);
             profile.submitHighscore(timeLimit);
             endgameWon();
@@ -308,7 +304,6 @@ public class MasonMain extends Application implements InventoryUpdateListener {
                 return false;
             }
         }
-
         //check traps
         if (currentTile instanceof Trap) {
             Trap trap = (Trap) currentTile;
@@ -317,8 +312,6 @@ public class MasonMain extends Application implements InventoryUpdateListener {
             }
         }
         return true;
-
-
     }
 
     // Update the code where you call handleLockedDoorBlueInteraction in MasonMain
