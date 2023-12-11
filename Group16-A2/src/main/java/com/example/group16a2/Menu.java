@@ -1,5 +1,12 @@
 package com.example.group16a2;
 
+/**
+ * Menu.java
+ * This class represents the Menu application using JavaFX.
+ * @author Marco Silva
+ * @version 1.6
+ */
+
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
