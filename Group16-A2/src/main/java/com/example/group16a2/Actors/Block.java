@@ -232,6 +232,7 @@ public class Block extends Actor{
      * @param x represents x co-ordinate of the block      
      * @param y represents y co-ordinate of the block
      * @param tile represents the grid of tiles
+     * @return true if the block is within the bounds of the game grid
      */
     public boolean isInBounds(int x, int y, Tile[][] tile){
         return x >= 0 && x < tile[0].length && y >= 0 && y < tile.length;

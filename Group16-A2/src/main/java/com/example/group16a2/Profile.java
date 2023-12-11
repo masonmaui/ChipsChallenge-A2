@@ -276,7 +276,7 @@ public class Profile {
 
     /**
      * Returns a string representation of the profile.
-     * @return A string representation of the profile.
+     * @param args The command line arguments.
      */
     public static void main(String[] args) {
         Profile marco = new Profile("Marco");

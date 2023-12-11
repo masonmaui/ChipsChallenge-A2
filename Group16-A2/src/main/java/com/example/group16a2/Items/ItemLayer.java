@@ -46,6 +46,10 @@ public class ItemLayer {
         return items;
     }
 
+    /**
+     * Return the size of the layer
+     * @return size of layer
+     */
     public void updateChipCount(int toIncrement) {
         chipCount += toIncrement;
     }
