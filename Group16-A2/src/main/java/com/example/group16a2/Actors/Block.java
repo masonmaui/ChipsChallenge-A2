@@ -1,5 +1,12 @@
 package com.example.group16a2.Actors;
 
+/**
+ * Bug.java
+ * This class implements the block actor in the chip challenge game.
+ * @author Mason Emery
+ * @version 1.6
+ */
+
 import com.example.group16a2.Tiles.*;
 
 import java.util.ArrayList;
@@ -8,7 +15,14 @@ public class Block extends Actor{
     private String block;
     private String filename;
     private int x;
-    private int y;
+    private int y;    
+    
+    /**
+     * class constructor
+     * @param y represents y co-ordinate of the block
+     * @param x represents x co-ordinate of the block
+     */
+    
     public Block(int y, int x){
         super(y, x, "file:Sprites/Block.png");
         this.filename = "file:Sprites/Block.png";
@@ -16,15 +30,31 @@ public class Block extends Actor{
         this.y = y;
     }
 
+    /**
+     * return x co-ordinate of block
+     * @return x co-ordiante
+     */
+    
     //get x and y
     public int getX(){
         return x;
     }
 
+    /**
+     * return y co-ordinate of block
+     * @return y co-ordiante
+     */
+
     public int getY(){
         return y;
     }
 
+    /**
+     * checks if the block can move onto the tile above it
+     * depending on the tile the block will react in different ways
+     * @param tile represents the grid of tiles
+     */
+    
     //moving functions for block
     public void moveUp(Tile[][] tiles){
         if (isInBounds(x, y - 1, tiles)) {
@@ -62,6 +92,12 @@ public class Block extends Actor{
         }
     }
 
+    /**
+     * checks if the block can move onto the tile below it
+     * depending on the tile the block will react in different ways
+     * @param tile represents the grid of tiles
+     */
+    
     public void moveDown(Tile[][] tiles){
         if (isInBounds(x, y + 1, tiles)) {
             if(tiles[y + 1][x].isPassable()){
@@ -98,6 +134,12 @@ public class Block extends Actor{
         }
     }
 
+    /**
+     * checks if the block can move onto the tile to the left of it
+     * depending on the tile the block will react in different ways
+     * @param tile represents the grid of tiles
+     */
+    
     public void moveLeft(Tile[][] tiles){
         if (isInBounds(x - 1, y, tiles)) {
             if(tiles[y][x - 1].isPassable()){
@@ -134,6 +176,12 @@ public class Block extends Actor{
         }
     }
 
+    /**
+     * checks if the block can move onto the tile to the right of it
+     * depending on the tile the block will react in different ways
+     * @param tile represents the grid of tiles
+     */
+    
     public void moveRight(Tile[][] tiles) {
         if (isInBounds(x + 1, y, tiles)) {
             if(tiles[y][x + 1].isPassable()){
@@ -171,6 +219,12 @@ public class Block extends Actor{
         }
     }
 
+    /**
+     * checks if the block is on water then if so replaces the water tile with a path tile 
+     * @param tile represents the grid of tiles
+     * @param actors represents the grid of actors
+     */
+    
     //check block is on water
     public void isOnWater(Tile[][] tile,ArrayList<Actor> actors){
         if(tile[y][x] instanceof Water) {
@@ -181,11 +235,23 @@ public class Block extends Actor{
         }
     }
 
+    /**
+     * checks if the block is within the bounds of the game grid   
+     * @param x represents x co-ordinate of the block      
+     * @param y represents y co-ordinate of the block
+     * @param tile represents the grid of tiles
+     */
+    
     //is in bounds
     public boolean isInBounds(int x, int y, Tile[][] tile){
         return x >= 0 && x < tile[0].length && y >= 0 && y < tile.length;
     }
 
+    /**
+     * checks if the tile has been pushed over a button or a trap   
+     * @param tile represents the grid of tiles
+     */
+    
     //is on button
     public void isOnButton(Tile[][] tile){
         if(tile[y][x] instanceof Button){
@@ -208,6 +274,11 @@ public class Block extends Actor{
         }
     }
 
+    /**
+     * returns a string with the name of the class
+     * @return name of the class as a string
+     */
+    
     //to string
     public String toString(){
         return "Block";
