@@ -1,21 +1,16 @@
-20 20
-# # # # # # P P P P P P P P P # # # # #
-P P P P P # P P P P P P P P P # P P P #
-P P P P P # P P P P P P P P P # P E P #
-P P P P P # W W W P P P W W W # P P P #
-P P P P P # W W W P P P W W W # # CS3 # #
-P P P P P # W W W P P P W W W W P P P #
-# # BD # # # W W W P P P W W W W P P P #
-# P P P P P P P P P P P P P P P P P P #
-# P P P P P P P P P P P P P P P P P P #
-# P P P P P P P P P P P P P P P P P P #
-# # # # # # # # # P P P P P P P P P P #
-# P P P P P P P P P P P P P P P P # # #
-# P P P P P P P P P P P P P P P P D P #
-# P P P P P P P P P P P P P P P P # # #
-# P P P W W W W # # # # # P P P P P P #
-# P P P W W W W # P P P # P P P P P P #
-# P P P W W W W # # RD # # P # # # YD # #
-# P P P P P P P P P P P P P # P P P P #
-# P P P P P P P P P P P P P # P P P P #
-# P P P P P P P P P P P P P # # # # # #
+15 15
+# # # # # # # # # # # # # # #
+# P P P P P P P P P # P E P #
+# P P P P P P P P P # P P P #
+# D D D D D D D D D # # CS3 # #
+# P P P P P P P P P P P P P #
+# P P P P P P P P P P P P P #
+# P P P P P P P P P P P P P #
+# P P P P P P P P P P P P P #
+# P P P P P P P P D D D P P #
+# P P P P P P P P # # # P P #
+# # RD # # P P P P # # # P P #
+# P P P # P P P P # # # P P #
+# P P P # P P P P P P P P P #
+# P P P # P P P P P P P P P #
+# # # # # # # # # # # # # # #
