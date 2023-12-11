@@ -186,6 +186,29 @@ public class Block extends Actor{
         return x >= 0 && x < tile[0].length && y >= 0 && y < tile.length;
     }
 
+    //is on button
+    public void isOnButton(Tile[][] tile){
+        if(tile[y][x] instanceof Button){
+            //if it is set button to be activated
+            ((Button) tile[y][x]).setActivated(true);
+            //print out the buttons ID
+            //loop through all tiles
+            for(int i = 0; i < tile.length; i++){
+                for(int j = 0; j < tile[0].length; j++){
+                    //if tile is a trap
+                    if(tile[i][j] instanceof Trap){
+                        //if the trap has the same ID as the button
+                        if(((Trap) tile[i][j]).getID().equals(((Button) tile[y][x]).getID())){
+                            //set trap to be passable using set activated
+                            ((Trap) tile[i][j]).setActivated(false);
+                            System.out.println("Trap deactivated");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     //to string
     public String toString(){
         return "Block";

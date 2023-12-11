@@ -76,10 +76,14 @@ public class TileLayer {
                     grid[lineCount][i] = new Wall(false);
                 } else if (tileType.equals("E")) {
                     grid[lineCount][i] = new Exit(true);
-                } else if (tileType.equals("B")) {
-                    grid[lineCount][i] = new Button(true);
-                } else if (tileType.equals("T")) {
-                    grid[lineCount][i] = new Trap(true);
+                } else if (tileType.equals("BA")) {
+                    grid[lineCount][i] = new Button(true, "A");
+                } else if (tileType.equals("BB")) {
+                    grid[lineCount][i] = new Button(true, "B");
+                } else if (tileType.equals("TA")) {
+                    grid[lineCount][i] = new Trap(true, "A");
+                } else if (tileType.equals("TB")) {
+                    grid[lineCount][i] = new Trap(true, "B");
                 } else if (tileType.equals("W")) {
                     grid[lineCount][i] = new Water(true);
                 } else if (tileType.equals("CS1")) {

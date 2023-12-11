@@ -53,7 +53,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
-    private int level = 4;
+    private int level = 2;
 
 
     public MasonMain() {
@@ -200,6 +200,14 @@ public class MasonMain extends Application implements InventoryUpdateListener {
                 ((Block) actor).isOnWater(tile,actors);
             }
         }
+
+        //check each blocks x and y and see if its on top of a button
+        for (Actor actor : actors) {
+            if (actor instanceof Block) {
+                ((Block) actor).isOnButton(tile);
+            }
+        }
+
         //decrement time limit
         timeLimit--;
 
@@ -263,6 +271,7 @@ public class MasonMain extends Application implements InventoryUpdateListener {
 
         // Check the tile type at the target position
         Tile targetTile = tile[targetY][targetX];
+        Tile currentTile = tile[player.getY()][player.getX()];
 
         // Check if the player has the key in their inventory
         boolean hasBlueKey = player.getInventory().containsBlueKey();
@@ -292,6 +301,14 @@ public class MasonMain extends Application implements InventoryUpdateListener {
             ChipSocket chipSocket = (ChipSocket) targetTile;
             int requiredChips = chipSocket.getChipsRequired();
             if (!hasChip || player.getInventory().getChipCount() < requiredChips) {
+                return false;
+            }
+        }
+
+        //check traps
+        if (currentTile instanceof Trap) {
+            Trap trap = (Trap) currentTile;
+            if (trap.getActivated()) {
                 return false;
             }
         }

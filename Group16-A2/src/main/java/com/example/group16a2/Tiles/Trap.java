@@ -10,6 +10,8 @@ package com.example.group16a2.Tiles;
 public class Trap extends Tile {
 
     private String filename;
+    private boolean activated = true;
+    String ID;
 
     /**
      * Constructs trap tile with the specified passable
@@ -18,9 +20,37 @@ public class Trap extends Tile {
      *                   false otherwise.
      */
 
-    public Trap(boolean isPassable) {
+    public Trap(boolean isPassable, String ID) {
         super(isPassable, "file:Sprites/Trap.png");
         filename = "file:Sprites/Trap.png";
+        this.ID = ID;
+    }
+
+    /**
+     * Gets the ID associated with the trap tile.
+     * @return The ID of the sprite image for
+     * the trap tile.
+     */
+    public String getID(){
+        return ID;
+    }
+
+    /**
+     * Gets the activated status of the trap tile.
+     * @return The activated status of the trap tile.
+     */
+    //get if activated
+    public boolean getActivated(){
+        return activated;
+    }
+
+    /**
+     * Sets the activated status of the trap tile.
+     * @param activated The activated status of the trap tile.
+     */
+    //set activated
+    public void setActivated(boolean activated){
+        this.activated = activated;
     }
 
     /**
