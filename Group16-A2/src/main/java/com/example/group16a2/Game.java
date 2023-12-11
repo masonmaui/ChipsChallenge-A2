@@ -27,7 +27,14 @@ import javafx.scene.input.KeyCode;
 import java.util.ArrayList;
 
 
-public class MasonMain extends Application implements InventoryUpdateListener {
+/**
+ * Game.java
+ * This class represents the game and is the main class
+ * that runs the game and displays the GUI for the game.
+ * It also contains the main method for the game.
+ * @author Mason Emery, Marco Silva, James Buckley.
+ */
+public class Game extends Application implements InventoryUpdateListener {
 
     private final Profile profile;
 
@@ -50,18 +57,22 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     private ArrayList<Actor> actors;
 
     private Player player;
-    private PinkBall pinkBall;
     private int tickCounter;
     private int timeLimit;
     private int level = 1;
 
 
-    public MasonMain() {
+    public Game() {
         this.profile = null;
     }
-    public MasonMain(Profile profile){
+    public Game(Profile profile){
         this.profile = profile;
     }
+
+    /**
+     * Starts the game and displays the GUI.
+     * @param primaryStage
+     */
     public void start(Stage primaryStage) {
 
         //making layers
@@ -109,7 +120,12 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         player.getInventory().setUpdateListener(this);
     }
 
+
     //draws tiles on the canvas
+
+    /**
+     * Draws the tiles on the canvas.
+     */
     public void drawGame() {
 
         Image temp;
@@ -168,6 +184,11 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         }
     }
 
+
+    /**
+     * Updates the game state every tick.
+     * Calls a lot of the main methods for the game.
+     */
     public void tick(){
         //call pink ball bounce
         for (Actor actor : actors) {
@@ -217,6 +238,10 @@ public class MasonMain extends Application implements InventoryUpdateListener {
 
     }
 
+    /**
+     * Processes the key event and moves the player accordingly.
+     * @param event The key event that was pressed.
+     */
     public void processKeyEvent(KeyEvent event) {
         // We change the behaviour depending on the actual key that was pressed.
         switch (event.getCode()) {
@@ -262,7 +287,15 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         event.consume();
     }
 
+
     //used to check if player can move to a certain tile if its locked
+
+    /**
+     * Checks if the player can move to a certain tile.
+     * @param targetX The x coordinate of the tile.
+     * @param targetY
+     * @return
+     */
     private boolean canMove(int targetX, int targetY) {
         // Check if the target position is within bounds
         if (targetX < 0 || targetX >= tile[0].length || targetY < 0 || targetY >= tile.length) {
@@ -314,7 +347,11 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         return true;
     }
 
-    // Update the code where you call handleLockedDoorBlueInteraction in MasonMain
+    // Update the code where you call handleLockedDoorBlueInteraction
+    /**
+     * Updates the game state.
+     * @param event The key event that was pressed.
+     */
     private void updateGameState(KeyEvent event) {
         Tile currentTile = tile[player.getY()][player.getX()];
 
@@ -331,6 +368,9 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     }
 
     //takes items from the item layer and adds them to the player inventory
+    /**
+     * Collects the items from the item layer and adds them to the player inventory.
+     */
     private void collectItems() {
         int playerRow = player.getY();
         int playerCol = player.getX();
@@ -344,12 +384,18 @@ public class MasonMain extends Application implements InventoryUpdateListener {
         }
     }
 
+    /**
+     * Updates the inventory display.
+     */
     @Override
     public void onInventoryUpdate() {
         // Update the inventory display when notified about the inventory change
         updateInventoryDisplay();
     }
 
+    /**
+     * Updates the inventory display.
+     */
     private void updateInventoryDisplay() {
         BorderPane borderPane = (BorderPane) canvas.getParent();
         VBox inventoryVBox = (VBox) borderPane.getRight();
@@ -410,6 +456,9 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     }
 
     //ends game
+    /**
+     * Ends the game.
+     */
     public void endgame(){
         //stop ticks
         tickTimeline.stop();
@@ -430,6 +479,9 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     }
 
     //ends game
+    /**
+     * Ends the game when won.
+     */
     public void endgameWon(){
         //stop ticks
         tickTimeline.stop();
@@ -447,12 +499,19 @@ public class MasonMain extends Application implements InventoryUpdateListener {
     }
 
     //resets game calls start again
+    /**
+     * Resets the game.
+     */
     public void resetGame(){
         Stage stage = new Stage();
         start(stage);
     }
 
 
+    /**
+     * Builds the GUI.
+     * @return The root pane of the GUI.
+     */
     private Pane buildGUI() {
         // Create top-level panel that will hold all GUI nodes.
         BorderPane root = new BorderPane();

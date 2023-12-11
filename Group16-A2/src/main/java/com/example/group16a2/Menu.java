@@ -59,7 +59,7 @@ public class Menu extends Application  {
     public void handleSubmitClick(){
         String user = this.user.getText();
         Profile profile = Profile.loadProfile(user);
-        MasonMain game = new MasonMain(profile);
+        Game game = new Game(profile);
         profile.saveProfileToFile();
         game.start(new Stage());
     }
