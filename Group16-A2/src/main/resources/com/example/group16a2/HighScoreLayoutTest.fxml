@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="470.0" maxWidth="271.0" minHeight="470.0" minWidth="271.0" prefHeight="470.0" prefWidth="271.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 200%, repeat, white 10%, aqua 75%); -fx-border-color: Black; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group16a2.Menu">
+   <children>
+      <Label id="label" fx:id="label" alignment="TOP_LEFT" layoutX="24.0" layoutY="29.0" prefHeight="434.0" prefWidth="104.0" text="Label">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

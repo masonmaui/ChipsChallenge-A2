@@ -95,16 +95,17 @@ public class Profile {
         createHighScoresFile();
         boolean update = true;
         boolean matchFound = false;
-        String profilename = this.getName();
+        String profileName = this.getName();
         try {
             File inputFile = new File("highscores" + currentLevel + ".txt");
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             String currentLine;
             while ((currentLine = reader.readLine()) != null) {
-                // trim newline when comparing with lineToRemove
+                // trim newline when comparing with the line that gets replaced
                 String trimmedLine = currentLine.split(" ")[0];
+                // stores the score to check if the new score is higher than last
                 int score_from_line = Integer.parseInt(currentLine.trim().substring(16));
-                matchFound = profilename.equals(trimmedLine);
+                matchFound = profileName.equals(trimmedLine);
                 update = (score_from_line<=score && matchFound);
             }
             if (update) {

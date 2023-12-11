@@ -178,9 +178,9 @@ public class Game extends Application implements InventoryUpdateListener {
             profile.updateCurrentLevel(level);
             profile.deleteProfileFromFileHighscore(profile.getName(), timeLimit);
             profile.submitHighscore(timeLimit);
-            endgameWon();
             Profile.deleteProfileFromFileProfiles(profile.getName());
             profile.saveProfileToFile();
+            endgameWon();
         }
     }
 

@@ -11,9 +11,13 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-import java.io.IOException;
+
+import java.io.*;
 
 
 public class Menu extends Application  {
@@ -86,10 +90,40 @@ public class Menu extends Application  {
         gameStage.show();  // Show the new Stage
     }
 
-//    @FXML
-//    public void handleHighScoresClick() throws IOException {
-//        createHighScoreField();  // Pass the new Stage to the method
-//    }
 
+    public void handleHighScoresClick() throws IOException {
+        Stage highScoreStage = new Stage();
+        createHighScoreField(highScoreStage);  // Pass the new Stage to the method
+    }
+
+    @FXML
+    private Label label = new Label();
+
+    public void initialize() throws IOException {
+        File highScoreFile = new File("highscores1.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(highScoreFile));
+        StringBuilder scores = new StringBuilder("Level 1:" + "\n");
+        String currentLine;
+        for (int i = 2; i<6; i++) {
+            while ((currentLine = reader.readLine()) != null) {
+                System.out.println(currentLine);
+                scores.append(currentLine + "\n");
+            }
+            reader.close();
+            scores.append("Level " + i +":\n");
+            highScoreFile = new File("highscores" + i + ".txt");
+            reader = new BufferedReader(new FileReader(highScoreFile));
+        }
+        label.setText(String.valueOf(scores));
+    }
+
+    public void createHighScoreField(Stage primaryStage) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("HighScoreLayoutTest.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 271, 490);
+        primaryStage.setTitle("Highscores:");
+        primaryStage.setScene(scene);  // Set the scene for the correct stage
+        primaryStage.show();
+        primaryStage.show();
+    }
 }
 
