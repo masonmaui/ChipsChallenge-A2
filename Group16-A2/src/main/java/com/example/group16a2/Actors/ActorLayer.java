@@ -29,7 +29,6 @@ public class ActorLayer {
      * Creating the actor layer by reading data from a file.
      * @param filename The file path containing actor data.
      */
-
     public ActorLayer(String filename) {
         actorList = readDataFile(filename);
     }
@@ -38,7 +37,6 @@ public class ActorLayer {
      * Gets the list of actors in the layer.
      * @return the actorList the array list contains all the actors in the layer.
      */
-    //get array list
     public ArrayList<Actor> getActorList() {
         return actorList;
     }
@@ -67,7 +65,6 @@ public class ActorLayer {
      * @return actorList the array list containing actors created from
      * the input lines.
      */
-
     public ArrayList<Actor> readEachLine(Scanner in) {
         int lineCount = 0;
         String line = in.nextLine();
@@ -120,7 +117,6 @@ public class ActorLayer {
      * @return readEachLine The array list contains the actors that is created from the
      * data in the file.
      */
-
     public ArrayList<Actor> readDataFile (String filename){
         Scanner in = null;
         try {

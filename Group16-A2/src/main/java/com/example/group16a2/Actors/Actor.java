@@ -23,8 +23,6 @@ public class Actor {
      * Gets the filename.
      * @return The filename of the actor's image.
      */
-
-    //get file name
     public String getFileName() {
         return fileName;
     }
@@ -33,8 +31,6 @@ public class Actor {
      * Gets the X coordinator.
      * @return The x coordinator of the actor's position.
      */
-
-    //get x
     public int getX() {
         return posX;
     }
@@ -43,25 +39,8 @@ public class Actor {
      * Gets the Y coordinator.
      * @return The y coordinator of the actor's position.
      */
-    //get y
     public int getY() {
         return Posy;
     }
-
-    /**
-     * Sets the Y coordinator.
-     */
-    //set y
-    public void setPosy(int newY) {
-        Posy = newY;
-    }
-
-    /**
-     * Sets the X coordinator.
-     */
-    //set X
-    public void setPosx(int newX) {
-        posX = newX;
-    }
-
+    
 }
