@@ -330,7 +330,7 @@ public class Player extends Actor{
             handleLockedDoorGreenInteraction((LockedDoorGreen) tile);
         } else if (tile instanceof LockedDoorYellow) {
             handleLockedDoorYellowInteraction((LockedDoorYellow) tile);
-        }  else if (tile instanceof ChipSocket) {
+        } else if (tile instanceof ChipSocket) {
             ChipSocket chipSocket = (ChipSocket) tile;
             if (chipSocket.getChipsRequired() == 1) {
                 handleChipSocketInteraction(chipSocket);

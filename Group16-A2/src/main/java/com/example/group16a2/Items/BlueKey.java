@@ -9,7 +9,7 @@ package com.example.group16a2.Items;
 
 public class BlueKey extends CollectableItems{
 
-    private String filename;
+    private String fileName;
 
     /**
      * Constructs the object with the default image
@@ -17,7 +17,7 @@ public class BlueKey extends CollectableItems{
      */
     public BlueKey() {
         super( "file:Sprites/BlueKey.png");
-        filename = "file:Sprites/BlueKey.png";
+        fileName = "file:Sprites/BlueKey.png";
     }
 
     /**

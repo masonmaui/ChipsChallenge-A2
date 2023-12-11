@@ -75,7 +75,7 @@ public class ItemLayer {
     public void updateChipCount(int toIncrement) {
         chipCount += toIncrement;
     }
-    
+
     /**
      * Finds item in layer
      * @param itemQuery item to find
