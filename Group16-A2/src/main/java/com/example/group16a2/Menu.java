@@ -118,7 +118,7 @@ public class Menu extends Application  {
         BufferedReader reader = new BufferedReader(new FileReader(highScoreFile));
         StringBuilder scores = new StringBuilder("Level 1:" + "\n");
         String currentLine;
-        for (int i = 2; i<6; i++) {
+        for (int i = 2; i<7; i++) {
             while ((currentLine = reader.readLine()) != null) {
                 System.out.println(currentLine);
                 scores.append(currentLine + "\n");
