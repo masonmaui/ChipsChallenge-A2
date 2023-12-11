@@ -15,7 +15,7 @@ public class TileLayer {
     private Tile[][] tiles;
     private int timeLimit;
 
-    String fileName;
+    String filename;
 
     private int x;
     private int y;
@@ -26,7 +26,7 @@ public class TileLayer {
      * @param filename The name of the file containing tile information.
      */
     public TileLayer(String filename) {
-        this.fileName = filename;
+        this.filename = filename;
         tiles = readDataFile(filename);
     }
 

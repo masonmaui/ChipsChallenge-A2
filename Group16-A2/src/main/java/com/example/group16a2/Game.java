@@ -462,20 +462,13 @@ public class Game extends Application implements InventoryUpdateListener {
     public void endgame(){
         //stop ticks
         tickTimeline.stop();
-        //create new stage
-        Stage endStage = new Stage();
-        //create new border pane
-        BorderPane endPane = new BorderPane();
-        //create new label
-        Label endLabel = new Label("Game Over!");
-        //set label to center
-        endPane.setCenter(endLabel);
-        //create new scene
-        Scene endScene = new Scene(endPane, 200, 200);
-        //set scene to stage
-        endStage.setScene(endScene);
-        //show stage
-        endStage.show();
+
+        //close old game screen
+        Stage stage = (Stage) canvas.getScene().getWindow();
+        stage.close();
+
+        //reset game
+        resetGame();
     }
 
     //ends game
